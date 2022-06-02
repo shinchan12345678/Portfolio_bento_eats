@@ -4,7 +4,7 @@
 
 ### サイトテーマ
 テイクアウトできる飲食店を簡単に探すことができるSNSサイトです。<br>
-飲食店のオーナーは、GoogleMap上に営業情報を投稿することでき、テイクアウトできる飲食店を探しているユーザーと簡単にマッチングできます！
+飲食店のオーナーは、GoogleMap上に営業情報を投稿することができ、テイクアウトできる飲食店を探しているユーザーと簡単にマッチングできます！
 また、ユーザーにフォローしてもらうことで、営業情報やクーポンを届けることができます！
 
 ### テーマを選んだ理由
@@ -25,8 +25,8 @@
 </dl>
 
 ## 設計書
-[ER図](https://drive.google.com/file/d/190SQWqajMvwmHvLalG3qwr6rYdJWSofj/view?usp=sharing)
-[テーブル定義書](https://docs.google.com/spreadsheets/d/18Yz6ZwXigmcGdX10d_hcda0BXtH84INP/edit#gid=756628059)
+- [ER図](https://drive.google.com/file/d/190SQWqajMvwmHvLalG3qwr6rYdJWSofj/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/18Yz6ZwXigmcGdX10d_hcda0BXtH84INP/edit#gid=756628059)
 
 
 ## 開発環境
