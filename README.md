@@ -35,6 +35,7 @@
 - [ER図](https://drive.google.com/file/d/190SQWqajMvwmHvLalG3qwr6rYdJWSofj/view?usp=sharing)<br>
   >ER図が見にくい場合は、[こちら](https://user-images.githubusercontent.com/102851643/171576235-b4da10d4-e7ea-44fe-bedf-a31bcc030a23.png) をご参照ください。
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/18Yz6ZwXigmcGdX10d_hcda0BXtH84INP/edit#gid=756628059)
+- [画面遷移図](https://app.diagrams.net/#G1Nx-DLpkUmvxsOb35LBmMwi-6tPtv8VAF)
 
 
 ## 開発環境
