@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# 飲食店オーナー
+Owner.create(email: 'a@example.com', password: 'aaaaaa', name: 'test' ,address: '岐阜県', telphone_number: '00000000')
+
+# 会員
+Customer.create(email: 'a@example.com', password: 'aaaaaa', nickname: 'test')
+
+#商品の生成
+owner=Owner.find_by(name: 'test')
+(1..10).each do |i|
+  Item.create(name: "幕内弁当#{i}", price: 500+i, introduction: "店長の試作品パート#{i}", owner_id: owner.id)
+end

@@ -4,6 +4,8 @@ class Owner < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+
   has_one_attached :image
 
   validates :name, presence: true
