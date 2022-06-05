@@ -1,6 +1,6 @@
 class Owner::ItemsController < Owner::ApplicationController
   def index
-    @items =Item.all
+    @items = Item.all
   end
 
   def new

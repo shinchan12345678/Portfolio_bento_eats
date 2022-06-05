@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   namespace :owner do
-    resources :index, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :items, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   # 会員用
@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
+
+  scope module: :public do
+    resources :owners, only: [:index, :show]
+    resources :relationships, only: [:create, :destroy]
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
