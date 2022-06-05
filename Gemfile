@@ -59,3 +59,7 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'slim-rails'
+gem 'html2slim'
+gem 'devise'
