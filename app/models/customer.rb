@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
 
   # 飲食店のフォローを外す
   def unfollow(owner)
-    relationships.create(owner_id: owner.id)
+    relationships.find_by(owner_id: owner.id).destroy
   end
 
   # フォロー済みの確認

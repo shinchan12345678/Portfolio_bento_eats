@@ -1,2 +1,8 @@
-h1 Public::Owners#show
+h1
+  Public::Owners#show
+  = @owner.name
 p Find me in app/views/public/owners/show.html.slim
+- unless current_customer.following?(@owner)
+  = link_to 'フォローする',relationships_path(owner_id: @owner.id), method: :post
+- else
+  = link_to 'フォローをやめる',relationship_path(owner_id: @owner.id), method: :delete
