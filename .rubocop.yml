@@ -1,0 +1,31 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+# Rails用に最適化
+Rails:
+  Enabled: true
+
+# 文字数の上限を変更
+LineLength:
+  Max: 130
+
+# 日本語のコメントを許可
+AsciiComments:
+  Enabled: false
+
+# 最終要素にカンマ不要の設定
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: no_comma
+
+#rubocopでコード解析したくないファイルやフォルダを指定
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
+    - 'config/spring.rb'
+    - 'lib/tasks/*'
+    - 'vendor/**/*'
+    - 'path/ruby'
