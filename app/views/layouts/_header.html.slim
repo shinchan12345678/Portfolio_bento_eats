@@ -1,1 +1,4 @@
-= link_to 'ログアウト', destroy_owner_session_path, method: :delete
+- if owner_signed_in?
+  = link_to 'Ownerログアウト', destroy_owner_session_path, method: :delete
+- elsif customer_signed_in?
+  = link_to 'Customerログアウト', destroy_customer_session_path, method: :delete
