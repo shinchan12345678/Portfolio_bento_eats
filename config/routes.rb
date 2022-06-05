@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "homes#top"
+
   # 飲食店オーナー用
   devise_for :owners, skip: [:password], controllers: {
     registrations: "owner/registrations",

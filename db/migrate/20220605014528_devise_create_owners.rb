@@ -33,10 +33,10 @@ class DeviseCreateOwners < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       t.string :name
-      t.string :address
+      t.string :address ,index: true
       t.string :telphone_number
       t.text :introduction
-      
+
       t.timestamps null: false
     end
 
