@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     sessions: "owner/sessions"
   }
 
+  namespace :owner do
+    resources :index, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
+
   # 会員用
   devise_for :customers, skip: [:password], controllers: {
     registrations: "public/registrations",
