@@ -1,7 +1,7 @@
 class Public::CommentsController < Public::ApplicationController
   def create
     item = Item.find(params[:item_id])
-    current_customer.review_comment(item,comment_params[:text])
+    current_customer.review_comment(item, comment_params[:text])
     redirect_to item_path(item)
   end
 

@@ -13,6 +13,6 @@ br
         = link_to '削除', comment_path(comment), method: :delete
 
 .comment_form
-  = form_with model: Comment.new() ,url: comments_path(item_id: @item), method: :post do |f|
+  = form_with model: Comment.new(), url: comments_path(item_id: @item), method: :post do |f|
     = f.text_area :text
     = f.submit '投稿する'
