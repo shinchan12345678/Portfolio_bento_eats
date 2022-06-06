@@ -66,3 +66,4 @@ end
 gem 'slim-rails'
 gem 'html2slim'
 gem 'devise'
+gem 'kaminari'

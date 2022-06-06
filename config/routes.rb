@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'items/show'
-  end
   root to: "homes#top"
 
   # 飲食店オーナー用
@@ -24,6 +21,7 @@ Rails.application.routes.draw do
     resources :owners, only: [:index, :show]
     resources :relationships, only: [:create, :destroy]
     resources :items, only: [:show]
+    resources :comments, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]
   end
 

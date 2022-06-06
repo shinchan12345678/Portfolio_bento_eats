@@ -1,9 +1,18 @@
 h1 Items#show #{ @item.name }
 - unless current_customer.mark_favorite?(@item)
-    = link_to 'いいね', favorites_path(item_id: @item.id), method: :post
+  = link_to 'いいね', favorites_path(item_id: @item.id), method: :post
 - else
-    = link_to 'いいねやめる', favorite_path(item_id: @item.id), method: :delete
+  = link_to 'いいねやめる', favorite_path(item_id: @item.id), method: :delete
 br
 = image_tag @item.get_image
 
+.comment_index
+    - @comments.each do |comment|
+      = comment.text
+      - if comment.customer == current_customer
+        = link_to '削除', comment_path(comment), method: :delete
 
+.comment_form
+  = form_with model: Comment.new() ,url: comments_path(item_id: @item), method: :post do |f|
+    = f.text_area :text
+    = f.submit '投稿する'

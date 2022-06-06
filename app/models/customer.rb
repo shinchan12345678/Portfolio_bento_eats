@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
   has_many :owners, through: :relationships
   has_many :favorites, dependent: :destroy
   has_many :items, through: :favorites
+  has_many :comments, dependent: :destroy
 
   # 飲食店をフォローする
   def follow(owner)
@@ -32,9 +33,18 @@ class Customer < ApplicationRecord
     favorites.find_by(item_id: item.id).destroy
   end
 
-  # いいね済みの確認
+  # お気に入り済みの確認
   def mark_favorite?(item)
     items.include?(item)
   end
 
+  # 商品にコメントする
+  def review_comment(item, comment_text)
+    comments.create(item_id: item.id, text: comment_text)
+  end
+
+  # 商品のコメントを削除する
+  def remove_comment(comment)
+    comments.find(comment.id).destroy
+  end
 end
