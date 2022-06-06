@@ -22,8 +22,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :owners, only: [:index, :show]
-    resources :items, only: [:show]
     resources :relationships, only: [:create, :destroy]
+    resources :items, only: [:show]
+    resources :favorites, only: [:create, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

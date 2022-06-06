@@ -1,11 +1,11 @@
 class Customer < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   has_many :relationships, dependent: :destroy
   has_many :owners, through: :relationships
+  has_many :favorites, dependent: :destroy
+  has_many :items, through: :favorites
 
   # 飲食店をフォローする
   def follow(owner)
@@ -21,4 +21,20 @@ class Customer < ApplicationRecord
   def following?(owner)
     owners.include?(owner)
   end
+
+  # 商品をお気に入りにする
+  def mark_favorite(item)
+    favorites.create(item_id: item.id)
+  end
+
+  # 商品をお気に入りから外す
+  def remove_favorite(item)
+    favorites.find_by(item_id: item.id).destroy
+  end
+
+  # いいね済みの確認
+  def mark_favorite?(item)
+    items.include?(item)
+  end
+
 end

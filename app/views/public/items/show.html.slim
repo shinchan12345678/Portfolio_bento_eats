@@ -1,5 +1,8 @@
 h1 Items#show #{ @item.name }
-= link_to 'いいね'
+- unless current_customer.mark_favorite?(@item)
+    = link_to 'いいね', favorites_path(item_id: @item.id), method: :post
+- else
+    = link_to 'いいねやめる', favorite_path(item_id: @item.id), method: :delete
 br
 = image_tag @item.get_image
 

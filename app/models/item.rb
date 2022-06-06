@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :owner
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :image
 
@@ -14,5 +15,4 @@ class Item < ApplicationRecord
     end
     image
   end
-
 end
