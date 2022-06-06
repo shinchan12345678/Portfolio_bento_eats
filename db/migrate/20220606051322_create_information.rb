@@ -4,7 +4,7 @@ class CreateInformation < ActiveRecord::Migration[6.1]
       t.integer :owner_id
       t.date :open_date
       t.date :close_date
-      t.integer :is_valid
+      t.integer :is_valid, default: 0
 
       t.timestamps
     end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :owner do
     resources :items, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :informations, only: [:new, :create]
   end
 
   # 会員用
