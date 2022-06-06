@@ -2,3 +2,4 @@
   = link_to 'Ownerログアウト', destroy_owner_session_path, method: :delete
 - elsif customer_signed_in?
   = link_to 'Customerログアウト', destroy_customer_session_path, method: :delete
+  = link_to '飲食店一覧', owners_path

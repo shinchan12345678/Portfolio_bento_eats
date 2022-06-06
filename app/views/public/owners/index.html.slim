@@ -1,5 +1,5 @@
 h1 Public::Owners#index
 p Find me in app/views/public/owners/index.html.slim
 - @owners.each do |owner|
-  .owner_card
+  .owner_card.object_card
     = link_to owner.name, owner_path(owner.id)
