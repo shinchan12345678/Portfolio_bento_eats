@@ -1,0 +1,9 @@
+h1 My Google Maps Demo
+p Find me in app/views/public/informations/index.html.slim
+
+button#now_location_get.btn.btn-primary
+  | 現在地の取得
+
+#map
+
+<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMap&v=weekly" defer></script>

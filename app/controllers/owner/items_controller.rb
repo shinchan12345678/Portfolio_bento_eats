@@ -1,6 +1,7 @@
 class Owner::ItemsController < Owner::ApplicationController
   def index
     @items = Item.all
+    @informations = Information.all
   end
 
   def new

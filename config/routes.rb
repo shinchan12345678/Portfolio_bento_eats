@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :owners, only: [:index, :show]
     resources :relationships, only: [:create, :destroy]
+    resources :informations, only: [:index]
     resources :items, only: [:show]
     resources :comments, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]

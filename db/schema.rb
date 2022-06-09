@@ -73,9 +73,13 @@ ActiveRecord::Schema.define(version: 2022_06_06_051322) do
     t.integer "owner_id"
     t.date "open_date"
     t.date "close_date"
+    t.decimal "latitude", precision: 9, scale: 6
+    t.decimal "longitude", precision: 9, scale: 6
     t.integer "is_valid", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["latitude"], name: "index_information_on_latitude"
+    t.index ["longitude"], name: "index_information_on_longitude"
   end
 
   create_table "items", force: :cascade do |t|

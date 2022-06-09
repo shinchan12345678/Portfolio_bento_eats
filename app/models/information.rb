@@ -7,7 +7,7 @@ class Information < ApplicationRecord
 
   # 掲載中:0,掲載終了:1
   enum is_valid: {
-    posting:0,
-    end_posting:1
+    posting: 0,
+    end_posting: 1
   }
 end

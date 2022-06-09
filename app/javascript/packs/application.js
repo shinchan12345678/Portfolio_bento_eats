@@ -13,6 +13,8 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
+import "packs/index.js" //GoogleMap表示スクリプト
+import "../stylesheets/mystyle.scss"  //GoogleMapの地図設定
 
 Rails.start()
 Turbolinks.start()
