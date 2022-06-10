@@ -7,6 +7,12 @@ p Find me in app/views/owner/informations/new.html.slim
   = f.label :close_date, '営業終了日'
   = f.date_field :close_date
   br
+  = f.label :latitude, '緯度'
+  = f.text_field :latitude
+  = f.label :longitude, '経度'
+  = f.text_field :longitude
+
+  br
   = f.label :is_valid, '掲載状況'
   br
   = f.radio_button :is_valid, Information.is_valids[:posting]
@@ -16,4 +22,22 @@ p Find me in app/views/owner/informations/new.html.slim
   = f.label :is_valid, Information.is_valids_i18n[:end_posting]
   br
   = f.submit '登録する'
-Information.is_valids[:posting]
+
+button#now_location_get.btn
+  | 現在地を取得する
+
+button#post_location_get.btn
+  | 位置情報をセットする
+
+input#owner_hidden_lat type="hidden" value = ""
+input#owner_hidden_lng type="hidden" value = ""
+
+input#map_viewport_position_southwest type="hidden" value =""
+input#map_viewport_position_northeast type="hidden" value =""
+
+input#address_form type="text"
+button#address_form_btn type="button"
+  | 検索
+
+#map
+<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMap&v=weekly" defer></script>

@@ -1,7 +1,67 @@
+var marker = null;
+var lat = 35.4577205;
+var lng = 136.793811;
+
+
+
+// function initMap2() {
+//   // The location of Uluru
+//   const uluru_customer = { lat: 35.4577205, lng: 136.793811 };
+//   // The map, centered at Uluru
+//   const map_custemer = new google.maps.Map(document.getElementById("map_customer"), {
+//     zoom: 15, //地図の縮尺値
+//     center: uluru_customer, //地図の中心座標
+//     mapTypeId: 'roadmap'   //地図の種類
+//   });
+
+//   // 現在地の取得
+//   var now_location = document.getElementById("now_location_get");
+//   now_location.addEventListener("click",function(){
+//     console.log("alert") //出力確認
+//     navigator.geolocation.getCurrentPosition(success, fail);
+//     function success(pos) {
+//   		lat = pos.coords.latitude;
+//   		lng = pos.coords.longitude;
+//   		latlng = new google.maps.LatLng(lat, lng); //中心の緯度, 経度
+//       map.setCenter(latlng)
+//       marker = new google.maps.Marker({
+// 			  position: latlng, //マーカーの位置（必須）
+// 			  map: map_customer //マーカーを表示する地図
+// 		  });
+// 		  var latlngBounds = map_custemer.getBounds();
+// 		  // document.getElementById("map_viewport_position").value = latlngBounds;
+// 		};
+//   	function fail(error) {
+//   		alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
+//   		var latlng = new google.maps.LatLng(35.6812405, 139.7649361); //東京駅
+//       map.setCenter(latlng)
+//   	}
+//   });
+
+//   // マップ表示位置情報の検索
+//   // var geocoder = new google.maps.Geocoder();
+//   // document.getElementById('address_form_btn').addEventListener("click",  function () {
+//   //   var address = document.getElementById('address_form').value;
+//   //   geocoder.geocode( { 'address': address}, function(results, status) {
+//   //     if (status == 'OK') {
+//   //       updateMarker(results[0].geometry.location,map_custemer);
+//   //     } else {
+//   //       alert('Geocode was not successful for the following reason: ' + status);
+//   //     }
+//   //   });
+//   // })
+
+//   // クリックした位置にマーカーを設置する
+//   map_custemer.addListener("click", function(event) {
+//     updateMarker(event.latLng,map_custemer);
+//   });
+// }
+
+
 
 function initMap() {
   // The location of Uluru
-  const uluru = { lat: 35.4577205, lng: 136.7938116 };
+  const uluru = { lat: 35.4577205, lng: 136.793811 };
   // The map, centered at Uluru
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 15, //地図の縮尺値
@@ -15,14 +75,17 @@ function initMap() {
     console.log("alert") //出力確認
     navigator.geolocation.getCurrentPosition(success, fail);
     function success(pos) {
-  		var lat = pos.coords.latitude;
-  		var lng = pos.coords.longitude;
-  		var latlng = new google.maps.LatLng(lat, lng); //中心の緯度, 経度
-      map.setCenter(latlng)
-      var marker = new google.maps.Marker({
+  		lat = pos.coords.latitude;
+  		lng = pos.coords.longitude;
+  		latlng = new google.maps.LatLng(lat, lng); //中心の緯度, 経度
+      marker = new google.maps.Marker({
 			  position: latlng, //マーカーの位置（必須）
 			  map: map //マーカーを表示する地図
 		  });
+		  insertlatlng(lat,lng)
+		  var latlngBounds = map.getBounds();
+		  document.getElementById("map_viewport_position_southwest").value = latlngBounds.getSouthWest();
+		  document.getElementById("map_viewport_position_northeast").value = latlngBounds.getNorthEast();
 		};
   	function fail(error) {
   		alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
@@ -31,50 +94,102 @@ function initMap() {
   	}
   });
 
+  // var customer_now_location = document.getElementById("customer_now_location_get");
+  // customer_now_location.addEventListener("click",function(){
+  //   console.log("alert") //出力確認
+  //   navigator.geolocation.getCurrentPosition(success, fail);
+  //   function success(pos) {
+  // 		lat = pos.coords.latitude;
+  // 		lng = pos.coords.longitude;
+  // 		latlng = new google.maps.LatLng(lat, lng); //中心の緯度, 経度
+  //     map.setCenter(latlng)
+  //     marker = new google.maps.Marker({
+		// 	  position: latlng, //マーカーの位置（必須）
+		// 	  map: map //マーカーを表示する地図
+		//   });
+		//   var latlngBounds = map.getBounds();
+		//   document.getElementById("map_viewport_position").value = latlngBounds;
+		// };
+  // 	function fail(error) {
+  // 		alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
+  // 		var latlng = new google.maps.LatLng(35.6812405, 139.7649361); //東京駅
+  //     map.setCenter(latlng)
+  // 	}
+  // });
 
-  const contentString =
-      '<div id="content">' +
-      '<div id="siteNotice">' +
-      "</div>" +
-      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-      '<div id="bodyContent">' +
-      "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-      "<img src='test_item.jpeg'></img>" +
-      "sandstone rock formation in the southern part of the " +
-      "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-      "south west of the nearest large town, Alice Springs; 450&#160;km " +
-      "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
-      "features of the Uluru - Kata Tjuta National Park. Uluru is " +
-      "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
-      "Aboriginal people of the area. It has many springs, waterholes, " +
-      "rock caves and ancient paintings. Uluru is listed as a World " +
-      "Heritage Site.</p>" +
-      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-      "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-      "(last visited June 22, 2009).</p>" +
-      "</div>" +
-      "</div>";
-    const infowindow = new google.maps.InfoWindow({
-      content: contentString,
+  // 投稿情報の設定
+  document.getElementById("post_location_get").addEventListener("click", function() {
+    document.getElementById("information_latitude").value = document.getElementById("owner_hidden_lat").value;
+    document.getElementById("information_longitude").value = document.getElementById("owner_hidden_lng").value;
+  });
+
+  // マップ表示位置情報の検索
+  var geocoder = new google.maps.Geocoder();
+  document.getElementById('address_form_btn').addEventListener("click",  function () {
+    var address = document.getElementById('address_form').value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        updateMarker(results[0].geometry.location,map);
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
     });
+  })
 
-    var Frag = new google.maps.Marker({
-      position: uluru,
-      map: map,
-      title: "Uluru (Ayers Rock)",
-      // icon: {
-      //   url: "./images/frag.png",
-      //   scaledSize: new google.maps.Size( 50, 50 )
-      // }
-    });
+  // クリックした位置にマーカーを設置する
+  map.addListener("click", function(event) {
+    updateMarker(event.latLng,map);
+  })
 
-    Frag.addListener("click", () => {
-      infowindow.open({
-        anchor: marker,
-        map,
-        shouldFocus: false,
+  if (gon.informations) {
+    for (var i = 0; i < gon.informations.length; i++ ) {
+      var fragLatLng = new google.maps.LatLng({
+        lat: parseFloat(gon.informations[i]['latitude']),
+        lng: parseFloat(gon.informations[i]['longitude'])
       });
-    });
+
+      var frag = new google.maps.Marker({
+        position: fragLatLng,
+        map: map,
+        icon: {
+          url: "/assets/frag.png",
+          scaledSize: new google.maps.Size( 40, 97 )
+        }
+      });
+
+      // var infowindow = new google.maps.InfoWindow({
+      //   content: "aaaa",
+      // });
+
+      // frag.addListener("click", () => {
+      // infowindow.open({
+      //   anchor: marker,
+      //   map,
+      //   shouldFocus: false,
+      // });
+    // });
+    }
+  }
 }
+
+function updateMarker(update_latlng,map) {
+
+  lat = update_latlng.lat();
+  lng = update_latlng.lng();
+
+  marker.setMap(null);
+  marker = new google.maps.Marker({
+  	position: update_latlng, //マーカーの位置（必須）
+		map: map //マーカーを表示する地図
+	});
+  map.setCenter(update_latlng);
+  insertlatlng(lat,lng)
+}
+
+function insertlatlng(lat,lng) {
+  document.getElementById("owner_hidden_lat").value = lat;
+  document.getElementById("owner_hidden_lng").value = lng;
+}
+
 
 window.initMap = initMap;

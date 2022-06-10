@@ -1,8 +1,12 @@
 h1 My Google Maps Demo
 p Find me in app/views/public/informations/index.html.slim
 
-button#now_location_get.btn.btn-primary
+button#customer_now_location_get.btn.btn-primary
   | 現在地の取得
+
+= form_with scope: :q,method: :post do |f|
+  = f.text_field :latLng, id: "map_viewport_position", value: ""
+  = f.submit '検索'
 
 #map
 
