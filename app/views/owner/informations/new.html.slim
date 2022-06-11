@@ -23,21 +23,17 @@ p Find me in app/views/owner/informations/new.html.slim
   br
   = f.submit '登録する'
 
-button#now_location_get.btn
+input#hidden_lat type="hidden" value = ""
+input#hidden_lng type="hidden" value = ""
+button#owner_now_position_get.btn
   | 現在地を取得する
-
-button#post_location_get.btn
-  | 位置情報をセットする
-
-input#owner_hidden_lat type="hidden" value = ""
-input#owner_hidden_lng type="hidden" value = ""
-
-input#map_viewport_position_southwest type="hidden" value =""
-input#map_viewport_position_northeast type="hidden" value =""
 
 input#address_form type="text"
 button#address_form_btn type="button"
   | 検索
+  
+button#post_position_get.btn
+  | 位置情報をセットする
 
-#map
-<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMap&v=weekly" defer></script>
+#map_owner
+<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMapOwner&v=weekly" defer></script>

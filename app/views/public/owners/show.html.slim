@@ -1,12 +1,22 @@
-h1
-  Public::Owners#show
-  = @owner.name
+.container
+  .row
+    .col-sm-5
+      = image_tag @owner.get_image.variant(gravity: :center,resize: "300^",crop: "400x300+0+0")
+    .col-sm-6.offset-sm-1
+      h2
+        = @owner.name
+      p
+        | 住所：#{@owner.address}
+      p
+         = @owner.introduction
 
-- unless current_customer.following?(@owner)
-  = link_to 'フォローする',relationships_path(owner_id: @owner.id), method: :post
-- else
-  = link_to 'フォローをやめる',relationship_path(owner_id: @owner.id), method: :delete
-
-- @items.each do |item|
-  = link_to item_path(item.id) do
-    = item.name
+      - unless current_customer.following?(@owner)
+        = link_to 'フォローする',relationships_path(owner_id: @owner.id),class: "btn btn-primary", method: :post
+      - else
+        = link_to 'フォローをやめる',relationship_path(owner_id: @owner.id),class: "btn btn-primary", method: :delete
+  .row
+    .col-sm-12
+    - @items.each do |item|
+      .item_card.object_card
+        = link_to item_path(item.id) do
+          == render "layouts/list", object: item

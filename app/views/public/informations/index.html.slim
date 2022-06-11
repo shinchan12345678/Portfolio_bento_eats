@@ -1,13 +1,15 @@
 h1 My Google Maps Demo
 p Find me in app/views/public/informations/index.html.slim
 
-button#customer_now_location_get.btn.btn-primary
+input#map_viewport_position_southwest type="hidden" value =""
+input#map_viewport_position_northeast type="hidden" value =""
+button#customer_now_postion_get.btn.btn-primary
   | 現在地の取得
 
-= form_with scope: :q,method: :post do |f|
-  = f.text_field :latLng, id: "map_viewport_position", value: ""
-  = f.submit '検索'
+input#address_form type="text"
+button#address_form_btn type="button"
+  | 検索
 
-#map
+#map_customer
 
-<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMap&v=weekly" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMapCustomer&v=weekly" defer></script>
