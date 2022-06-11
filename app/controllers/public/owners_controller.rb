@@ -1,6 +1,7 @@
 class Public::OwnersController < Public::ApplicationController
   def index
-    @owners = Owner.all
+    @q = Owner.all.ransack(params[:q])
+    @owners = @q.result
   end
 
   def show

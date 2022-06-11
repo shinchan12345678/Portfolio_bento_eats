@@ -1,6 +1,6 @@
 class Information < ApplicationRecord
   belongs_to :owner
-  scope :map_view_ports, -> (latitude_s,latitude_e,longitude_s,longitude_e) do
+  scope :map_view_ports, -> (latitude_s, latitude_e, longitude_s, longitude_e) do
     where(latitude: latitude_s..latitude_e, longitude: longitude_s..longitude_e)
   end
 

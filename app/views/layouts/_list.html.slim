@@ -1,0 +1,11 @@
+.card
+  = image_tag object.get_image.variant(gravity: :center,resize: "200^",crop:"300x200+0+0").processed ,class: "card-img-top"
+  .card-body
+    ul.list-group.list-group-flush
+      li.list-group-item
+        = object.name
+      li.list-group-item
+        = truncate(object.introduction, length: 50)
+      - if object.kind_of?(Item)
+        li.list-group-item
+          = object.price

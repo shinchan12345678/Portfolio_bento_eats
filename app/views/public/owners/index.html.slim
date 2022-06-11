@@ -1,5 +1,15 @@
 h1 Public::Owners#index
 p Find me in app/views/public/owners/index.html.slim
+= search_form_for @q,class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :address_cont, '住所' ,class: 'col-sm-2 col-form-label'
+  .col-sm-10
+    = f.search_field :address_cont, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-outline-primary'
+
+
 - @owners.each do |owner|
   .owner_card.object_card
-    = link_to owner.name, owner_path(owner.id)
+    = link_to owner_path(owner.id) ,class: "object_link" do
+      == render "layouts/list", object: owner
