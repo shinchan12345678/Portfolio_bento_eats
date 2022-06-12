@@ -1,6 +1,3 @@
-h1 My Google Maps Demo
-p Find me in app/views/public/informations/index.html.slim
-
 = form_with model: Information.new, url: search_informations_path do |f|
   = f.hidden_field :map_viewport_position_southwest, value:""
   = f.hidden_field :map_viewport_position_northeast, value:""
@@ -14,6 +11,7 @@ button#customer_now_postion_get.btn.btn-primary
 input#address_form type="text"
 button#address_form_btn type="button"
   | 検索
+
 
 #map_customer
 

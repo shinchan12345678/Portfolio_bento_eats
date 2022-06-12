@@ -1,8 +1,8 @@
-var lat = 35.4577205;
-var lng = 136.793811;
+var lat = gon.latitude;
+var lng = gon.longitude;
 var marker = null;
 var latlng = null;
-const uluru = { lat: 35.4577205, lng: 136.793811 };
+const uluru = { lat: lat, lng: lng };
 // ---------------------------------------------------------------------------------------------------
 // 会員の投稿一覧画面表示
 function initMapCustomer() {
@@ -17,12 +17,14 @@ function initMapCustomer() {
 
   google.maps.event.addListener(map, 'bounds_changed', function() {
     mapBounds();
+    latlngInsert();
     // 現在地を取得するイベントを設定
     (function(){
       var element = document.getElementById("customer_now_postion_get");
       positionGet(element);
       element.addEventListener("click",function(){
         mapBounds();
+        latlngInsert();
       });
     })();
 
@@ -32,6 +34,7 @@ function initMapCustomer() {
       positionSearch(element);
       element.addEventListener("click",function(){
         mapBounds();
+        latlngInsert();
       });
     })();
 
@@ -40,6 +43,7 @@ function initMapCustomer() {
       map.addListener("click", function(event) {
         updateMarker(event.latLng);
         mapBounds();
+        latlngInsert();
       })
     })();
   });
@@ -115,8 +119,8 @@ function initMapOwner() {
     var element = document.getElementById('post_position_get');
     element.addEventListener("click",function(){
       console.log(element);
-      document.getElementById("information_latitude").value = document.getElementById("hidden_lat").value;
-      document.getElementById("information_longitude").value = document.getElementById("hidden_lng").value;
+      document.getElementById("information_latitude").value = document.getElementById("information_hidden_lat").value;
+      document.getElementById("information_longitude").value = document.getElementById("information_hidden_lng").value;
     });
   })();
 }
@@ -184,14 +188,14 @@ function updateMarker(update_latlng) {
 // GoogleMapの表示領域の座標を取得する関数
 function mapBounds() {
   latlngBounds = map.getBounds();
-  document.getElementById("map_viewport_position_southwest").value = latlngBounds.getSouthWest();
-  document.getElementById("map_viewport_position_northeast").value = latlngBounds.getNorthEast();
+  document.getElementById("information_map_viewport_position_southwest").value = latlngBounds.getSouthWest();
+  document.getElementById("information_map_viewport_position_northeast").value = latlngBounds.getNorthEast();
 }
 
 // 座標情報をinputタグに保持
 function latlngInsert() {
-  document.getElementById("hidden_lat").value = lat;
-  document.getElementById("hidden_lng").value = lng;
+  document.getElementById("information_hidden_lat").value = lat;
+  document.getElementById("information_hidden_lng").value = lng;
 }
 
 function attachMessage(marker,msg) {
