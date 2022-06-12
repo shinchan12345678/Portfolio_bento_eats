@@ -1,22 +1,27 @@
-.container
+.container.px-0
   .row
-    .col-sm-5
+    .col-sm-5.px-0
       = image_tag @owner.get_image.variant(gravity: :center,resize: "300^",crop: "400x300+0+0")
-    .col-sm-6.offset-sm-1
-      h2
-        = @owner.name
-      p
-        | 住所：#{@owner.address}
-      p
-         = @owner.introduction
+    .col-sm-6.offset-sm-1.d-flex.flex-column.justify-content-between
+      .shop_introduction
+        h1
+          = @owner.name
+        p
+          | #{@owner.address}
+        p
+          | aaaa#{@owner.introduction}
 
-      - unless current_customer.following?(@owner)
-        = link_to 'フォローする',relationships_path(owner_id: @owner.id),class: "btn btn-primary", method: :post
-      - else
-        = link_to 'フォローをやめる',relationship_path(owner_id: @owner.id),class: "btn btn-primary", method: :delete
-  .row
-    .col-sm-12
-    - @items.each do |item|
-      .item_card.object_card
-        = link_to item_path(item.id) do
-          == render "layouts/list", object: item
+      .following-btn.mt-auto
+        - unless current_customer.following?(@owner)
+          = link_to 'フォローする',relationships_path(owner_id: @owner.id),class: "btn btn-primary btn-block mt-auto", method: :post
+        - else
+          = link_to 'フォローをやめる',relationship_path(owner_id: @owner.id),class: "btn btn-primary btn-block mt-auto", method: :delete
+  .row.mt-5.
+    h2.pl-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | ラインナップ
+      
+    .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+      - @items.each do |item|
+        .item_card.object_card.mt-3
+          = link_to item_path(item.id) do
+            == render "layouts/list", object: item

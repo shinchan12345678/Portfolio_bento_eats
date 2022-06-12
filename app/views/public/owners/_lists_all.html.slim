@@ -1,0 +1,4 @@
+- owners.each do |owner|
+  .owner_card.object_card
+    = link_to owner_path(owner.id) ,class: "object_link" do
+      == render "layouts/list", object: owner

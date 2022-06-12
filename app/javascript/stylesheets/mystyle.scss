@@ -1,3 +1,4 @@
+// 飲食店オーナー側の地図設定
 #map_owner {
   height: 800px;
   /* The height is 400 pixels */
@@ -5,6 +6,7 @@
   /* The width is the width of the web page */
 }
 
+// 会員側の地図設定
 #map_customer {
   height: 800px;
   /* The height is 400 pixels */
@@ -12,18 +14,33 @@
   /* The width is the width of the web page */
 }
 
+// 投稿・商品表示用のカード
 .object_card {
-  width: 300px;
+  width: 380px;
   .object_link {
     text-decoration: none;
   }
   .card {
-    width: 300px;
+    width: 380px;
     color: #262626;
     .card-img-top {
       width: 90%;
       height: 90%;
-      margin: 15px;
+      margin: 5%;
     }
   }
+}
+
+@font-face {
+    font-family:  "myFontgagagaga";
+    src: url("/fonts/GAGAGAGA-FREE.otf")
+}
+
+@font-face {
+    font-family:  "myFontgrid";
+    src: url("/fonts/CHI_Grid_Free-Regular.otf")
+}
+
+* {
+  font-family: "myFontgrid",'Macondo', cursive;
 }
