@@ -2,20 +2,16 @@ h1 Public::Owners#index
 p Find me in app/views/public/owners/index.html.slim
 
 .container.px-0
-  .row
-    .col-sm-6.px-0
-      h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
-        | インショクテンイチラン
-
-    .col-sm-6.px-0
-      = search_form_for @q,class: 'mb-5' do |f|
-        .form-group.row
-          = f.label :address_cont, '住所' ,class: 'col-sm-2 col-form-label'
-        .col-sm-10
+  .row.px-0.flex-row-reverse
+    .col-sm-6
+      = search_form_for @q,class: 'd-flex ml-auto' do |f|
+        .form-group
           = f.search_field :address_cont, class: 'form-control'
         .form-group
           = f.submit class: 'btn btn-outline-primary'
-    
-  .row  
-    .col-sm-12
+
+  .row
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | インショクテンイチラン
+    .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
       == render "public/owners/lists_all", owners: @owners
