@@ -1,0 +1,39 @@
+.container.px-0
+  .row.flex-column
+    .col-sm-12.d-flex.flex-row-reverse.my-3
+      #my_profile.col-sm-5.px-0.card.active
+        h5.card-header トウロクジョーホー
+        .card-text.p-2.passive
+          span.text-secondary ニックネーム
+          br
+          h5 #{current_customer.nickname}
+          span.text-secondary email
+          br
+          h5 #{current_customer.email}
+          .text-right
+            button.edit_button
+            | ヘンシュウする
+
+      #my_profile_edit.col-sm-5.px-0.card.passive
+        .card-text.p-2
+          = form_with model: current_customer,url:customer_path, method: :patch do |f|
+            = f.label :nickname
+            br
+            = f.text_field :nickname
+            br
+            = f.label :email
+            br
+            = f.text_field :email
+            br
+            = f.submit "ホゾンする"
+
+
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | フォローしているインショクテン
+    .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+      == render "public/owners/lists_all", owners: @owners
+
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | イイネしたショウヒン
+    .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+      == render "public/items/lists_all", items: @items

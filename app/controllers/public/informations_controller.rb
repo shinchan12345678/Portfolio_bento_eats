@@ -14,6 +14,7 @@ class Public::InformationsController < Public::ApplicationController
     gon.informations = @informations
     gon.latitude = info_params[:hidden_lat].to_f
     gon.longitude = info_params[:hidden_lng].to_f
+    # binding.pry
   end
 
   def info_params

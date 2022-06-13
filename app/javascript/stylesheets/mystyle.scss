@@ -2,7 +2,7 @@
 #map_owner {
   height: 800px;
   /* The height is 400 pixels */
-  width: 80%;
+  width: 100%;
   /* The width is the width of the web page */
 }
 
@@ -10,8 +10,21 @@
 #map_customer {
   height: 800px;
   /* The height is 400 pixels */
-  width: 80%;
+  width: 100%;
   /* The width is the width of the web page */
+}
+
+.mouseover {
+  letter-spacing: 10px;
+  cursor: pointer;
+}
+
+.active {
+  display: block;
+}
+
+.passive {
+  display: none;
 }
 
 // 投稿・商品表示用のカード

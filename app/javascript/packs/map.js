@@ -66,6 +66,9 @@ function initMapCustomer() {
         }
       }
     });
+  }).catch(function(){
+    alert("ページをリロードします");
+    window.location.reload();
   })
 }
 

@@ -1,0 +1,18 @@
+= link_to owner_path(@owner) do
+  インショクテンショウサイ
+
+table.table.table-hover style="table-layout:fixed;width:100%;"
+  thead
+    tr
+      th
+        | オープン
+      th
+        | クローズ
+
+  tbody
+    - @informations.each do |information|
+        tr
+          td
+            = information.open_date
+          td
+            = information.close_date

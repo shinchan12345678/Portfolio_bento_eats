@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'customers/show'
+  end
   root to: "homes#top"
 
   # 飲食店オーナー用
@@ -19,9 +22,14 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    resources :owners, only: [:index, :show]
+    resource :customer, only: [:show, :update]
+    resources :owners, only: [:index, :show] do
+      member do
+        get :owner_informations
+      end
+    end
     resources :relationships, only: [:create, :destroy]
-    resources :informations, only: [:index] do
+    resources :informations, only: [:index,:show] do
       collection do
         post :search
       end

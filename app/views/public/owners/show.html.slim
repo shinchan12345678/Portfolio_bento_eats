@@ -11,6 +11,9 @@
         p
           | aaaa#{@owner.introduction}
 
+      .infomations_all
+        = link_to 'テイクアウトエイギョウビ',owner_informations_owner_path(@owner),class: "btn btn-secondary btn-block mt-auto", method: :get
+
       .following-btn.mt-auto
         - unless current_customer.following?(@owner)
           = link_to 'フォローする',relationships_path(owner_id: @owner.id),class: "btn btn-primary btn-block mt-auto", method: :post
@@ -19,9 +22,6 @@
   .row.mt-5.
     h2.pl-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
       | ラインナップ
-      
+
     .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
-      - @items.each do |item|
-        .item_card.object_card.mt-3
-          = link_to item_path(item.id) do
-            == render "layouts/list", object: item
+      == render "public/items/lists_all", items: @items

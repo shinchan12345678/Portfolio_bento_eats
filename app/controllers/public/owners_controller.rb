@@ -8,4 +8,9 @@ class Public::OwnersController < Public::ApplicationController
     @owner = Owner.find(params[:id])
     @items = @owner.items
   end
+
+  def owner_informations
+    @owner = Owner.find(params[:id])
+    @informations = Information.where(owner_id: @owner.id)
+  end
 end

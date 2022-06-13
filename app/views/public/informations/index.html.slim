@@ -1,20 +1,3 @@
-h1 My Google Maps Demo
-p Find me in app/views/public/informations/index.html.slim
-
-= form_with model: Information.new, url: search_informations_path do |f|
-  = f.hidden_field :map_viewport_position_southwest, value:""
-  = f.hidden_field :map_viewport_position_northeast, value:""
-  = f.hidden_field :hidden_lat, value:""
-  = f.hidden_field :hidden_lng, value:""
-  = f.submit "投稿を確認する"
-
-button#customer_now_postion_get.btn.btn-primary
-  | 現在地の取得
-
-input#address_form type="text"
-button#address_form_btn type="button"
-  | 検索
-
-#map_customer
-
-<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMapCustomer&v=weekly" defer></script>
+.container.px-0
+  .row
+    == render "public/informations/map"

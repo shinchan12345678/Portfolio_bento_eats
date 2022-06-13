@@ -14,6 +14,7 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import "packs/map.js" //GoogleMap表示スクリプト
+import "packs/index.js" //イベントハンドル設定
 
 import "../stylesheets/mystyle.scss"  //GoogleMapの地図設定
 

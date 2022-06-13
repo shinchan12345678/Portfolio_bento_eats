@@ -1,0 +1,4 @@
+- items.each do |item|
+  .item_card.object_card.mt-3
+    = link_to item_path(item.id) do
+      == render "layouts/list", object: item
