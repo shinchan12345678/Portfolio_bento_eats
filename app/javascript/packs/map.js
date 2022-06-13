@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------------------------------
 // 会員の投稿一覧画面表示
 function initMapCustomer() {
-  initilize.then(function(){
+  initilize().then(function(){
     console.log("成功2");
     // 地図の表示
     const map_customer = document.getElementById("map_customer");
@@ -75,7 +75,7 @@ function initMapCustomer() {
 // ---------------------------------------------------------------------------------------------------
 // 飲食店オーナーの新規投稿画面表示
 function initMapOwner() {
-  initilize.then(function(){
+  initilize().then(function(){
     // 地図の表示
     const map_owner = document.getElementById("map_owner")
     var map = mapping(map_owner);
@@ -130,15 +130,19 @@ function initMapOwner() {
 
 // ---------------------------------------------------------------------------------------------------
 // 座標データを初期化する関数
-var initilize = new Promise(function(resolve) {
-  lat = gon.latitude ? gon.latitude:null;
-  lng = gon.longitude ? gon.longitude:null;
-  var marker = null;
-  var latlng = null;
-  uluru = { lat: lat, lng: lng };
-  console.log("成功");
-  resolve();
-});
+function initilize() {
+  var initilize = new Promise(function(resolve) {
+    lat = gon.latitude ? gon.latitude:null;
+    lng = gon.longitude ? gon.longitude:null;
+    var marker = null;
+    var latlng = null;
+    uluru = { lat: lat, lng: lng };
+    console.log("成功");
+    resolve();
+  });
+  return initilize
+}
+
 
 // Mapオブジェクトを生成する関数
 function mapping(map_view) {

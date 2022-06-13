@@ -3,16 +3,23 @@ function start_jquery() {
 
   $(function() {
     var profile = $("#my_profile")
-    profile.on("click",function() {
+    profile.find(".card-header").on("click",function() {
       // $("#my_profile .card-text").toggleClass("active passive");
       console.log("good2")
       $("#my_profile .card-text").slideToggle();
     });
     mouseoverAction(profile.find(".card-header"));
     
-    var edit_button = profile.find(".edit_button")
-    var profiles =  $("#my_profile, #my_profile_edit")
-    activePassive(edit_button,profiles);
+    // $("#my_profile .edit_button").on("click",function() {
+    //   console.log("good3")
+    //   $("#my_profile, #my_profile_edit").toggleClass("active passive");
+    // })
+    
+    var edit = $("#my_profile .edit_button")
+    var profiles = $("#my_profile, #my_profile_edit")
+    
+    activePassive(edit,profiles);
+    
   });
 }
 

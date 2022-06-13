@@ -1,0 +1,27 @@
+#my_profile.col-sm-5.px-0.card.active
+  h5.card-header トウロクジョーホー
+  .card-text.p-2.passive
+      span.text-secondary ニックネーム
+      br
+      h5 #{current_customer.nickname}
+      span.text-secondary email
+      br
+      h5 #{current_customer.email}
+      .text-right.edit_button
+        .btn.btn-secondary
+          | ヘンシュウする
+
+#my_profile_edit.col-sm-5.px-0.card.passive
+  h5.card-header トウロクジョーホー
+  .card-text.p-2
+      = form_with model: current_customer,url:customer_path, method: :patch, local: false do |f|
+        = f.label :nickname, "ニックネーム",class: "text-secondary"
+        br
+        = f.text_field :nickname
+        br
+        = f.label :email, class: "text-secondary"
+        br
+        = f.text_field :email
+        br
+        .text-right
+          = f.submit "ホゾンする",class: "btn btn-secondary"
