@@ -8,6 +8,13 @@ class Customer < ApplicationRecord
   has_many :items, through: :favorites
   has_many :comments, dependent: :destroy
 
+  # ゲストユーザーの生成
+  def self.guest
+    find_or_create_by!(nickname: 'Guest',email: 'guest@example.com') do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   # 飲食店をフォローする
   def follow(owner)
     relationships.create(owner_id: owner.id)

@@ -3,4 +3,6 @@ p Find me in app/views/homes/top.html.slim
 
 = link_to 'Customer', new_customer_session_path
 br
+= link_to 'ゲストとして利用する', customers_guest_sign_in_path, method: :post
+br
 = link_to 'Owner' , new_owner_session_path

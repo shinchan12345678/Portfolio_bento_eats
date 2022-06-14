@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'customers/show'
-  end
   root to: "homes#top"
 
   # 飲食店オーナー用
@@ -9,6 +6,10 @@ Rails.application.routes.draw do
     registrations: "owner/registrations",
     sessions: "owner/sessions"
   }
+  # 飲食店オーナー側ゲストログイン機能
+  devise_scope :owner do
+    post 'owners/guest_sign_in', to: 'owner/sessions#guest_sign_in'
+  end
 
   namespace :owner do
     resources :items, only: [:index, :new, :create, :edit, :update, :destroy]
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
+  # 会員側ゲストログイン機能
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
 
   scope module: :public do
     resource :customer, only: [:show, :update]

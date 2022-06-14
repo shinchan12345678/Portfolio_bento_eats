@@ -7,9 +7,11 @@
       span.text-secondary email
       br
       h5 #{current_customer.email}
-      .text-right.edit_button
-        .btn.btn-secondary
+      .text-right
+        .btn.btn-secondary.edit_button
           | ヘンシュウする
+        .btn.btn-danger.ml-2.
+          = link_to "タイカイする", customer_registration_path, method: :delete ,data: { confirm: '退会しますがよろしいですか？' }, class: "text-decoration-none color text-white"
 
 #my_profile_edit.col-sm-5.px-0.card.passive
   h5.card-header トウロクジョーホー
