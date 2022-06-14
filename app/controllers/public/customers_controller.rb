@@ -1,6 +1,10 @@
 class Public::CustomersController < Public::ApplicationController
   def show
-    @owners = current_customer.owners
+    @owners = current_customer.owners.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
     @items = current_customer.items
   end
 

@@ -14,6 +14,13 @@ class Owner < ApplicationRecord
   validates :address, presence: true
   validates :telphone_number, presence: true
 
+  # ゲストオーナーの生成
+  def self.guest
+    find_or_create_by!(name: 'Guest_owner', email: 'guest@example.com', address: '岐阜県', telphone_number: '0000000000') do |owner|
+      owner.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/test_item.jpeg')

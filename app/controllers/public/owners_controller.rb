@@ -1,7 +1,11 @@
 class Public::OwnersController < Public::ApplicationController
   def index
     @q = Owner.all.ransack(params[:q])
-    @owners = @q.result
+    @owners = @q.result.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

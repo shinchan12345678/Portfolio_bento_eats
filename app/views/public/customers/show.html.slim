@@ -14,6 +14,8 @@
     #customer_owners.active
       .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
         == render "public/owners/lists_all", owners: @owners
+      .col-sm-12.mt-5
+        = paginate @owners, remote: true
 
     #customer_items.passive
       .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between

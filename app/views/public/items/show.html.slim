@@ -20,6 +20,7 @@
     h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
       | コメント
 
-    .col-sm-12.px-0
-      .comment_index
-        == render "public/items/comments", comments: @comments
+    .col-sm-12.px-0.comment_index
+      == render "public/items/comments", comments: @comments
+    .col-sm-12.comment_pagenation
+      = paginate @comments, remote: true

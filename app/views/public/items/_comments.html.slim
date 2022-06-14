@@ -2,6 +2,7 @@
   .col-sm-4.comment_form
     = form_with model: Comment.new(), url: comments_path(item_id: @item), method: :post do |f|
       = f.text_area :text,placeholder: "感想を記入してください"
+      br
       = f.submit '投稿する'
 
   .col-sm-8
@@ -14,3 +15,5 @@
             - if comment.customer == current_customer
               td style="width:10%;"
                 = link_to '削除', comment_path(comment), method: :delete
+            - else
+              td style="width:10%;"

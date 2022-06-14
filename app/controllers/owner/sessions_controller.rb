@@ -6,8 +6,10 @@ class Owner::SessionsController < Devise::SessionsController
     owner_items_path
   end
 
-  def after_sign_up_path_for(resource)
-    owner_items_path
+  def guest_sign_in
+    owner = Owner.guest
+    sign_in owner
+    redirect_to owner_items_path, notice: "ゲストオーナーでログインしました"
   end
   # GET /resource/sign_in
   # def new
