@@ -1,5 +1,5 @@
 class Owner::ItemsController < Owner::ApplicationController
-  def index
+  def show
     @items = Item.all
     @informations = Information.all
   end
@@ -17,12 +17,17 @@ class Owner::ItemsController < Owner::ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    Item.find(params[:id]).update(item_params)
+    owners
   end
 
   def destroy
+    Item.find(params[:id]).destroy
+    @items = current_owner.items
   end
 
   private

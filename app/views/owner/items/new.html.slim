@@ -1,18 +1,22 @@
-h1 Owner::Items#new
-p Find me in app/views/owner/items/new.html.slim
-= form_with model: @item, url: owner_items_path, method: :post do |f|
-  = f.label :name, '商品名'
-  = f.text_field :name
-  br
-  = f.label :price, '価格'
-
-  = f.number_field :price
-  br
-  = f.label :introduction, '商品紹介'
-  = f.text_area :introduction
-  br
-  = f.label :image, '商品イメージ'
-  = f.file_field :image
-  br
-  = f.submit '登録する'
-  
+.container
+  .row.justify-content-center.mt-5
+    .col-sm-8.card.bg-secondary.text-white.mt-5
+      .card-header
+        = form_with model: @item, url: owner_items_path, method: :post do |f|
+          = f.label :name, '商品名'
+          br
+          = f.text_field :name
+          br
+          = f.label :price, '価格'
+          br
+          = f.number_field :price
+          br
+          = f.label :introduction, '商品紹介'
+          br
+          = f.text_area :introduction
+          br
+          = f.label :image, '商品イメージ'
+          br
+          = f.file_field :image
+          br
+          = f.submit '登録する'

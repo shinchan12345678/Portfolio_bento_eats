@@ -1,7 +1,8 @@
 - if owner_signed_in?
-  = link_to 'Ownerログアウト', destroy_owner_session_path, method: :delete
+  = link_to 'マイページ', owner_owners_path
   = link_to '商品の登録', new_owner_item_path
   = link_to '営業情報の投稿', new_owner_information_path
+  = link_to 'Ownerログアウト', destroy_owner_session_path, method: :delete
 - elsif customer_signed_in?
   = link_to 'ログアウトllllll', destroy_customer_session_path, method: :delete
   = link_to 'マイページ', customer_path, method: :get

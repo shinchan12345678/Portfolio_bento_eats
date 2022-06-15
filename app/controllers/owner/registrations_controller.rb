@@ -9,7 +9,6 @@ class Owner::RegistrationsController < Devise::RegistrationsController
     owner_items_path
   end
 
-
   # GET /resource/sign_up
   # def new
   #   super

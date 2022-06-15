@@ -10,8 +10,21 @@ class Owner::InformationsController < ApplicationController
     # デフォルトで0(掲載中)がセットされ、掲載しない場合に１(掲載終了)を上書きセット
     information.is_valid = 1 if params[:information][:is_valid].to_i == "1"
     if information.save
-      redirect_to owner_items_path
+      redirect_to owner_owners_path
     end
+  end
+
+  def edit
+    @information =  Information.find(params[:id])
+  end
+
+  def update
+    Information.find(params[:id]).update(information_params)
+  end
+
+  def destroy
+    Information.find(params[:id]).destroy
+    redirect_to owner_owners_path
   end
 
   private

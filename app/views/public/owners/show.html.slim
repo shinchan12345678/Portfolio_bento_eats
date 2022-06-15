@@ -15,10 +15,8 @@
         = link_to 'テイクアウトエイギョウビ',owner_informations_owner_path(@owner),class: "btn btn-secondary btn-block mt-auto", method: :get
 
       .following-btn.mt-auto
-        - unless current_customer.following?(@owner)
-          = link_to 'フォローする',relationships_path(owner_id: @owner.id),class: "btn btn-primary btn-block mt-auto", method: :post
-        - else
-          = link_to 'フォローをやめる',relationship_path(owner_id: @owner.id),class: "btn btn-primary btn-block mt-auto", method: :delete
+        == render "public/owners/following_btn", owner: @owner  
+  
   .row.mt-5.
     h2.pl-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
       | ラインナップ

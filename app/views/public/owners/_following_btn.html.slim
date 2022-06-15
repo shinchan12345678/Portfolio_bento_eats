@@ -1,0 +1,4 @@
+- unless current_customer.following?(owner)
+  = link_to 'フォローする',relationships_path(owner_id: owner.id), class: "btn btn-primary btn-block mt-auto", method: :post, remote: true
+- else
+  = link_to 'フォローをやめる',relationships_path(owner_id: owner.id), class: "btn btn-primary btn-block mt-auto", method: :delete, remote: true

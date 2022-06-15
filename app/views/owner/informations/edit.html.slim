@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-sm-12.card
+      h1 Owner::Informations#new
+      p Find me in app/views/owner/informations/new.html.slim
+      = form_with model: @information, url: owner_information_path, method: :patch do |f|
+        = f.label :open_date, '営業開始日'
+        = f.date_field  :open_date
+        = f.label :close_date, '営業終了日'
+        = f.date_field :close_date
+        br
+        p
+         | 位置情報はヘンシュウできません。削除して新しく投稿してください。
+
+        .passive
+          = f.label :latitude, '緯度'
+          = f.text_field :latitude
+          = f.label :longitude, '経度'
+          = f.text_field :longitude
+
+        = f.label :is_valid, '掲載状況'
+        br
+        = f.radio_button :is_valid, Information.is_valids[:posting]
+        = f.label :is_valid, Information.is_valids_i18n[:posting]
+        = f.radio_button :is_valid, Information.is_valids[:end_posting]
+        = f.label :is_valid, Information.is_valids_i18n[:end_posting]
+        br
+        = f.submit 'ホゾンする'

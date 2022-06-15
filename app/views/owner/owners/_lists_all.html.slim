@@ -1,0 +1,21 @@
+table.table.table-hover style="table-layout:fixed;width:100%;"
+  thead
+    tr
+      th
+        | オープン
+      th
+        | クローズ
+      th colspan = "2" style="width:30%;"
+
+  tbody
+    - informations.each do |information|
+      = link_to owner_path(information.owner) do
+        tr
+          td
+            = information.open_date
+          td
+            = information.close_date
+          td style="width:15%;"
+            = link_to "ヘンシュウ", edit_owner_information_path(information), class: 'btn btn-secondary'
+          td style="width:15%;"
+            = link_to "サクジョ", owner_information_path(information), class: 'btn btn-secondary', method: :delete

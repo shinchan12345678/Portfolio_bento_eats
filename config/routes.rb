@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   end
 
   namespace :owner do
-    resources :items, only: [:index, :new, :create, :edit, :update, :destroy]
-    resources :informations, only: [:new, :create]
+    resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :informations, only: [:new, :create, :edit, :update, :destroy]
+    resource :owners, only: [:show]
   end
 
   # 会員用
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
         get :owner_informations
       end
     end
-    resources :relationships, only: [:create, :destroy]
+    resource :relationships, only: [:create, :destroy]
     resources :informations, only: [:index, :show] do
       collection do
         post :search

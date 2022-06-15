@@ -1,0 +1,2 @@
+$("#customer_owners .col-sm-12").filter(":first").html("<%= j(render 'owner/owners/lists_all', informations: @informations) %>");
+$("#customer_owners .col-sm-12").filter(":last").html("<%= j(paginate @informations, remote: true) %>");
