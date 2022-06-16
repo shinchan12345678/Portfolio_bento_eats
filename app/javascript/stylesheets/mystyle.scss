@@ -98,10 +98,34 @@
   }
 }
 
+#flag {
+  font-size: 30px;
+}
+
+#marker {
+  font-size: 30px;
+}
+
+// 飲食店一覧画面の営業中フラグ
+#open_is_valid {
+  color: rgba(222, 80, 57, .95);
+  .fa-flag {
+    font-size: 20px;
+  }
+}
+
+#fa-store {
+  .fa-store {
+    font-size: 40px;
+  }
+  span {
+    font-size: 20px;
+  }
+}
+
 .pagination {
   justify-content: center;
 }
-
 
 // フォント関係
 @font-face {
@@ -116,7 +140,7 @@
   font-weight: bold;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, .btn {
   font-family: "myFontgagagaga";
 }
 

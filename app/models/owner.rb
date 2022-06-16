@@ -7,6 +7,7 @@ class Owner < ApplicationRecord
   has_many :informations, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :relationships, dependent: :destroy
+  has_many :customers, through: :relationships
 
   has_one_attached :image
 
@@ -21,11 +22,17 @@ class Owner < ApplicationRecord
     end
   end
 
+  # デフォルト画像の保存
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/test_item.jpeg')
       image.attach(io: File.open(file_path), filename: 'default-image.jpeg', content_type: 'image/jpeg')
     end
     image
+  end
+
+  # テイクアウト営業しているか判定
+  def today_open?
+    return true unless informations.today_is_valid.length == 0
   end
 end

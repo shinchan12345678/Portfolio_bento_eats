@@ -1,4 +1,17 @@
-- if owner_signed_in?
+- if admin_signed_in?
+  = link_to destroy_admin_session_path, method: :delete, class: "nav-item text-center p-3 mx-2" do
+    span ログアウト
+
+- if admin_signed_in?
+  p 
+   | aaaaaa
+   
+  = link_to destroy_admin_session_path, method: :delete, class: "nav-item text-center p-3 mx-2" do
+    span ログアウト
+   
+  == render 'layouts/admin_header'
+
+- elsif owner_signed_in?
   == render 'layouts/owner_header'
 
 - elsif customer_signed_in?

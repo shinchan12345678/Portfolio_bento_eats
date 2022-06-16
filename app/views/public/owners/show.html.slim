@@ -10,14 +10,16 @@
           | #{@owner.address}
         p
           | aaaa#{@owner.introduction}
+        p
+          | フォロワー<br>#{@owner.customers.count}人
 
       .infomations_all
         = link_to 'テイクアウトエイギョウビ',owner_informations_owner_path(@owner),class: "btn btn-secondary btn-block mt-auto", method: :get
 
       .following-btn.mt-auto
-        == render "public/owners/following_btn", owner: @owner  
-  
-  .row.mt-5.
+        == render "public/owners/following_btn", owner: @owner
+
+  .row.mt-5
     h2.pl-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
       | ラインナップ
 

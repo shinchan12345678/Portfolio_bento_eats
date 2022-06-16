@@ -12,13 +12,19 @@ function start_jquery() {
     var profiles = $("#my_profile, #my_profile_edit")
     activePassive(edit,profiles);
 
-    // 会員側マイページのイベント付与
+    // 会員・飲食店オーナーマイページにイベント付与
     var customer_owners_element= $("#customer_owners")
     var customer_items_element= $("#customer_items")
     activePassive2($("#customer_owners_btn"), customer_owners_element, customer_items_element);
     activePassive2($("#customer_items_btn"), customer_items_element, customer_owners_element);
     mouseoverAction($("#customer_owners_btn"))
     mouseoverAction($("#customer_items_btn"))
+
+    // 営業中の飲食店のみ点灯
+    setInterval(function(){
+      $('#open_is_valid ').fadeOut(500,function(){$(this).fadeIn(500)});
+    },3000);
+
   });
 }
 

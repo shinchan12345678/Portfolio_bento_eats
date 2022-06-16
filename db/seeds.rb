@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# 管理者
+Admin.create(email: 'Admin@example.com', password: 'aaaaaa')
+
 # 飲食店オーナー
 Owner.create(email: 'a@example.com', password: 'aaaaaa', name: 'test' ,address: '岐阜県', telphone_number: '00000000')
 

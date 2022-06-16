@@ -8,6 +8,13 @@ class Customer < ApplicationRecord
   has_many :items, through: :favorites
   has_many :comments, dependent: :destroy
 
+  # 管理者用のユーザーの生成
+  def self.admin
+    find_or_create_by!(nickname: "Admin", email: 'admin@example.com') do |admin|
+      admin.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   # ゲストユーザーの生成
   def self.guest
     find_or_create_by!(nickname: 'Guest', email: 'guest@example.com') do |customer|

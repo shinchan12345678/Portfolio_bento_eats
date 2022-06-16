@@ -11,6 +11,13 @@
             | #{current_owner.address}
           p
             | aaaa#{current_owner.introduction}
+          p
+            | フォロワー<br>#{current_owner.customers.count}人
+
+        .remove_account_btn
+          = link_to owner_registration_path, method: :delete ,data: { confirm: '退会しますがよろしいですか？' }, class: "text-decoration-none color text-white btn btn-danger btn-block" do
+            | タイカイする
+
 
     .d-flex.mt-5
       h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger#customer_owners_btn

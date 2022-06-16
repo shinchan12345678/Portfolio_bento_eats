@@ -1,18 +1,27 @@
-= link_to owner_path(@owner) do
-  インショクテンショウサイ
+.container
+  .row.justify-content-between
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | テイクアウトジョーホーイチラン
 
-table.table.table-hover style="table-layout:fixed;width:100%;"
-  thead
-    tr
-      th
-        | オープン
-      th
-        | クローズ
+    .col-sm-3.ml-auto#fa-store
+      = link_to owner_path(@owner) do
+        i.fas.fa-store
+        span 飲食店の詳細
 
-  tbody
-    - @informations.each do |information|
-        tr
-          td
-            = information.open_date
-          td
-            = information.close_date
+  .row
+    .col-sm-12
+      table.table.table-hover style="table-layout:fixed;width:100%;"
+        thead
+          tr
+            th
+              | オープン
+            th
+              | クローズ
+
+        tbody
+          - @informations.each do |information|
+              tr
+                td
+                  = information.open_date
+                td
+                  = information.close_date

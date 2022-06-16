@@ -1,16 +1,22 @@
-= form_with model: Information.new, url: search_informations_path do |f|
-  = f.hidden_field :map_viewport_position_southwest, value:""
-  = f.hidden_field :map_viewport_position_northeast, value:""
-  = f.hidden_field :hidden_lat, value:""
-  = f.hidden_field :hidden_lng, value:""
-  = f.submit "投稿を確認する"
+.row.mx-2
+  h5 現在地を取得する
 
-button#customer_now_postion_get.btn.btn-primary
-  | 現在地の取得
+  button#customer_now_postion_get.btn.btn-outline-primary
+    i.fas.fa-map-marker-alt#marker
 
-input#address_form type="text"
-button#address_form_btn type="button"
-  | 検索
+  h5 付近の営業情報を確認する
+
+  = form_with model: Information.new, url: search_informations_path do |f|
+    = f.hidden_field :map_viewport_position_southwest, value:""
+    = f.hidden_field :map_viewport_position_northeast, value:""
+    = f.hidden_field :hidden_lat, value:""
+    = f.hidden_field :hidden_lng, value:""
+    = button_tag type: "submit", class: 'btn btn-outline-danger ml-2' do
+      i.fas.fa-flag#flag
+
+  input#address_form.ml-auto type="text"
+  button#address_form_btn.btn.btn-outline-primary.ml-2 type="button"
+    i.fas.fa-search
 
 #map_customer
 

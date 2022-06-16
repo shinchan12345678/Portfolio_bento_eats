@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+    # 管理者用
+  devise_for :admins, skip: [:password, :registration], controllers: {
+    sessions: "admin/sessions"
+  }
+  
+  namespace :admin do
+    get 'owners/index'
+  end
+
   root to: "homes#top"
 
   # 飲食店オーナー用
