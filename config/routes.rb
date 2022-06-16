@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-    # 管理者用
+  # 管理者用
   devise_for :admins, skip: [:password, :registration], controllers: {
     sessions: "admin/sessions"
   }
-  
+
   namespace :admin do
-    get 'owners/index'
+    resources :owners, only: [:index, :destroy]
+    resources :customers, only: [:index, :destroy]
   end
 
   root to: "homes#top"

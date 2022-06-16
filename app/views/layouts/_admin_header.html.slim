@@ -17,17 +17,17 @@
     = link_to customer_path, method: :get, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-user.icon.mb-3
       br
-      span マイページ
+      span カスタマーページ
 
-    = link_to customer_path, method: :get, class: "nav-item text-center p-3 mx-2" do
-      i.fas.fa-user.icon.mb-3
+    = link_to admin_owners_path, method: :get, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-user-slash.icon.mb-3
       br
-      span マイページ
-      
-    = link_to customer_path, method: :get, class: "nav-item text-center p-3 mx-2" do
-      i.fas.fa-user.icon.mb-3
+      span オーナーアカウント<br>イチランページ
+
+    = link_to admin_customers_path, method: :get, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-user-slash.icon.mb-3
       br
-      span マイページ
+      span カスタマーアカウント<br>イチランページ
 
     = link_to destroy_admin_session_path, method: :delete, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-sign-out-alt.icon.mb-3

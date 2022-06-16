@@ -5,13 +5,11 @@ class Information < ApplicationRecord
     where(latitude: latitude_s..latitude_e, longitude: longitude_s..longitude_e)
   end
   # 当日の投稿のみ抽出する
-  scope :today_is_valid, -> () do
-    open_date_check
-      .close_date_check
-      .info_invalid
+  scope :today_is_valid, -> do
+    open_date_check.close_date_check.info_invalid
   end
-  scope :open_date_check, -> { where( "open_date <= ?", DateTime.now) }
-  scope :close_date_check, -> { where( "close_date >= ?", DateTime.now) }
+  scope :open_date_check, -> { where("open_date <= ?", DateTime.now) }
+  scope :close_date_check, -> { where("close_date >= ?", DateTime.now) }
   scope :info_invalid, -> { where(is_valid: 0) }
 
   validates :open_date, presence: true

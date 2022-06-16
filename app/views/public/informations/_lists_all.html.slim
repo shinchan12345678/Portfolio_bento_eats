@@ -13,7 +13,7 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
       = link_to owner_path(information.owner) do
         tr
           td
-            = image_tag information.owner.get_image.variant(gravity: :center,resize: "250^",crop:"380x250+0+0").processed ,class: "card-img-top"
+            = image_tag information.owner.get_image.variant(gravity: :center,resize: "250^",crop: "380x250+0+0").processed, class: "card-img-top"
           td style="word-wrap:break-word;"
             = information.owner.name
             br
