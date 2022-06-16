@@ -1,4 +1,4 @@
-class Owner::InformationsController < ApplicationController
+class Owner::InformationsController < Owner::ApplicationController
   def new
     gon.latitude = 35.4577205 # 岐阜の緯度
     gon.longitude = 136.793811 # 岐阜の経度
@@ -15,7 +15,7 @@ class Owner::InformationsController < ApplicationController
   end
 
   def edit
-    @information =  Information.find(params[:id])
+    @information = Information.find(params[:id])
   end
 
   def update

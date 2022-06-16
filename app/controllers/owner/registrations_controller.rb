@@ -6,7 +6,7 @@ class Owner::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, only: [:create]
 
   def after_sign_up_path_for(resource)
-    owner_items_path
+    owner_owners_path
   end
 
   # GET /resource/sign_up

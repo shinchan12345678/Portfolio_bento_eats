@@ -1,3 +1,58 @@
+.main-visual {
+  background-image: url("../../assets/images/background.jpg");
+  background-size:cover;
+  height: 90vh;
+}
+
+.top {
+  background-color: rgba(255, 255, 242, .6);
+  height: 90vh;
+}
+
+#main-visual {
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  img {
+    border-radius: 15px;
+  }
+}
+
+#log_in {
+  position: absolute;
+  top: 15%;
+  right: 7%;
+  .card {
+    width: 250px;
+    height: 150px;
+  }
+  .row {
+    width: 550px;
+    p {
+      font-size: 30px;
+      color: rgb(222, 80, 57);
+    }
+  }
+}
+
+.navbar {
+  background-color: #fefef2;
+  .icon {
+    font-size: 50px;
+  }
+  span {
+    line-height: 0.8em
+  }
+}
+
+.footer {
+  background-color: rgba(222, 80, 57, .95);
+  height: 10vh;
+  .icon {
+    font-size: 30px;
+  }
+}
+
 // 飲食店オーナー側の地図設定
 #map_owner {
   height: 400px;
@@ -8,7 +63,7 @@
 
 // 会員側の地図設定
 #map_customer {
-  height: 800px;
+  height: 500px;
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
@@ -47,16 +102,36 @@
   justify-content: center;
 }
 
+
+// フォント関係
 @font-face {
     font-family:  "myFontgagagaga";
     src: url("/fonts/gagagaga.otf")
 }
 
-@font-face {
-    font-family:  "myFontgrid";
-    src: url("/fonts/CHI_Grid_Free-Regular.otf")
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 * {
-  font-family: "myFontgagagaga","myFontgrid",'Macondo', cursive;
+  font-family: 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "myFontgagagaga";
+}
+
+.navbar {
+  ul {
+    .nav-item {
+      span {
+        font-family: "myFontgagagaga";
+      }
+    }
+  }
+}
+
+.footer {
+  span {
+    font-family: "myFontgagagaga";
+  }
 }
