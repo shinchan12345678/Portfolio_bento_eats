@@ -5,7 +5,7 @@
 
   ul.navbar-nav.ml-auto.p-3
     = link_to informations_path,data: {"turbolinks"=>false}, class: "nav-item text-center p-3 mx-2" do
-      i.fas.fa-map-marked.icon.mb-1
+      i.fas.fa-map-marked-alt.icon.mb-1
       br
       span テイクアウト<br>ジョーホー
 
@@ -20,12 +20,12 @@
       span カスタマーページ
 
     = link_to admin_owners_path, method: :get, class: "nav-item text-center p-3 mx-2" do
-      i.fas.fa-user-slash.icon.mb-3
+      i.fas.fa-address-book.icon.mb-3
       br
       span オーナーアカウント<br>イチランページ
 
     = link_to admin_customers_path, method: :get, class: "nav-item text-center p-3 mx-2" do
-      i.fas.fa-user-slash.icon.mb-3
+      i.fas.fa-address-book.icon.mb-3
       br
       span カスタマーアカウント<br>イチランページ
 
@@ -33,3 +33,8 @@
       i.fas.fa-sign-out-alt.icon.mb-3
       br
       span ログアウト
+
+.row.bg-danger
+  .col-sm-4.mx-auto.text-center
+    p
+      | 管理者ページ

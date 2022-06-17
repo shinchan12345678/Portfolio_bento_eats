@@ -1,24 +1,27 @@
 table.table.table-hover style="table-layout:fixed;width:100%;"
   thead
     tr
-      th colspan = "2"
-        | インショクテンジョーホー
+      th colspan = "4"
+        | 飲食店情報
       th
-        | オープン
+        | オープン日
       th
-        | クローズ
+        | クローズ日
 
   tbody
     - informations.each do |information|
-      = link_to owner_path(information.owner) do
-        tr
+        tr id = "shop_tr_link" data-action = "#{owner_path(information.owner)}"
           td
-            = image_tag information.owner.get_image.variant(gravity: :center,resize: "250^",crop: "380x250+0+0").processed, class: "card-img-top"
-          td style="word-wrap:break-word;"
+            = image_tag information.owner.get_image.variant(gravity: :center,resize: "100^",crop: "150x100+0+0").processed
+          td.text-break
             = information.owner.name
-            br
+          td.text-break style="width: 25%;"
             = information.owner.address
-          td
+            br
+            = information.owner.telphone_number
+          td.text-break
+            = truncate(information.owner.introduction, length: 200)
+          td.align-middle
             = information.open_date
-          td
+          td.align-middle
             = information.close_date

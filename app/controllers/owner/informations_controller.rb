@@ -7,8 +7,6 @@ class Owner::InformationsController < Owner::ApplicationController
 
   def create
     information = current_owner.informations.new(information_params)
-    # デフォルトで0(掲載中)がセットされ、掲載しない場合に１(掲載終了)を上書きセット
-    information.is_valid = 1 if params[:information][:is_valid].to_i == "1"
     if information.save
       redirect_to owner_owners_path
     end
@@ -19,7 +17,9 @@ class Owner::InformationsController < Owner::ApplicationController
   end
 
   def update
-    Information.find(params[:id]).update(information_params)
+    information = Information.find(params[:id])
+    information.update(information_params)
+    redirect_to owner_owners_path
   end
 
   def destroy
@@ -30,6 +30,8 @@ class Owner::InformationsController < Owner::ApplicationController
   private
 
   def information_params
-    params.require(:information).permit(:open_date, :close_date, :latitude, :longitude)
+    # 文字列として受け取ったデータを数値化
+    params[:information][:is_valid] = params[:information][:is_valid].to_i
+    params.require(:information).permit(:open_date, :close_date, :latitude, :longitude, :is_valid)
   end
 end

@@ -1,6 +1,12 @@
 function start_jquery() {
 
   $(function() {
+    // 一旦保留
+    // var navbars = $(".navbar .nav-item").find("span")
+    // for (var i = 0; i < navbars.length; i++ ) {
+    //   mouseoverAction2($(`.navbar .nav-item #nav_${i}`))
+    // }
+
     // 会員側のプロフィール設定のイベント付与
     var profile = $("#my_profile")
     profile.find(".card-header").on("click",function() {
@@ -25,6 +31,12 @@ function start_jquery() {
       $('#open_is_valid ').fadeOut(500,function(){$(this).fadeIn(500)});
     },3000);
 
+    $('tr[data-action]').click(function (e) {
+      if (!$(e.target).is('a')) {
+        window.location = $(e.target).data('action');
+      };
+  });
+
   });
 }
 
@@ -34,6 +46,15 @@ function mouseoverAction(element) {
   });
   element.on("mouseout",function() {
     element.removeClass("mouseover");
+  });
+}
+
+function mouseoverAction2(element) {
+  element.on("mouseover",function() {
+    element.addClass("mouseover_2");
+  });
+  element.on("mouseout",function() {
+    element.removeClass("mouseover_2");
   });
 }
 

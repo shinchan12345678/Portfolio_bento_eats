@@ -1,6 +1,6 @@
 - items.each do |item|
-  .item_card.object_card.mt-3
-    = link_to item_path(item.id) do
+  .item_card.object_card
+    = link_to item_path(item.id), class: "object_link" do
       == render "layouts/list", object: item
       - if item.kind_of?(Item) && ( item.owner == current_owner )
         .card-footer

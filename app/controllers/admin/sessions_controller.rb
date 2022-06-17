@@ -6,7 +6,7 @@ class Admin::SessionsController < Devise::SessionsController
   before_action :admin_customer_sign_out, only: [:destroy]
 
   def after_sign_in_path_for(resource)
-    admin_owners_index_path
+    admin_owners_path
   end
 
   # GET /resource/sign_in

@@ -2,9 +2,9 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
   thead
     tr
       th
-        | オープン
+        | オープン日
       th
-        | クローズ
+        | クローズ日
       th colspan = "2" style="width:30%;"
 
   tbody
@@ -18,4 +18,4 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
           td style="width:15%;"
             = link_to "ヘンシュウ", edit_owner_information_path(information), class: 'btn btn-secondary'
           td style="width:15%;"
-            = link_to "サクジョ", owner_information_path(information), class: 'btn btn-secondary', method: :delete
+            = link_to "サクジョ", owner_information_path(information), class: 'btn btn-danger', method: :delete

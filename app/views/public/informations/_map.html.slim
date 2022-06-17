@@ -1,10 +1,12 @@
-.row.mx-2
-  h5 現在地を取得する
+.row.mx-2.mb-4.d-flex.align-items-center
+  p.mb-0.mr-2#flag_title.d-flex.align-items-center.text-center.text-primary
+    | 現在地を<br>取得
 
   button#customer_now_postion_get.btn.btn-outline-primary
     i.fas.fa-map-marker-alt#marker
 
-  h5 付近の営業情報を確認する
+  p.mb-0.mr-2.ml-5#marker_title.text-center.text-danger
+    | 営業情報を<br>取得
 
   = form_with model: Information.new, url: search_informations_path do |f|
     = f.hidden_field :map_viewport_position_southwest, value:""
@@ -14,7 +16,7 @@
     = button_tag type: "submit", class: 'btn btn-outline-danger ml-2' do
       i.fas.fa-flag#flag
 
-  input#address_form.ml-auto type="text"
+  input#address_form.ml-auto type="text" placeholder="住所を検索しましょう"
   button#address_form_btn.btn.btn-outline-primary.ml-2 type="button"
     i.fas.fa-search
 

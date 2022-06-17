@@ -15,7 +15,7 @@
             | フォロワー<br>#{current_owner.customers.count}人
 
         .remove_account_btn
-          = link_to owner_registration_path, method: :delete ,data: { confirm: '退会しますがよろしいですか？' }, class: "text-decoration-none color text-white btn btn-danger btn-block" do
+          = link_to owner_registration_path, method: :delete ,data: { confirm: '退会しますがよろしいですか？' }, class: "text-decoration-none color btn btn-outline-warning btn-block" do
             | タイカイする
 
 
