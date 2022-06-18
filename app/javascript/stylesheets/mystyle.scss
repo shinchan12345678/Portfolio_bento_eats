@@ -1,5 +1,9 @@
+.container {
+  min-height: 90vh;
+}
+
 .main-visual {
-  background-image: url("../../assets/images/background.jpg");
+  background-image: image-url("../../assets/images/background.jpg");
   background-size:cover;
   height: 90vh;
 }

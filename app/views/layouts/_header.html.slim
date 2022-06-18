@@ -7,4 +7,5 @@
 - elsif customer_signed_in?
   == render 'layouts/customer_header'
 
-#blank_top.mb-3
+- unless request.path == root_path
+  #blank_top.mb-3

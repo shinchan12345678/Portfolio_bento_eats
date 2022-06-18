@@ -16,7 +16,7 @@ class Public::InformationsController < Public::ApplicationController
     @informations = Information.joins(:owner).select("owners.*, information.*").map_view_ports(latitude_s, latitude_e, longitude_s, longitude_e).today_is_valid
     # rubocop:enable Style/LineLength
     # 上記でrubocopの文字数超過警告を無効化
-    
+
     # map.jsファイルにデータを渡す
     gon.informations = @informations
     gon.latitude = info_params[:hidden_lat].to_f

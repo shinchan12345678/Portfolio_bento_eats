@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :owner
   has_many :favorites, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
 
   has_one_attached :image
 

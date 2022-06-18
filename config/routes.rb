@@ -48,11 +48,12 @@ Rails.application.routes.draw do
     resources :informations, only: [:index, :show] do
       collection do
         post :search
+        get :search
       end
     end
     resources :items, only: [:show]
     resources :comments, only: [:create, :destroy]
-    resources :favorites, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

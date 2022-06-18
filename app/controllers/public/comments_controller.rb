@@ -1,15 +1,22 @@
 class Public::CommentsController < Public::ApplicationController
   def create
-    item = Item.find(params[:item_id])
-    current_customer.review_comment(item, comment_params[:text])
-    redirect_to item_path(item)
+    @item = Item.find(params[:item_id])
+    current_customer.review_comment(@item, comment_params[:text])
+    @comments = @item.comments.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
     comment = Comment.find(params[:id])
-    item = comment.item
     current_customer.remove_comment(comment)
-    redirect_to item_path(item)
+    @comments = @item.comments.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

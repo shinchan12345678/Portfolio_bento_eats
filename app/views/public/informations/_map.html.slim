@@ -10,7 +10,7 @@
   p.mb-0.ml-4.mr-2#marker_title.text-center.text-danger
     | 営業情報を<br>取得
 
-  = form_with model: Information.new, url: search_informations_path do |f|
+  = form_with model: Information.new, url: search_informations_path, method: :get do |f|
     = f.hidden_field :map_viewport_position_southwest, value:""
     = f.hidden_field :map_viewport_position_northeast, value:""
     = f.hidden_field :hidden_lat, value:""
