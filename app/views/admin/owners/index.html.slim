@@ -1,0 +1,40 @@
+.container
+  .row.justify-content-between
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | オーナーアカウントイチラン
+
+  .row
+    .col-sm-12
+      table.table.table-hover style="table-layout:fixed;width:100%;"
+        thead
+          tr
+            th
+              | 飲食店名
+            th
+              | メールアドレス
+            th
+              | 住所＆電話番号
+            th style="width: 25%"
+              | 紹介文
+            th colspan = "2" style="width: 20%"
+              | image
+
+        tbody
+          - @owners.each do |owner|
+              tr
+                td.text-break
+                  = owner.name
+                td.text-break
+                  = owner.email
+                td.text-break
+                  = owner.address
+                  br
+                  = owner.telphone_number
+                td.text-break style="width: 25%"
+                  = owner.introduction
+                td.text-break style="width: 10%"
+                  = image_tag owner.get_image.variant(gravity: :center,resize: "50^",crop: "100x50+0+0").processed, class: "card-image-top"
+                td.text-break.align-middle style="width: 10%"
+                  = link_to "サクジョ" ,admin_owner_path(owner), method: :delete, class: "btn btn-danger"
+
+  = paginate @owners

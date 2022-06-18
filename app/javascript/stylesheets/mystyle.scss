@@ -1,0 +1,234 @@
+.container {
+  min-height: 90vh;
+}
+
+.main-visual {
+  background-image: image-url("../../assets/images/background.jpg");
+  background-size:cover;
+  height: 90vh;
+}
+
+.top {
+  background-color: rgba(255, 255, 242, .6);
+  height: 90vh;
+}
+
+#main-visual {
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  img {
+    border-radius: 15px;
+  }
+}
+
+#log_in {
+  position: absolute;
+  top: 15%;
+  right: 7%;
+  .card {
+    width: 250px;
+    height: 150px;
+  }
+  .row {
+    width: 550px;
+    p {
+      font-size: 30px;
+      color: rgb(222, 80, 57);
+    }
+  }
+}
+
+.navbar {
+  .nav-item {
+    text-decoration: none;
+  }
+  background-color: #fefef2;
+  .icon {
+    font-size: 50px;
+    color: rgb(64, 117, 187);
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  span {
+    line-height: 0.8em;
+    text-decoration: none;
+    color: rgb(64, 117, 187);
+  }
+}
+
+#blank {
+  height: 20px;
+}
+
+#blank_top {
+  height: 10px;
+  background-color: rgba(222, 80, 57, .95);
+}
+
+.footer {
+  background-color: rgba(222, 80, 57, .95);
+  height: 10vh;
+  .icon {
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+  }
+}
+
+// 飲食店オーナー側の地図設定
+#map_owner {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+// 会員側の地図設定
+#map_customer {
+  height: 500px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+.mouseover {
+  letter-spacing: 10px;
+  cursor: pointer;
+}
+
+.mouseover_2 {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.active {
+  display: block;
+}
+.passive {
+  display: none;
+}
+
+// 飲食店・商品表示用のカード
+.object_card {
+  width: 380px;
+  &:hover {
+    transform: translateY(-5px);
+  }
+  .object_link {
+    text-decoration: none;
+  }
+  .card {
+    width: 380px;
+    color: #262626;
+    .card-img-top {
+      width: 90%;
+      height: 90%;
+      margin: 5%;
+    }
+  }
+}
+
+#flag {
+  font-size: 60px;
+}
+
+#flag_title {
+  font-size: 20px;
+}
+
+#marker {
+  font-size: 60px;
+}
+
+#marker_title {
+  font-size: 20px;
+}
+
+#map-warning {
+  font-size: 60px;
+}
+
+#map-warning-text {
+  font-size: 22px;
+}
+
+#info_submit {
+  font-size: 30px;
+  border-bottom: solid 3px #cce4ff;
+  position: relative;
+}
+
+#address_form {
+  height: 40px;
+  width: 200px;
+}
+
+#address_form_btn {
+  height: 40px;
+}
+
+#map_introduction {
+  font-size: 12px;
+}
+
+.info_icon {
+  font-size: 60px;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// 飲食店一覧画面の営業中フラグ
+#open_is_valid {
+  color: rgba(222, 80, 57, .95);
+  .fa-flag {
+    font-size: 20px;
+  }
+}
+
+#fa-store {
+  .fa-store {
+    font-size: 40px;
+  }
+  span {
+    font-size: 20px;
+  }
+}
+
+.pagination {
+  justify-content: center;
+}
+
+// フォント関係
+@font-face {
+    font-family:  "myFontgagagaga";
+    src: url("/fonts/gagagaga.otf")
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+* {
+  font-family: 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, .btn {
+  font-family: "myFontgagagaga";
+}
+
+.navbar {
+  ul {
+    .nav-item {
+      span {
+        font-family: "myFontgagagaga";
+      }
+    }
+  }
+}
+
+.footer {
+  span {
+    font-family: "myFontgagagaga";
+  }
+}

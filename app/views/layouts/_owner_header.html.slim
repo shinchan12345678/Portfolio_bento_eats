@@ -1,0 +1,29 @@
+.navbar.navbar-expand-lg.py-0
+  .danger.px-3
+  .navbar-brand
+    = image_tag 'logo.jpeg', :size => '150x150'
+
+  ul.navbar-nav.ml-auto.p-3
+    = link_to owner_owners_path, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-user.icon.mb-3
+      br
+      span id = "nav_0"
+        | マイページ
+
+    = link_to new_owner_item_path, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-plus-circle.icon.mb-1
+      br
+      span id = "nav_1"
+        | ショウヒン<br>トーロク
+
+    = link_to new_owner_information_path, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-map-marked-alt.icon.mb-1
+      br
+      span id = "nav_2"
+        | ジョーホー<br>トーコウ
+
+    = link_to destroy_owner_session_path, method: :delete, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-sign-out-alt.icon.mb-3
+      br
+      span id = "nav_3"
+        | ログアウト

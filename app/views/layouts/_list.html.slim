@@ -1,0 +1,17 @@
+.card
+  = image_tag object.get_image.variant(gravity: :center,resize: "250^",crop:"380x250+0+0").processed ,class: "card-img-top"
+  .card-body
+    - if object.kind_of?(Owner)
+      .card-subtitle.text-right#open_is_valid
+        - if object.today_open?
+          i.fas.fa-flag
+          |  本日テイクアウト営業
+
+    ul.list-group.list-group-flush
+      li.list-group-item
+        = truncate(object.name, length: 20)
+      li.list-group-item
+        = truncate(object.introduction, length: 50)
+      - if object.kind_of?(Item)
+        li.list-group-item
+          = object.price

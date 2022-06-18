@@ -1,0 +1,2 @@
+$(".comment_index").html("<%= j(render 'public/items/comments', comments: @comments) %>");
+$(".comment_pagenation").html("<%= j(paginate @comments, remote: true) %>");

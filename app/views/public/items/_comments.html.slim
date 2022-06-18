@@ -1,0 +1,21 @@
+.row
+  .col-sm-4.comment_form.form-group.ml-3
+    = form_with model: Comment.new(), url: comments_path(item_id: @item), method: :post, local: false do |f|
+      = f.text_area :text, placeholder: "感想を記入してください",class: "form-control d-block"
+      = f.submit 'コメントする',class: "btn btn-primary mt-2 d-flex ml-auto"
+
+  .col-sm-7.ml-auto
+    table.table.table-hover style="table-layout:fixed;width:100%;"
+      tbody
+        - comments.each do |comment|
+          tr
+            td style="width:20%;"
+              = comment.customer.nickname
+
+            td style="word-wrap:break-word;"
+              = comment.text
+            - if comment.customer == current_customer
+              td style="width:10%;"
+                = link_to '削除', comment_path(comment), method: :delete
+            - else
+              td style="width:10%;"

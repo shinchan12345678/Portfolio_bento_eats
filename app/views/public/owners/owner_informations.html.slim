@@ -1,0 +1,33 @@
+.container
+  .row.justify-content-between
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | テイクアウトジョーホーイチラン
+
+    .col-sm-1.ml-auto#fa-store.text-center.align-middle
+      = link_to owner_path(@owner) do
+        span 戻る
+
+  .row
+    .col-sm-12
+      table.table.table-hover.text-center style="table-layout:fixed;width:100%;"
+        thead
+          tr
+            th
+              | オープン日
+            th
+              | クローズ日
+            th
+              | 出店位置情報
+
+
+        tbody
+          - @informations.each_with_index do |information, i|
+              tr
+                td.align-middle
+                  = information.open_date
+                td.align-middle
+                  = information.close_date
+                td.align-middle
+                  .googlemap_root.btn id = "map_id_#{i}"
+                    input type = "hidden" value = "https://www.google.com/maps/search/?api=1&query=#{information.latitude.to_f},#{information.longitude.to_f}"
+                    i.fas.fa-map-marked-alt.info_icon.text-danger

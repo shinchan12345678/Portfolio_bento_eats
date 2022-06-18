@@ -1,0 +1,315 @@
+/*------------------------------------
+- COLOR danger
+------------------------------------*/
+
+$danger_t1: DE5039;
+$danger_t2: #c33720;
+$danger_t3: #f4c7c0;
+$danger_t4: #f8dbd6;
+$danger_t5: #862516;
+$danger_t6: #b6331e;
+$danger_t7: #d03a22;
+$danger_t8: #5a190f;
+$danger_t9: #fbeae7;
+
+$danger_shadow: rgba(222, 80, 57, 0.5);
+$danger_text_color_dark_bright: #fff;
+
+
+.alert-danger {
+  color: $danger_t5;
+  background-color: $danger_t9;
+  border-color: $danger_t4;
+}
+
+.alert-danger hr {
+  border-top-color: $danger_t3;
+}
+
+.alert-danger .alert-link {
+  color: $danger_t8;
+}
+
+.badge-danger {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t1;
+}
+
+.badge-danger[href]:hover, .badge-danger[href]:focus {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t2;
+}
+
+.bg-danger {
+  background-color: $danger_t1 !important;
+}
+
+a.bg-danger:hover, a.bg-danger:focus,
+button.bg-danger:hover,
+button.bg-danger:focus {
+  background-color: $danger_t2 !important;
+}
+
+.border-danger {
+  border-color: $danger_t1 !important;
+}
+
+.btn-danger {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t1;
+  border-color: $danger_t1;
+}
+
+.btn-danger:hover {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t7;
+  border-color: $danger_t2;
+}
+
+.btn-danger:focus, .btn-danger.focus {
+  box-shadow: 0 0 0 0.2rem $danger_shadow;
+}
+
+.btn-danger.disabled, .btn-danger:disabled {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t1;
+  border-color: $danger_t1;
+}
+
+.btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active, .show > .btn-danger.dropdown-toggle {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t2;
+  border-color: $danger_t6;
+}
+
+.btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-danger.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $danger_shadow;
+}
+
+.btn-outline-danger {
+  color: $danger_t1;
+  background-color: transparent;
+  border-color: $danger_t1;
+}
+
+.btn-outline-danger:hover {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t1;
+  border-color: $danger_t1;
+}
+
+.btn-outline-danger:focus, .btn-outline-danger.focus {
+  box-shadow: 0 0 0 0.2rem $danger_shadow;
+}
+
+.btn-outline-danger.disabled, .btn-outline-danger:disabled {
+  color: $danger_t1;
+  background-color: transparent;
+}
+
+.btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-danger:not(:disabled):not(.disabled).active, .show > .btn-outline-danger.dropdown-toggle {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t1;
+  border-color: $danger_t1;
+}
+
+.btn-outline-danger:not(:disabled):not(.disabled):active:focus, .btn-outline-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-danger.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $danger_shadow;
+}
+
+.list-group-item-danger {
+  color: $danger_t5;
+  background-color: $danger_t4;
+}
+
+.list-group-item-danger.list-group-item-action:hover, .list-group-item-danger.list-group-item-action:focus {
+  color: $danger_t5;
+  background-color: $danger_t3;
+}
+
+.list-group-item-danger.list-group-item-action.active {
+  color: $danger_text_color_dark_bright;
+  background-color: $danger_t5;
+  border-color: $danger_t5;
+}
+
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: $danger_t4;
+}
+
+.table-hover .table-danger:hover {
+  background-color: $danger_t3;
+}
+
+.table-hover .table-danger:hover > td,
+.table-hover .table-danger:hover > th {
+  background-color: $danger_t3;
+}
+
+.text-danger {
+  color: $danger_t1 !important;
+}
+
+a.text-danger:hover, a.text-danger:focus {
+  color: $danger_t2 !important;
+}
+
+/*------------------------------------
+- COLOR primary
+------------------------------------*/
+
+$primary_t1: 4075BA;
+$primary_t2: #325d94;
+$primary_t3: #b3c8e4;
+$primary_t4: #c6d6eb;
+$primary_t5: #203b5e;
+$primary_t6: #2f5588;
+$primary_t7: #36649f;
+$primary_t8: #132338;
+$primary_t9: #d5e1f0;
+
+$primary_shadow: rgba(64, 117, 186, 0.5);
+$primary_text_color_dark_bright: #fff;
+
+
+.alert-primary {
+  color: $primary_t5;
+  background-color: $primary_t9;
+  border-color: $primary_t4;
+}
+
+.alert-primary hr {
+  border-top-color: $primary_t3;
+}
+
+.alert-primary .alert-link {
+  color: $primary_t8;
+}
+
+.badge-primary {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+}
+
+.badge-primary[href]:hover, .badge-primary[href]:focus {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t2;
+}
+
+.bg-primary {
+  background-color: $primary_t1 !important;
+}
+
+a.bg-primary:hover, a.bg-primary:focus,
+button.bg-primary:hover,
+button.bg-primary:focus {
+  background-color: $primary_t2 !important;
+}
+
+.border-primary {
+  border-color: $primary_t1 !important;
+}
+
+.btn-primary {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+  border-color: $primary_t1;
+}
+
+.btn-primary:hover {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t7;
+  border-color: $primary_t2;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem $primary_shadow;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+  border-color: $primary_t1;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t2;
+  border-color: $primary_t6;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $primary_shadow;
+}
+
+.btn-outline-primary {
+  color: $primary_t1;
+  background-color: transparent;
+  border-color: $primary_t1;
+}
+
+.btn-outline-primary:hover {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+  border-color: $primary_t1;
+}
+
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+  box-shadow: 0 0 0 0.2rem $primary_shadow;
+}
+
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
+  color: $primary_t1;
+  background-color: transparent;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+  border-color: $primary_t1;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $primary_shadow;
+}
+
+.list-group-item-primary {
+  color: $primary_t5;
+  background-color: $primary_t4;
+}
+
+.list-group-item-primary.list-group-item-action:hover, .list-group-item-primary.list-group-item-action:focus {
+  color: $primary_t5;
+  background-color: $primary_t3;
+}
+
+.list-group-item-primary.list-group-item-action.active {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t5;
+  border-color: $primary_t5;
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: $primary_t4;
+}
+
+.table-hover .table-primary:hover {
+  background-color: $primary_t3;
+}
+
+.table-hover .table-primary:hover > td,
+.table-hover .table-primary:hover > th {
+  background-color: $primary_t3;
+}
+
+.text-primary {
+  color: $primary_t1 !important;
+}
+
+a.text-primary:hover, a.text-primary:focus {
+  color: $primary_t2 !important;
+}

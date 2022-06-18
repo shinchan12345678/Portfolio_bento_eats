@@ -1,0 +1,40 @@
+.navbar.navbar-expand-lg
+  .danger.px-3
+  .navbar-brand
+    = image_tag 'logo.jpeg', :size => '150x150'
+
+  ul.navbar-nav.ml-auto.p-3
+    = link_to informations_path,data: {"turbolinks"=>false}, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-map-marked-alt.icon.mb-1
+      br
+      span テイクアウト<br>ジョーホー
+
+    = link_to owners_path, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-plus-circle.icon.mb-1
+      br
+      span インショクテン<br>イチラン
+
+    = link_to customer_path, method: :get, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-user.icon.mb-3
+      br
+      span カスタマーページ
+
+    = link_to admin_owners_path, method: :get, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-address-book.icon.mb-3
+      br
+      span オーナーアカウント<br>イチランページ
+
+    = link_to admin_customers_path, method: :get, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-address-book.icon.mb-3
+      br
+      span カスタマーアカウント<br>イチランページ
+
+    = link_to destroy_admin_session_path, method: :delete, class: "nav-item text-center p-3 mx-2" do
+      i.fas.fa-sign-out-alt.icon.mb-3
+      br
+      span ログアウト
+
+.row.bg-danger
+  .col-sm-4.mx-auto.text-center
+    p
+      | 管理者ページ

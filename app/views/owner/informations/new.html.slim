@@ -1,0 +1,76 @@
+.container
+  .row
+    .col-sm-12.card
+      .card-title#info_submit
+        | テイクアウト営業情報を入力してください
+
+      = form_with model: @information, url: owner_informations_path, method: :post do |f|
+        table.table.table-bordered
+          thead
+            tr
+              th 営業日
+              th 時間帯
+              th
+                | 座標
+                span.mark 
+                  | (位置情報をセットする必要があります)
+                
+              th 掲載状況
+              th 投稿ボタン
+          tbody
+            tr
+              td
+                = f.label :open_date, '開始日'
+                br
+                = f.date_field  :open_date, class: "form-control"
+                br
+                = f.label :close_date, '終了日'
+                br
+                = f.date_field :close_date,class: "form-control"
+              td
+              td
+                = f.label :latitude, '緯度'
+                br
+                = f.text_field :latitude, class: "form-control"
+                br
+                = f.label :longitude, '経度'
+                br
+                = f.text_field :longitude, class: "form-control"
+              td.align-middle.text-center
+                = f.radio_button :is_valid, Information.is_valids[:posting] ,class: "form-check-input my-2"
+                = f.label :is_valid, Information.is_valids_i18n[:posting] ,class: "mx-2"
+                p.my-5
+                = f.radio_button :is_valid, Information.is_valids[:end_posting] ,class: "form-check-input my-2"
+                = f.label :is_valid, Information.is_valids_i18n[:end_posting] ,class: "mx-2"
+              td.align-middle.text-center
+                = button_tag type: "submit", class: 'btn btn-outline-danger ml-2' do
+                  i.fas.fa-share#flag
+
+    p.mt-3.mb-2.d-flex.align-items-center
+      i.fas.fa-map-marked-alt.text-warning.mx-4#map-warning
+      span.mark#map-warning-text 位置情報のセットはこちら
+
+    .col-sm-12.card.mt-1
+      .card-title
+
+      .row.mx-2.mb-4.d-flex.align-items-center.pt-2
+        p.mb-0.mr-2#flag_title.d-flex.align-items-center.text-center.text-primary
+          | 現在地を<br>取得
+
+        input#information_hidden_lat type="hidden" value = ""
+        input#information_hidden_lng type="hidden" value = ""
+        button#owner_now_position_get.btn.btn-outline-primary.ml-2
+          i.fas.fa-map-marker-alt#marker
+
+        p.mb-0.mr-2.ml-5#marker_title.text-center.text-danger
+          | 位置情報を<br>セットする
+
+        button#post_position_get.btn.btn-outline-danger.ml-2
+          i.fas.fa-flag#flag
+
+        input#address_form.ml-auto type="text" placeholder="住所を検索しましょう"
+        button#address_form_btn.btn.btn-outline-primary.ml-2 type="button"
+          i.fas.fa-search
+
+        #map_owner.mt-3
+<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMapOwner&v=weekly" defer></script>

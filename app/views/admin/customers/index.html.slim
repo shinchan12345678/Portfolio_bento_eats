@@ -1,0 +1,28 @@
+.container
+  .row.justify-content-between
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | オーナーアカウントイチラン
+
+  .row
+    .col-sm-12
+      table.table.table-hover style="table-layout:fixed;width:100%;"
+        thead
+          tr
+            th
+              | ニックネーム
+            th
+              | メールアドレス
+            th
+              |
+
+        tbody
+          - @customers.each do |customer|
+              tr
+                td.text-break
+                  = customer.nickname
+                td.text-break
+                  = customer.email
+                td
+                  = link_to "サクジョ" ,admin_customer_path(customer), method: :delete, class: "btn btn-danger"
+
+  = paginate @customers

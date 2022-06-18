@@ -1,0 +1,27 @@
+.container.px-0
+  .row
+    .col-sm-5.px-0
+      = image_tag @owner.get_image.variant(gravity: :center,resize: "300^",crop: "400x300+0+0")
+    .col-sm-6.offset-sm-1.d-flex.flex-column.justify-content-between
+      .shop_introduction
+        h1
+          = @owner.name
+        p
+          | #{@owner.address}
+        p
+          | aaaa#{@owner.introduction}
+        p
+          | フォロワー<br>#{@owner.customers.count}人
+
+      .infomations_all
+        = link_to 'テイクアウトエイギョウビ',owner_informations_owner_path(@owner),class: "btn btn-secondary btn-block mt-auto", method: :get
+
+      .following-btn.mt-auto
+        == render "public/owners/following_btn", owner: @owner
+
+  .row.mt-5
+    h2.pl-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | ラインナップ
+
+    .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+      == render "public/items/lists_all", items: @items

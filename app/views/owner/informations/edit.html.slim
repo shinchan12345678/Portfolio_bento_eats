@@ -1,0 +1,50 @@
+.container
+  .row
+    .col-sm-12.card
+      .card-title#info_submit
+        | テイクアウト営業情報を編集してください
+
+      = form_with model: @information, url: owner_information_path, method: :patch do |f|
+        table.table.table-bordered
+          thead
+            tr
+              th 営業日
+              th 時間帯
+              th style = "width: 30%;" 
+                | 座標
+                span.mark
+                  | (位置情報は編集できません。)
+
+              th 掲載状況
+              th 保存ボタン
+          tbody
+            tr
+              td
+                = f.label :open_date, '開始日'
+                br
+                = f.date_field  :open_date, class: "form-control"
+                br
+                = f.label :close_date, '終了日'
+                br
+                = f.date_field :close_date,class: "form-control"
+              td
+              td
+                p
+                  | 位置情報を変更する場合は削除して新しく投稿してください
+                .passive
+                  = f.label :latitude, '緯度'
+                  br
+                  = f.text_field :latitude, class: "form-control"
+                  br
+                  = f.label :longitude, '経度'
+                  br
+                  = f.text_field :longitude, class: "form-control"
+              td.align-middle.text-center
+                = f.radio_button :is_valid, Information.is_valids[:posting] ,class: "form-check-input my-2"
+                = f.label :is_valid, Information.is_valids_i18n[:posting] ,class: "mx-2"
+                p.my-5
+                = f.radio_button :is_valid, Information.is_valids[:end_posting] ,class: "form-check-input my-2"
+                = f.label :is_valid, Information.is_valids_i18n[:end_posting] ,class: "mx-2"
+              td.align-middle.text-center
+                = button_tag type: "submit", class: 'btn btn-outline-danger ml-2' do
+                  i.fas.fa-share#flag

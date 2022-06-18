@@ -1,0 +1,11 @@
+.container.px-0
+  .row.flex-column
+    == render "public/informations/map"
+
+  .row
+    h2.pl-5.mb-3.mt-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | ヒットジョーホー
+
+    .col-sm-12.px-0
+      .information_index
+        == render "public/informations/lists_all", informations: @informations

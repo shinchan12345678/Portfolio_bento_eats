@@ -1,0 +1,18 @@
+.container
+  .row.justify-content-center
+    h2
+      | Log in
+
+      = form_with(model: @admin, url: admin_session_path, method: :post, local: true, class: 'needs-validation form_group', html: {novalidate: true}) do |f|
+        .field
+          = f.label :email
+          br
+          = f.email_field :email, class: 'form_control', autofocus: true, autocomplete: "email"
+        .field
+          = f.label :password
+          br
+          = f.password_field :password, class: 'form_control', autocomplete: "current-password"
+        .actions
+          = f.submit "Log in", class: 'd-block ml-auto btn btn-primary my-2'
+      .card-footer
+    = render "admin/shared/links"

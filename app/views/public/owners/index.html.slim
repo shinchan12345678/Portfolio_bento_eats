@@ -1,0 +1,18 @@
+.container.px-0
+  .row.px-0.flex-row-reverse
+    .col-sm-3
+      = search_form_for @q,class: 'd-flex' do |f|
+        .form-group
+          = f.search_field :address_cont, class: 'form-control', placeholder: "住所で検索"
+        .form-group
+          = button_tag type: "submit", class: 'btn btn-outline-primary ml-2' do
+            i.fas.fa-search
+
+  .row#customer_owners
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+      | インショクテンイチラン
+    .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+      == render "public/owners/lists_all", owners: @owners
+
+    .col-sm-12.mt-3
+      = paginate @owners, remote: true

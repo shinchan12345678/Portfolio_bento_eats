@@ -1,0 +1,21 @@
+.container
+  .row.justify-content-center.mt-5
+    .col-sm-5.card.bg-secondary.text-white.mt-5
+      h2.card-header
+        | Log in
+        
+      = form_with(model: @customer, url: customer_session_path, local: true, class: 'needs-validation form_group', html: {novalidate: true}) do |f|
+        .field
+          = f.label :email
+          br
+          = f.email_field :email, class: 'form_control', autofocus: true, autocomplete: "email"
+        .field
+          = f.label :password
+          br
+          = f.password_field :password, class: 'form_control', autocomplete: "current-password"
+        .actions
+          = f.submit "Log in", class: 'd-block ml-auto btn btn-primary my-2'
+      .card-footer
+        = render "public/shared/links"
+
+    = link_to 'トップ', root_path, class: 'text-center col-sm-12 mt-5' 
