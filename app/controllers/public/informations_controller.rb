@@ -12,7 +12,11 @@ class Public::InformationsController < Public::ApplicationController
     latitude_s, longitude_s = default_sw.map { |i| i.to_f }
     latitude_e, longitude_e = default_ne.map { |i| i.to_f }
     # 座標内の投稿を取得(当日かつ有効な投稿のみ)
+    # rubocop:disable Style/LineLength,
     @informations = Information.joins(:owner).select("owners.*, information.*").map_view_ports(latitude_s, latitude_e, longitude_s, longitude_e).today_is_valid
+    # rubocop:enable Style/LineLength
+    # 上記でrubocopの文字数超過警告を無効化
+    
     # map.jsファイルにデータを渡す
     gon.informations = @informations
     gon.latitude = info_params[:hidden_lat].to_f
