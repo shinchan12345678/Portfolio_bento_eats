@@ -58,6 +58,11 @@
   height: 20px;
 }
 
+#blank_top {
+  height: 10px;
+  background-color: rgba(222, 80, 57, .95);
+}
+
 .footer {
   background-color: rgba(222, 80, 57, .95);
   height: 10vh;
@@ -152,11 +157,22 @@
 
 #address_form {
   height: 40px;
-  width: 250px;
+  width: 200px;
 }
 
 #address_form_btn {
   height: 40px;
+}
+
+#map_introduction {
+  font-size: 12px;
+}
+
+.info_icon {
+  font-size: 60px;
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 // 飲食店一覧画面の営業中フラグ

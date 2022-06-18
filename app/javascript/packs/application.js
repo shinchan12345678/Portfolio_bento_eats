@@ -17,6 +17,7 @@ import "packs/map.js" //GoogleMap表示スクリプト
 import "packs/index.js" //イベントハンドル設定
 
 import "../stylesheets/mystyle.scss"  //GoogleMapの地図設定
+import "../stylesheets/custom_color.scss"  //Bootstrapのカラー変更
 
 Rails.start()
 Turbolinks.start()

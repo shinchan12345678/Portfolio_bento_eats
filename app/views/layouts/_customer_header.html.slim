@@ -1,4 +1,4 @@
-.navbar.navbar-expand-lg
+.navbar.navbar-expand-lg.py-0
   .danger.px-3
   .navbar-brand
     = image_tag 'logo.jpeg', :size => '150x150'
@@ -7,26 +7,23 @@
     = link_to informations_path,data: {"turbolinks"=>false}, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-map-marked-alt.icon.mb-1
       br
-      span id = "nav_0" 
+      span id = "nav_0"
         | テイクアウト<br>ジョーホー
 
     = link_to owners_path, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-plus-circle.icon.mb-1
       br
-      span id = "nav_1" 
+      span id = "nav_1"
         | インショクテン<br>イチラン
 
     = link_to customer_path, method: :get, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-user.icon.mb-3
       br
-      span id = "nav_2" 
+      span id = "nav_2"
         | マイページ
 
     = link_to destroy_customer_session_path, method: :delete, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-sign-out-alt.icon.mb-3
       br
-      span id = "nav_3" 
+      span id = "nav_3"
         | ログアウト
-
-h6.bg-danger.mb-5
-  | a

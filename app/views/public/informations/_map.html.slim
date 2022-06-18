@@ -1,11 +1,13 @@
-.row.mx-2.mb-4.d-flex.align-items-center
-  p.mb-0.mr-2#flag_title.d-flex.align-items-center.text-center.text-primary
+.row.mx-1.mb-2.d-flex.align-items-center
+  h2.py-4.pl-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+    | テイクアウトジョーホー
+  p.mb-0.mr-2.ml-auto#flag_title.d-flex.align-items-center.text-center.text-primary
     | 現在地を<br>取得
 
   button#customer_now_postion_get.btn.btn-outline-primary
     i.fas.fa-map-marker-alt#marker
 
-  p.mb-0.mr-2.ml-5#marker_title.text-center.text-danger
+  p.mb-0.ml-4.mr-2#marker_title.text-center.text-danger
     | 営業情報を<br>取得
 
   = form_with model: Information.new, url: search_informations_path do |f|
@@ -13,12 +15,17 @@
     = f.hidden_field :map_viewport_position_northeast, value:""
     = f.hidden_field :hidden_lat, value:""
     = f.hidden_field :hidden_lng, value:""
-    = button_tag type: "submit", class: 'btn btn-outline-danger ml-2' do
+    = button_tag type: "submit", class: 'btn btn-outline-danger' do
       i.fas.fa-flag#flag
 
-  input#address_form.ml-auto type="text" placeholder="住所を検索しましょう"
-  button#address_form_btn.btn.btn-outline-primary.ml-2 type="button"
-    i.fas.fa-search
+  .col-sm-3
+    .row
+      input#address_form.ml-4 type="text" placeholder="住所検索もできます"
+      button#address_form_btn.btn.btn-outline-primary.ml-2 type="button"
+        i.fas.fa-search
+    p.my-0.ml-2.pt-1.mark#map_introduction
+     i.fas.fa-mouse-pointer.mx-3
+     | クリックでマーカーを移動できます
 
 #map_customer
 

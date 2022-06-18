@@ -2,7 +2,7 @@
 // 会員の投稿一覧画面表示
 function initMapCustomer() {
   initilize().then(function(){
-    console.log("成功2");
+    console.log("初期化成功");
     // 地図の表示
     const map_customer = document.getElementById("map_customer");
     var map = mapping(map_customer);
@@ -48,21 +48,23 @@ function initMapCustomer() {
       if (gon.informations) {
         var infowindow = new google.maps.InfoWindow({});
         for (var i = 0; i < gon.informations.length; i++ ) {
-          var fragLatLng = new google.maps.LatLng({
+          var flagLatLng = new google.maps.LatLng({
             lat: parseFloat(gon.informations[i]['latitude']),
             lng: parseFloat(gon.informations[i]['longitude'])
           });
 
-          var frag = new google.maps.Marker({
-            position: fragLatLng,
+          var flag = new google.maps.Marker({
+            position: flagLatLng,
             map: map,
             icon: {
-              url: "/assets/frag.png",
+              url: "/assets/flag.png",
               scaledSize: new google.maps.Size( 40, 97 )
             }
           });
 
-          attachMessage(frag, gon.informations[i]['longitude']);
+          var flagString = `infoID: ${i+1}<br>${gon.informations[i]['name']}`
+
+          attachMessage(flag, flagString);
         }
       }
     });
@@ -137,7 +139,7 @@ function initilize() {
     var marker = null;
     var latlng = null;
     uluru = { lat: lat, lng: lng };
-    console.log("成功");
+    console.log("初期化成功");
     resolve();
   });
   return initilize

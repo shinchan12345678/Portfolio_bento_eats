@@ -31,12 +31,19 @@ function start_jquery() {
       $('#open_is_valid ').fadeOut(500,function(){$(this).fadeIn(500)});
     },3000);
 
-    $('tr[data-action]').click(function (e) {
-      if (!$(e.target).is('a')) {
-        window.location = $(e.target).data('action');
-      };
-  });
+    // 他の機能との兼ね合いで一時停止
+    // $('td[data-href]').click(function (e) {
+    //   if (!$(e.target).is('a')) {
+    //     window.location = $(e.target).data('action');
+    //   };
+    // });
 
+    var map_roots = $(".googlemap_root")
+    for (var i = 0; i < map_roots.length; i++ ) {
+      var url = map_roots.filter(`#map_id_${i}`).find("input")[0].value
+      var btn = map_roots.filter(`#map_id_${i}`).find(".info_icon")
+      opengooglemaps(url,btn)
+    }
   });
 }
 
@@ -72,6 +79,12 @@ function activePassive2(btn,activeElement,passiveElement) {
       passiveElement.addClass("passive");
       passiveElement.removeClass("active");
     }
+  })
+}
+
+function opengooglemaps(url,btn) {
+  btn.on("click", ()=> {
+    window.open(url);
   })
 }
 

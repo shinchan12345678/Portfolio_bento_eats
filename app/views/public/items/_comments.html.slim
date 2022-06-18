@@ -10,6 +10,9 @@
       tbody
         - comments.each do |comment|
           tr
+            td 
+              = comment.customer
+          
             td style="word-wrap:break-word;"
               = comment.text
             - if comment.customer == current_customer
