@@ -203,34 +203,34 @@
 }
 
 // フォント関係
-// @font-face {
-//     font-family:  "myFontgagagaga";
-//     src: url("/fonts/gagagaga.otf")
-// }
+@font-face {
+    font-family:  "myFontgagagaga";
+    src: font-url("/fonts/gagagaga.otf")
+}
 
-// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
-// * {
-//   font-family: 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-//   font-weight: bold;
-// }
+* {
+  font-family: 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-weight: bold;
+}
 
-// h1, h2, h3, h4, h5, .btn {
-//   font-family: "myFontgagagaga";
-// }
+h1, h2, h3, h4, h5, .btn {
+  font-family: "myFontgagagaga";
+}
 
-// .navbar {
-//   ul {
-//     .nav-item {
-//       span {
-//         font-family: "myFontgagagaga";
-//       }
-//     }
-//   }
-// }
+.navbar {
+  ul {
+    .nav-item {
+      span {
+        font-family: "myFontgagagaga";
+      }
+    }
+  }
+}
 
-// .footer {
-//   span {
-//     font-family: "myFontgagagaga";
-//   }
-// }
+.footer {
+  span {
+    font-family: "myFontgagagaga";
+  }
+}
