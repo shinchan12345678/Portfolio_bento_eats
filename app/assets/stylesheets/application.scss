@@ -205,7 +205,7 @@
 // フォント関係
 @font-face {
     font-family:  "myFontgagagaga";
-    src: font-url("/fonts/gagagaga.otf")
+    src: url("/assets/gagagaga.otf")
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
