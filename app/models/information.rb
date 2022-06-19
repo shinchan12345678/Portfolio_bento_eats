@@ -14,6 +14,8 @@ class Information < ApplicationRecord
 
   validates :open_date, presence: true
   validates :close_date, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
   validates :is_valid, presence: true
 
   # 掲載中:0,掲載終了:1
