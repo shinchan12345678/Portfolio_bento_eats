@@ -1,8 +1,8 @@
 class CreateFavorites < ActiveRecord::Migration[6.1]
   def change
     create_table :favorites do |t|
-      t.integer :customer_id
-      t.integer :item_id
+      t.integer :customer_id, null: false
+      t.integer :item_id, null: false
 
       t.timestamps
     end

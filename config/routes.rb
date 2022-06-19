@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "homes#top"
   # 管理者用
   devise_for :admins, skip: [:password, :registration], controllers: {
     sessions: "admin/sessions"
@@ -8,8 +9,6 @@ Rails.application.routes.draw do
     resources :owners, only: [:index, :destroy]
     resources :customers, only: [:index, :destroy]
   end
-
-  root to: "homes#top"
 
   # 飲食店オーナー用
   devise_for :owners, skip: [:password], controllers: {
