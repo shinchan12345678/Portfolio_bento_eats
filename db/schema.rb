@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 2022_06_16_014618) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "item_id"
-    t.text "text"
+    t.integer "customer_id", null: false
+    t.integer "item_id", null: false
+    t.text "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2022_06_16_014618) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "nickname"
+    t.string "nickname", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2022_06_16_014618) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "item_id"
+    t.integer "customer_id", null: false
+    t.integer "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id", "item_id"], name: "index_favorites_on_customer_id_and_item_id", unique: true
@@ -95,10 +95,10 @@ ActiveRecord::Schema.define(version: 2022_06_16_014618) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "owner_id"
-    t.string "name"
-    t.integer "price"
-    t.text "introduction"
+    t.integer "owner_id", null: false
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.text "introduction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -109,9 +109,9 @@ ActiveRecord::Schema.define(version: 2022_06_16_014618) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
-    t.string "address"
-    t.string "telphone_number"
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "telphone_number", null: false
     t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 2022_06_16_014618) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "owner_id"
+    t.integer "customer_id", null: false
+    t.integer "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id", "owner_id"], name: "index_relationships_on_customer_id_and_owner_id", unique: true

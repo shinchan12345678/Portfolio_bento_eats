@@ -5,10 +5,12 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
+  validates :owner_id, presence: true
   validates :name, presence: true
   validates :price, presence: true
   validates :introduction, presence: true
 
+  # デフォルト画像の保存
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/test_item.jpeg')
