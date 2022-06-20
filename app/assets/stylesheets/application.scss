@@ -1,7 +1,19 @@
-// @import "bootstrap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .container {
   min-height: 70vh;
+}
+
+#blank_box_customer_sign_up {
+  height: 17vh;
+}
+
+#blank_box {
+  height: 35vh;
 }
 
 .main-visual {
@@ -11,7 +23,7 @@
 }
 
 .top {
-  background-color: rgba(255, 255, 242, .6);
+  background-color: rgba(255, 255, 242, .4);
   height: 90vh;
 }
 
@@ -24,19 +36,27 @@
   }
 }
 
+.top_gate {
+  font-size: 19px;
+}
+
 #log_in {
   position: absolute;
   top: 15%;
   right: 7%;
   .card {
     width: 250px;
-    height: 150px;
+    height: 190px;
   }
   .row {
     width: 550px;
+    background-color: rgba(255, 255, 242, .2);
     p {
-      font-size: 30px;
-      color: rgb(222, 80, 57);
+      font-size: 35px;
+      color: rgb(255, 255, 242);
+      span {
+        background:linear-gradient(transparent 85%, #81B8AF 99%);
+      }
     }
   }
 }
@@ -157,7 +177,7 @@
 
 #info_submit {
   font-size: 30px;
-  border-bottom: solid 3px #cce4ff;
+  border-bottom: solid 3px #DE5039;
   position: relative;
 }
 

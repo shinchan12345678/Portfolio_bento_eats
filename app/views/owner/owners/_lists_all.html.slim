@@ -5,7 +5,9 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
         | オープン日
       th
         | クローズ日
-      th colspan = "2" style="width:30%;"
+      th style="width:35%;"
+        | コメント
+      th colspan = "2" style="width:25%;"
 
   tbody
     - informations.each do |information|
@@ -15,7 +17,9 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
             = information.open_date
           td
             = information.close_date
+          td style="width:35%;"
+            = information.comment
           td style="width:15%;"
             = link_to "ヘンシュウ", edit_owner_information_path(information), class: 'btn btn-secondary'
-          td style="width:15%;"
-            = link_to "サクジョ", owner_information_path(information), class: 'btn btn-danger', method: :delete
+          td style="width:10%;"
+            = link_to "サクジョ", owner_information_path(information), class: 'btn btn-danger', method: :delete, data: { confirm: "削除してもよろしいですか？" }

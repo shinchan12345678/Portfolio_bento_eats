@@ -32,6 +32,6 @@ class Owner::InformationsController < Owner::ApplicationController
   def information_params
     # 文字列として受け取ったデータを数値化
     params[:information][:is_valid] = params[:information][:is_valid].to_i
-    params.require(:information).permit(:open_date, :close_date, :latitude, :longitude, :is_valid)
+    params.require(:information).permit(:open_date, :close_date, :latitude, :longitude, :is_valid, :comment)
   end
 end

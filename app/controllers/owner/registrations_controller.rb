@@ -3,11 +3,15 @@
 class Owner::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :configure_permitted_parameters, only: [:create]
+  before_action :configure_permitted_parameters, only: [:create, :update]
 
   def after_sign_up_path_for(resource)
     owner_owners_path
   end
+
+    def after_update_path_for(resource)
+      owner_owners_path
+    end
 
   # GET /resource/sign_up
   # def new
@@ -20,14 +24,15 @@ class Owner::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @owner = current_owner
+    # super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
   # def destroy
@@ -68,6 +73,9 @@ class Owner::RegistrationsController < Devise::RegistrationsController
   private
 
   def configure_permitted_parameters
+    # 新規登録
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :address, :telphone_number, :introduction, :image])
+    # 情報更新
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :address, :telphone_number, :introduction, :image])
   end
 end

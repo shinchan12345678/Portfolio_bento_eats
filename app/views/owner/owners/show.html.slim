@@ -10,13 +10,14 @@
           p
             | #{current_owner.address}
           p
-            | aaaa#{current_owner.introduction}
+            | aaaa#{current_owner.introduction}z
           p
             | フォロワー<br>#{current_owner.customers.count}人
 
-        .remove_account_btn
-          = link_to owner_registration_path, method: :delete ,data: { confirm: '退会しますがよろしいですか？' }, class: "text-decoration-none color btn btn-outline-warning btn-block" do
-            | タイカイする
+        .edit_account_btn
+          = link_to edit_owner_registration_path, class: "text-decoration-none color btn btn-outline-secondary btn-block" do
+            i.fas.fa-user-cog
+
 
 
     .d-flex.mt-5

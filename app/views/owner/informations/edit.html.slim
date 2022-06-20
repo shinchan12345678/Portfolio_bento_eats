@@ -1,7 +1,7 @@
 .container
-  .row
-    .col-sm-12.card
-      .card-title#info_submit
+  .row.mt-5
+    .col-sm-12.card.p-4
+      .card-title#info_submit.text-danger
         | テイクアウト営業情報を編集してください
 
       = form_with model: @information, url: owner_information_path, method: :patch do |f|
@@ -9,8 +9,11 @@
           thead
             tr
               th 営業日
-              th 時間帯
-              th style = "width: 30%;" 
+              th
+                | コメント
+                span.mark
+                  | (営業時間など)
+              th style = "width: 30%;"
                 | 座標
                 span.mark
                   | (位置情報は編集できません。)
@@ -28,6 +31,7 @@
                 br
                 = f.date_field :close_date,class: "form-control"
               td
+                = f.text_area :comment, size: "8x6", class: "form-control"
               td
                 p
                   | 位置情報を変更する場合は削除して新しく投稿してください

@@ -6,26 +6,28 @@
 
         #log_in
           .row
-            .card.mr-5
+            .card.mr-5.border-primary
               .card-body.p-0
-                .card-header
-                 |ノーマル
+                .card-header.bg-primary.text-center.text-white.top_gate
+                 | お弁当検索はこちら<br>(通常利用)
 
-                .card-text
-                  = link_to 'ログイン', new_customer_session_path
-                  br
-                  = link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post
+                .card-text.px-3.text-center
+                  = link_to new_customer_session_path
+                    h5.my-2.py-2.border ログイン
+                  = link_to customers_guest_sign_in_path, method: :post
+                    h5.my-2.py-2.border  ゲストログイン
 
-            .card
+            .card.border-primary
               .card-body.p-0
-                .card-header
-                  | インショクテンオーナー
+                .card-header.bg-primary.text-center.text-white.top_gate
+                  | 飲食店オーナー様用<br>(情報掲載)
 
-                .card-text
-                  = link_to 'ログイン' , new_owner_session_path
-                  br
-                  = link_to 'ゲストログイン', owners_guest_sign_in_path, method: :post
-          .row.mt-5
-            p.mt-3
-              | 大好きなあの味、思い出の味を、ぜひテイクアウトで！<br>ぜひこの中から、
-                お店やテイクアウト情報をチェックしてみてください。
+                .card-text.px-3.text-center
+                  = link_to new_owner_session_path
+                    h5.my-2.py-2.border ログイン
+                  = link_to owners_guest_sign_in_path, method: :post
+                    h5.my-2.py-2.border  ゲストログイン
+          .row.mt-4
+            p.p-4
+              span
+                | 大好きなあの味をぜひテイク<br>アウトで！<br>このサイトで、お店やテイク<br>アウト情報をチェックしてみてください。

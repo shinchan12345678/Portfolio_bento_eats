@@ -13,10 +13,9 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
-import "packs/map.js" //GoogleMap表示スクリプト
+import "packs/map.js" //GoogleMapの地図設定
 import "packs/index.js" //イベントハンドル設定
 
-import "../stylesheets/mystyle.scss"  //GoogleMapの地図設定
 import "../stylesheets/custom_color.scss"  //Bootstrapのカラー変更
 
 Rails.start()
