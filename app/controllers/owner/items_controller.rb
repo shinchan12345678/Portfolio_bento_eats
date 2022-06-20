@@ -1,7 +1,11 @@
 class Owner::ItemsController < Owner::ApplicationController
   def show
-    @items = Item.all
-    @informations = Information.all
+    @item = Item.find(params[:id])
+    @comments = @item.comments.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -11,7 +15,7 @@ class Owner::ItemsController < Owner::ApplicationController
   def create
     item = current_owner.items.new(item_params)
     if item.save
-      redirect_to owner_items_path
+      redirect_to owner_item_path(item)
     else
     end
   end
@@ -21,8 +25,9 @@ class Owner::ItemsController < Owner::ApplicationController
   end
 
   def update
-    Item.find(params[:id]).update(item_params)
-    owners
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to owner_item_path(item)
   end
 
   def destroy

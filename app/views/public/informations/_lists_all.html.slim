@@ -3,7 +3,7 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
     tr
       th style="width: 7%;"
         | infoID
-      th colspan = "3"
+      th.text-center colspan = "2"
         | 飲食店情報
       th
         | 飲食店詳細
@@ -12,23 +12,23 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
       th
         | クローズ日
       th
+        | コメント
+      th
         | 出店位置情報
 
   tbody
     - informations.each_with_index do |information, i|
         tr
-          td.align-middle style="width: 7%;"
+          td.align-middle.text-center style="width: 7%;"
             = i+1
           td
-            = image_tag information.owner.get_image.variant(gravity: :center,resize: "100^",crop: "150x100+0+0").processed
-          td.text-break style="width: 25%;"
+            = image_tag information.owner.get_image.variant(gravity: :center,resize: "100^",crop: "120x100+0+0").processed
+          td.text-break.mx-5 style="width: 25%;"
             = information.owner.name
             br
             = information.owner.address
             br
             = information.owner.telphone_number
-          td.text-break
-            = truncate(information.owner.introduction, length: 200)
           td.text-break.align-middle id = "shop_tr_link" data-href = "#{owner_path(information.owner)}"
             = link_to owner_path(information.owner) do
               i.fas.fa-store.text-primary.info_icon
@@ -36,6 +36,8 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
             = information.open_date
           td.align-middle
             = information.close_date
+          td.text-break
+            = information.comment
           td.align-middle
             .googlemap_root.btn id = "map_id_#{i}"
               input type = "hidden" value = "https://www.google.com/maps/search/?api=1&query=#{information.latitude.to_f},#{information.longitude.to_f}"

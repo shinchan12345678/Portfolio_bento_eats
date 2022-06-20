@@ -9,7 +9,9 @@
         p
           | #{@item.price}
         p
-          | aaaa#{@item.introduction}
+          | #{@item.introduction}
+        p
+          = link_to @item.owner.name, owner_path(@item.owner)
 
       .favorites-btn.mt-auto
         == render "public/items/favorite_btn", item: @item

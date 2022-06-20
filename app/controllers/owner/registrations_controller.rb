@@ -4,14 +4,15 @@ class Owner::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :configure_permitted_parameters, only: [:create, :update]
+  before_action :confirm_customer_log_in
 
   def after_sign_up_path_for(resource)
     owner_owners_path
   end
 
-    def after_update_path_for(resource)
-      owner_owners_path
-    end
+  def after_update_path_for(resource)
+    owner_owners_path
+  end
 
   # GET /resource/sign_up
   # def new

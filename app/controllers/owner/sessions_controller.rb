@@ -2,6 +2,8 @@
 
 class Owner::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :confirm_customer_log_in
+
   def after_sign_in_path_for(resource)
     owner_owners_path
   end

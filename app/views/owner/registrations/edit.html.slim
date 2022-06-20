@@ -40,7 +40,7 @@
           = f.label :password_confirmation,"Repeat new password"
           br
           = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
-        .field.text-warning.mt-4
+        .field.text-dark.mt-4
           = f.label :current_password, "現在のパスワード"
           br
           = f.password_field :current_password, autocomplete: "current-password", class: 'form-control'
@@ -52,4 +52,3 @@
       .remove_account_btn.p-2
         = link_to owner_registration_path, method: :delete ,data: { confirm: '退会しますがよろしいですか？' }, class: "text-decoration-none color btn btn-outline-warning btn-block" do
           | タイカイする
-

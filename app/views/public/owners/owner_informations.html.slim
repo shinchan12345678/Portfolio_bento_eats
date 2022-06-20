@@ -17,6 +17,8 @@
             th
               | クローズ日
             th
+              | コメント
+            th
               | 出店位置情報
 
 
@@ -27,6 +29,8 @@
                   = information.open_date
                 td.align-middle
                   = information.close_date
+                td.align-middle.text-left
+                  = information.comment
                 td.align-middle
                   .googlemap_root.btn id = "map_id_#{i}"
                     input type = "hidden" value = "https://www.google.com/maps/search/?api=1&query=#{information.latitude.to_f},#{information.longitude.to_f}"

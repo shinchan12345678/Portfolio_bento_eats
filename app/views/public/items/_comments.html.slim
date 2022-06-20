@@ -1,8 +1,9 @@
 .row
-  .col-sm-4.comment_form.form-group.ml-3
-    = form_with model: Comment.new(), url: comments_path(item_id: @item), method: :post, local: false do |f|
-      = f.text_area :text, placeholder: "感想を記入してください",class: "form-control d-block"
-      = f.submit 'コメントする',class: "btn btn-primary mt-2 d-flex ml-auto"
+  - if current_customer
+    .col-sm-4.comment_form.form-group.ml-3
+      = form_with model: Comment.new(), url: comments_path(item_id: @item), method: :post, local: false do |f|
+        = f.text_area :text, placeholder: "感想を記入してください",class: "form-control d-block"
+        = f.submit 'コメントする',class: "btn btn-primary mt-2 d-flex ml-auto"
 
   .col-sm-7.ml-auto
     table.table.table-hover style="table-layout:fixed;width:100%;"

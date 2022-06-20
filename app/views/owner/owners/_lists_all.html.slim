@@ -2,6 +2,8 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
   thead
     tr
       th
+        | 掲載状況
+      th
         | オープン日
       th
         | クローズ日
@@ -13,6 +15,14 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
     - informations.each do |information|
       = link_to owner_path(information.owner) do
         tr
+          td
+            - if information.is_valid == "end_posting"
+              span.text-dark
+                = Information.is_valids_i18n[information.is_valid]
+            - else
+              span.text-success
+                = Information.is_valids_i18n[information.is_valid]
+
           td
             = information.open_date
           td

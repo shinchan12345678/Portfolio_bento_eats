@@ -1,0 +1,20 @@
+.container.px-0
+  .row
+    .col-sm-5.px-0
+      = image_tag @item.get_image.variant(gravity: :center,resize: "300^",crop: "400x300+0+0")
+    .col-sm-6.offset-sm-1.d-flex.flex-column.justify-content-between
+      .shop_introduction
+        h1
+          = @item.name
+        p
+          | #{@item.price}
+        p
+          | aaaa#{@item.introduction}
+
+  h2.pl-5.mt-5.mb-3.d-inline-block.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+    | コメント
+  .row
+    .col-sm-12.px-0.comment_index
+      == render "public/items/comments", comments: @comments
+    .col-sm-12.comment_pagenation
+      = paginate @comments, remote: true
