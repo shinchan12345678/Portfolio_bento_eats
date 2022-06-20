@@ -1,23 +1,40 @@
 .container.px-0
-  .row
-    .col-sm-5.px-0
-      = image_tag @owner.get_image.variant(gravity: :center,resize: "300^",crop: "400x300+0+0")
-    .col-sm-6.offset-sm-1.d-flex.flex-column.justify-content-between
-      .shop_introduction
-        h1
-          = @owner.name
-        p
-          | #{@owner.address}
-        p
-          | aaaa#{@owner.introduction}
-        p
-          | フォロワー<br>#{@owner.customers.count}人
+  .row.flex-column
+    .row.bg-light.py-5.rounded
+      .col-sm-5.mx-auto.text-center.align-middle
+        = image_tag @owner.get_image.variant(gravity: :center,resize: "300^",crop: "400x300+0+0"), class: "mt-4"
+      .col-sm-5.mx-auto.d-flex.flex-column.justify-content-between
+        .shop_introduction
+          p#shop_item_name.text-center
+            = @owner.name
+          table.table
+            tbody
+              tr
+                th style="width: 30%;"
+                  | 住所
+                td
+                  | #{@owner.address}
+              tr
+                th style="width: 30%;"
+                  | 電話番号
+                td
+                  | #{@owner.telphone_number}
+              tr
+                th style="width: 30%;"
+                  | 紹介文
+                td
+                  | #{@owner.introduction}
+              tr
+                th style="width: 30%;"
+                  | フォロワー
+                td
+                  | #{@owner.customers.count}人
 
-      .infomations_all
-        = link_to 'テイクアウトエイギョウビ',owner_informations_owner_path(@owner),class: "btn btn-secondary btn-block mt-auto", method: :get
+        .infomations_all
+          = link_to 'テイクアウトエイギョウビ',owner_informations_owner_path(@owner),class: "btn btn-secondary btn-block my-0", method: :get
 
-      .following-btn.mt-auto
-        == render "public/owners/following_btn", owner: @owner
+        .following-btn.mt-
+          == render "public/owners/following_btn", owner: @owner
 
   .row.mt-5
     h2.pl-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger

@@ -16,6 +16,7 @@ import '@fortawesome/fontawesome-free/js/all'
 import "packs/map.js" //GoogleMapの地図設定
 import "packs/index.js" //イベントハンドル設定
 
+import "../stylesheets/mystyle.scss"  //Bootstrapのカラー変更
 import "../stylesheets/custom_color.scss"  //Bootstrapのカラー変更
 
 Rails.start()

@@ -22,7 +22,7 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
           td.align-middle.text-center style="width: 7%;"
             = i+1
           td
-            = image_tag information.owner.get_image.variant(gravity: :center,resize: "100^",crop: "120x100+0+0").processed
+            = image_tag information.owner.get_image.variant(gravity: :center,resize: "100^",crop: "120x100+0+0").processed, class: "rounded-pill"
           td.text-break.mx-5 style="width: 25%;"
             = information.owner.name
             br
