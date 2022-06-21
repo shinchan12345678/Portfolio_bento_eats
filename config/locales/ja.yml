@@ -13,6 +13,29 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  # モデル別の日本語訳の追加
+    attributes:
+      customer:
+        nickname: ニックネーム
+      owner:
+        name: 飲食店名
+        address: 住所
+        telphone_number: 電話番号
+        introduction: 紹介文
+        image: お店のイメージ
+      item:
+        name: 商品名
+        price: 値段
+        introduction: 商品説明
+        image: 弁当のイメージ
+      information:
+        open_date: 営業開始日
+        close_date: 営業終了日
+        comment: コメント
+        longitude: 緯度
+        latitude: 経度
+        is_valid: 掲載状態
+
   date:
     abbr_day_names:
     - 日
