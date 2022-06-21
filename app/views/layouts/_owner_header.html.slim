@@ -16,7 +16,7 @@
       span id = "nav_1"
         | ショウヒン<br>トーロク
 
-    = link_to new_owner_information_path, class: "nav-item text-center p-3 mx-2" do
+    = link_to new_owner_information_path, data: {"turbolinks"=>false}, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-map-marked-alt.icon.mb-1
       br
       span id = "nav_2"

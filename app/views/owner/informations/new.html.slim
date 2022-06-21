@@ -1,3 +1,4 @@
+== render "layouts/error_messages", object: @information
 .container
   .row
     .col-sm-12.card.p-4.mt-5
@@ -80,4 +81,4 @@
         p.my-2.ml-auto.pt-1.mark#map_introduction
           i.fas.fa-mouse-pointer.mx-3
           | クリックでマーカーを移動できます
-<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMapOwner&v=weekly" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&libraries=places&callback=initMapOwner&v=weekly" defer></script>

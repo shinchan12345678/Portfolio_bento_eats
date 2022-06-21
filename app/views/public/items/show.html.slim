@@ -1,3 +1,4 @@
+== render 'layouts/error_messages', object: @comment
 .container.px-0
   .row.bg-light.py-5.rounded
     .col-sm-5.px-0.mx-auto.text-center.align-middle
@@ -31,6 +32,6 @@
     | コメント
   .row
     .col-sm-12.px-0.comment_index
-      == render "public/items/comments", comments: @comments
-    .col-sm-12.comment_pagenation
+      == render "public/items/comments", { comments: @comments }
+    .col-sm-8.ml-auto.comment_pagenation
       = paginate @comments, remote: true

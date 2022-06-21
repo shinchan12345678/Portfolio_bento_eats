@@ -1,0 +1,5 @@
+.flash_message.mx-auto.text-center
+  - if object.errors.any?
+    - object.errors.full_messages.each do |message|
+      p.alert.alert-warning
+        = message

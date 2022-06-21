@@ -1,7 +1,7 @@
 .row
   - if current_customer
     .col-sm-4.comment_form.form-group.ml-3
-      = form_with model: Comment.new(), url: comments_path(item_id: @item), method: :post, local: false do |f|
+      = form_with model: Comment.new, url: comments_path(item_id: @item), method: :post, local: false do |f|
         = f.text_area :text, placeholder: "感想を記入してください",class: "form-control d-block"
         = f.submit 'コメントする',class: "btn btn-primary mt-2 d-flex ml-auto"
 
@@ -17,6 +17,6 @@
               = comment.text
             - if comment.customer == current_customer
               td style="width:10%;"
-                = link_to '削除', comment_path(comment), method: :delete
+                = link_to '削除', comment_path(comment), method: :delete, remote: true, data: { confirm: "削除してもよろしいですか？" }
             - else
               td style="width:10%;"

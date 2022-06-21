@@ -6,9 +6,13 @@ class Owner::InformationsController < Owner::ApplicationController
   end
 
   def create
-    information = current_owner.informations.new(information_params)
-    if information.save
-      redirect_to owner_owners_path
+    @information = current_owner.informations.new(information_params)
+    if @information.save
+      redirect_to owner_owners_path, notice: "情報を投稿しました"
+    else
+      gon.latitude = 35.4577205 # 岐阜の緯度
+      gon.longitude = 136.793811 # 岐阜の経度
+      render :new
     end
   end
 
@@ -17,14 +21,17 @@ class Owner::InformationsController < Owner::ApplicationController
   end
 
   def update
-    information = Information.find(params[:id])
-    information.update(information_params)
-    redirect_to owner_owners_path
+    @information = Information.find(params[:id])
+    if @information.update(information_params)
+      redirect_to owner_owners_path, notice: "情報を更新しました"
+    else
+      render :edit
+    end
   end
 
   def destroy
     Information.find(params[:id]).destroy
-    redirect_to owner_owners_path
+    redirect_to owner_owners_path, notice: "情報を削除しました"
   end
 
   private

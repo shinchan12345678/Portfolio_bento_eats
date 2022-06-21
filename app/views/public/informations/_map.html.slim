@@ -20,7 +20,7 @@
 
   .col-sm-3
     .row.mb-1
-      input#address_form.ml-4 type="text" placeholder="住所検索もできます"
+      input#address_form.ml-4 type="text" placeholder="住所で検索"
       button#address_form_btn.btn.btn-outline-primary.ml-2 type="button"
         i.fas.fa-search
     p.my-0.ml-2.pt-1.mark#map_introduction
@@ -29,4 +29,4 @@
 
 #map_customer
 
-<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMapCustomer&v=weekly" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&libraries=places&callback=initMapCustomer&v=weekly" defer></script>

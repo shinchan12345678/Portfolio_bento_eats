@@ -21,6 +21,7 @@ class Public::InformationsController < Public::ApplicationController
     gon.informations = @informations
     gon.latitude = info_params[:hidden_lat].to_f
     gon.longitude = info_params[:hidden_lng].to_f
+    flash.now[:notice] = "情報を検索しました。スクロールして確認しましょう！"
   end
 
   def info_params

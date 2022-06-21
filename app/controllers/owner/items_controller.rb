@@ -13,10 +13,11 @@ class Owner::ItemsController < Owner::ApplicationController
   end
 
   def create
-    item = current_owner.items.new(item_params)
-    if item.save
-      redirect_to owner_item_path(item)
+    @item = current_owner.items.new(item_params)
+    if @item.save
+      redirect_to owner_item_path(@item), notice: "商品を登録しました"
     else
+      render :new
     end
   end
 
@@ -25,14 +26,18 @@ class Owner::ItemsController < Owner::ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to owner_item_path(item)
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to owner_item_path(@item)
+    else
+      render :edit
+    end
   end
 
   def destroy
     Item.find(params[:id]).destroy
     @items = current_owner.items
+    flash[:notice] = "商品を削除しました"
   end
 
   private
