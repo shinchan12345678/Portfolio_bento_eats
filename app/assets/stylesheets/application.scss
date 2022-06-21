@@ -89,6 +89,10 @@
   background-color: rgba(222, 80, 57, .95);
 }
 
+.flash_message {
+  width: 80%;
+}
+
 .footer {
   background-color: rgba(222, 80, 57, .95);
   height: 10vh;
@@ -124,12 +128,12 @@
   cursor: pointer;
 }
 
-.active {
-  display: block;
-}
-.passive {
-  display: none;
-}
+// .active {
+//   display: block;
+// }
+// .passive {
+//   display: none;
+// }
 
 // 飲食店・商品表示用のカード
 .object_card {
@@ -199,6 +203,10 @@
   &:hover {
     transform: translateY(-5px);
   }
+}
+
+#shop_item_name {
+  font-size: 50px;
 }
 
 // 飲食店一覧画面の営業中フラグ

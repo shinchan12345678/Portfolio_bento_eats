@@ -1,4 +1,4 @@
-.card
+.card.mb-2
   = image_tag object.get_image.variant(gravity: :center,resize: "250^",crop:"380x250+0+0").processed ,class: "card-img-top"
   .card-body
     - if object.kind_of?(Owner)
@@ -15,3 +15,4 @@
       - if object.kind_of?(Item)
         li.list-group-item
           = object.price
+          | 円

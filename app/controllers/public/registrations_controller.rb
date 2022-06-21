@@ -4,6 +4,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :configure_permitted_parameters, only: [:create]
+  before_action :confirm_owner_log_in
 
   def after_sign_up_path_for(resource)
     informations_path

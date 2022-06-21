@@ -66,6 +66,7 @@ end
 gem 'slim-rails'
 gem 'html2slim'
 gem 'devise'
+gem 'devise-i18n'
 gem 'kaminari'
 gem 'enum_help'
 gem 'gon'

@@ -1,0 +1,8 @@
+.flash_message.mx-auto.text-center
+  - flash.each do |key, value|
+    - if key == "alert"
+      p.alert.alert-warning
+        = value
+    - else
+      p.alert.alert-success
+        = value

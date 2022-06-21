@@ -1,25 +1,25 @@
+== render "layouts/error_messages", object: @item
 .container
   .row.justify-content-center.mt-5
-    .col-sm-8.card.bg-secondary.text-white.mt-5
-      .card-header
-        = form_with model: @item, url: owner_item_path, method: :patch do |f|
-          = f.label :name, '商品名'
-          br
-          = f.text_field :name
-          br
-          = f.label :price, '価格'
-          br
-          = f.number_field :price
-          br
-          = f.label :introduction, '商品紹介'
-          br
-          = f.text_area :introduction
-          br
-          = f.label :image, '商品イメージ'
-          br
-          .object_card
-            = image_tag @item.get_image.variant(gravity: :center,resize: "250^",crop:"380x250+0+0").processed ,class: "card-img-top"
-          br
-          = f.file_field :image
-          br
-          = f.submit 'ホゾンする'
+    .col-sm-6.card.mt-5.p-4
+      .card-title#info_submit.text-danger
+        | 商品情報を編集してください
+
+      = form_with model: @item, url: owner_item_path, method: :patch do |f|
+        = f.label :name, '商品名'
+        br
+        = f.text_field :name, class: "form-control"
+        br
+        = f.label :price, '価格'
+        br
+        = f.number_field :price, class: "form-control"
+        br
+        = f.label :introduction, '商品紹介'
+        br
+        = f.text_area :introduction, class: "form-control"
+        br
+        = image_tag @item.get_image.variant(gravity: :center,resize: "250^",crop:"380x250+0+0").processed
+        br
+        = f.file_field :image, class: 'form-control-file mt-2'
+        br
+        = f.submit 'ホゾンする', class: 'd-block ml-auto btn btn-primary my-2'

@@ -178,9 +178,17 @@ function positionGet(position_get_btn) {
 
 // 位置の検索機能を実装する関数
 function positionSearch(position_search_btn) {
+  const options = {
+    componentRestrictions: { country: "jp" },
+    fields: ["name"],
+    strictBounds: false,
+    types: ["establishment"],
+  };
+  var input = document.getElementById('address_form')
+  const searchBox = new google.maps.places.SearchBox(input);
   var geocoder = new google.maps.Geocoder();
   position_search_btn.addEventListener("click",  function () {
-    var address = document.getElementById('address_form').value;
+    var address = input.value;
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == 'OK') {
         updateMarker(results[0].geometry.location);

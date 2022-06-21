@@ -1,8 +1,8 @@
+== render 'layouts/error_messages', object: @customer
 .container.px-0
   .row.flex-column
     #customer_information.col-sm-12.d-flex.flex-row-reverse.my-3
-      - if current_customer.nickname != "Guest"
-        == render "public/customers/form"
+      == render "public/customers/form"
 
     .d-flex
       h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger#customer_owners_btn

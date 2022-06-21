@@ -1,16 +1,17 @@
 class Public::CommentsController < Public::ApplicationController
   def create
     @item = Item.find(params[:item_id])
-    current_customer.review_comment(@item, comment_params[:text])
-    @comments = @item.comments.page params[:page]
-    respond_to do |format|
-      format.html
-      format.js
+    @comment = current_customer.review_comment(@item, comment_params[:text])
+    if @comment.save
+      redirect_to item_path(@item), notice: "コメントしました"
+    else
+      redirect_to item_path(@item), alert: "0~255字以内で入力してください"
     end
   end
 
   def destroy
     comment = Comment.find(params[:id])
+    @item = comment.item
     current_customer.remove_comment(comment)
     @comments = @item.comments.page params[:page]
     respond_to do |format|

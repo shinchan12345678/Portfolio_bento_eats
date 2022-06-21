@@ -3,15 +3,15 @@
   .card-text.p-2.passive
       span.text-secondary ニックネーム
       br
-      h5 #{current_customer.nickname}
+      p #{current_customer.nickname}
       span.text-secondary email
       br
-      h5 #{current_customer.email}
-      .text-right
+      p #{current_customer.email}
+      .d-flex.flex-row-reverse
+        .ml-2
+          = link_to "タイカイする", customer_registration_path, method: :delete ,data: { confirm: '退会しますがよろしいですか？' }, class: "text-decoration-none text-white btn btn-danger"
         .btn.btn-secondary.edit_button
           | ヘンシュウする
-        .btn.btn-danger.ml-2.
-          = link_to "タイカイする", customer_registration_path, method: :delete ,data: { confirm: '退会しますがよろしいですか？' }, class: "text-decoration-none color text-white"
 
 #my_profile_edit.col-sm-5.px-0.card.passive
   h5.card-header トウロクジョーホー
@@ -19,11 +19,11 @@
       = form_with model: current_customer,url:customer_path, method: :patch, local: false do |f|
         = f.label :nickname, "ニックネーム",class: "text-secondary"
         br
-        = f.text_field :nickname
+        = f.text_field :nickname, class: "form-control"
         br
         = f.label :email, class: "text-secondary"
         br
-        = f.text_field :email
+        = f.text_field :email, class: "form-control"
         br
         .text-right
           = f.submit "ホゾンする",class: "btn btn-secondary"

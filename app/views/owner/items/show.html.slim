@@ -1,0 +1,28 @@
+.container.px-0
+  .row.bg-light.py-5.rounded
+    .col-sm-5.px-0.mx-auto.text-center.align-middle
+      = image_tag @item.get_image.variant(gravity: :center,resize: "300^",crop: "400x300+0+0")
+    .col-sm-5.mx-auto.d-flex.flex-column.justify-content-between
+      .shop_introduction
+        p#shop_item_name.text-center
+          = @item.name
+        table.table
+          tbody
+            tr
+              th style="width: 30%;"
+                | 金額（税込）
+              td
+                | #{@item.price}円
+            tr
+              th style="width: 30%;"
+                | 紹介文
+              td
+                | #{@item.introduction}
+
+  h2.pl-5.mt-5.mb-3.d-inline-block.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+    | コメント
+  .row
+    .col-sm-12.px-0.comment_index
+      == render "public/items/comments", comments: @comments
+    .col-sm-12.comment_pagenation
+      = paginate @comments, remote: true

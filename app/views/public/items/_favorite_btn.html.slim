@@ -1,9 +1,9 @@
   - unless current_customer.mark_favorite?(item)
     = link_to favorites_path(item_id: item.id), method: :post, remote: true do
-      i.fas.fa-thumbs-up.info_icon.text-danger
+      i.far.fa-thumbs-up.info_icon.text-danger
       /いいね
 
   - else
     = link_to favorites_path(item_id: item.id), method: :delete, remote: true do
-      i.far.fa-thumbs-up.info_icon.text-danger
+      i.fas.fa-thumbs-up.info_icon.text-danger
       /いいねやめる

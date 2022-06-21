@@ -56,7 +56,7 @@ class Customer < ApplicationRecord
 
   # 商品にコメントする
   def review_comment(item, comment_text)
-    comments.create(item_id: item.id, text: comment_text)
+    comments.build(item_id: item.id, text: comment_text)
   end
 
   # 商品のコメントを削除する
