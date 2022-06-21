@@ -1,7 +1,7 @@
 .container
   .row.justify-content-center
     h2
-      | Log in
+      | Log in_
 
       = form_with(model: @admin, url: admin_session_path, method: :post, local: true, class: 'needs-validation form_group', html: {novalidate: true}) do |f|
         .field
