@@ -1,4 +1,5 @@
 require 'rails_helper'
+# rubocop:disable all
 describe 'テイクアウト情報投稿機能',type: :system do
   let(:owner_a) { FactoryBot.create(:owner, name: 'test_a') }
   let(:owner_b) { FactoryBot.create(:owner, name: 'test_b', email: 'testb@com') }
@@ -58,3 +59,4 @@ describe 'テイクアウト情報投稿機能',type: :system do
     end
   end
 end
+# rubocop:enable all

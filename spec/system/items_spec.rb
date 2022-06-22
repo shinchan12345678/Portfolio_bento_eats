@@ -3,9 +3,12 @@ require 'rails_helper'
 
 describe '商品登録機能', type: :system do
   describe '一覧表示機能' do
-    before do
-      owner_a = FactoryBot.create(:owner)
-      item_a = FactoryBot.create(:item, owner: owner_a)
+      let(:owner_a) { FactoryBot.create(:owner) }
+      let(:item_a) { FactoryBot.create(:item, owner: owner_a) }
+
+    shared_examples_for 'オーナーが登録した商品が表示される' do
+      it { expect(page).to have_content '200円' }
+      it { expect(page).to have_content '幕内弁当' }
     end
 
     context 'オーナーAがログインしているとき' do
@@ -16,14 +19,7 @@ describe '商品登録機能', type: :system do
         click_button 'Log in'
       end
 
-      it 'ヘッダーリンクの確認' do
-
-      end
-
-      it 'オーナーが登録した商品が表示される' do
-        expect(page).to have_content '200円'
-        expect(page).to have_content '幕内弁当'
-      end
+      it_behaves_like 'オーナーが登録した商品が表示される' do
 
       context '商品登録画面のテスト' do
         before do
@@ -67,12 +63,24 @@ describe '商品登録機能', type: :system do
 
       context '会員でログインしているとき' do
         before do
-          viset item_path(Item.last)
+          viset item_path(item_a)
         end
 
-        it '投稿が表示される' do
+        it_behaves_like 'オーナーが登録した商品が表示される'
 
+        context '飲食店の詳細画面確認'
+          before do
+            binding.pry
+            show_link = find_all('a')[4]
+            show_link.click
+          end
+
+          it '登録された商品が表示されている' do
+            expect(page).to have_content item_a.name
+          end
         end
+
+
       end
     end
   end
