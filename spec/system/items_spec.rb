@@ -19,7 +19,7 @@ describe '商品登録機能', type: :system do
         click_button 'Log in'
       end
 
-      it_behaves_like 'オーナーが登録した商品が表示される' do
+      it_behaves_like 'オーナーが登録した商品が表示される' 
 
       context '商品登録画面のテスト' do
         before do
@@ -48,7 +48,6 @@ describe '商品登録機能', type: :system do
 
     context 'オーナーBがログインしているとき' do
       before do
-        find_all('a')[3].click
         owner_b = FactoryBot.create(:owner, name: 'test2', email: 'test2@com')
         visit owner_session_path
         fill_in 'Email', with: 'test2@com'
@@ -65,7 +64,6 @@ describe '商品登録機能', type: :system do
     context '一覧表示機能(会員側)' do
       before do
         FactoryBot.create(:customer)
-        find_all('a')[3].click
         visit customer_session_path
         fill_in 'Email', with: 'test@com'
         fill_in 'Password', with: 'password'
@@ -79,7 +77,7 @@ describe '商品登録機能', type: :system do
 
         it_behaves_like 'オーナーが登録した商品が表示される'
 
-        context '飲食店の詳細画面確認'
+        context '飲食店の詳細画面確認' do
           before do
             show_link = find_all('a')[4]
             show_link.click

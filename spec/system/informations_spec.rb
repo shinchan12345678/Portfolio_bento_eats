@@ -4,6 +4,17 @@ describe 'テイクアウト情報投稿機能',type: :system do
   let(:owner_a) { FactoryBot.create(:owner, name: 'test_a') }
   let(:owner_b) { FactoryBot.create(:owner, name: 'test_b', email: 'testb@com') }
 
+  shared_examples_for '投稿が削除されている' do
+    it {
+      within '.alert-success' do
+        expect(page).to have_content '情報を削除しました'
+      end
+      within '.table.table-hover' do
+        expect(page).not_to have_content '掲載中'
+      end
+    }
+  end
+
   describe '一覧表示機能(オーナー)' do
     before do
       FactoryBot.create(:information, owner: owner_a)
@@ -56,14 +67,7 @@ describe 'テイクアウト情報投稿機能',type: :system do
         end
       end
 
-      it '投稿が削除されている' do
-        within '.alert-success' do
-          expect(page).to have_content '情報を削除しました'
-        end
-        within '.table.table-hover' do
-          expect(page).not_to have_content '掲載中'
-        end
-      end
+      it_behaves_like '投稿が削除されている'
     end
 
     context '投稿の編集' do
@@ -117,6 +121,32 @@ describe 'テイクアウト情報投稿機能',type: :system do
         expect(page).to have_content 'ヒットジョーホー'
         expect(page).to have_content owner_a.name
         expect(page).to have_content owner_b.name
+      end
+    end
+
+    context 'オーナーが情報を削除すると表示されなくなる' do
+      before do
+        visit owner_session_path
+        fill_in 'Email', with: 'test2@com'
+        fill_in 'Password', with: 'password'
+        click_button 'Log in'
+        within '.table.table-hover' do
+          find_all('a')[2].click
+        end
+      end
+
+      it_behaves_like '投稿が削除されている'
+
+      context '会員側で、ログインすると' do
+        before do
+          visit customer_session_path
+          fill_in 'Email', with: 'test@com'
+          fill_in 'Password', with: 'password'
+          click_button 'Log in'
+        end
+
+        it 'オーナーBの投稿のみ削除される' do
+        end
       end
     end
   end
