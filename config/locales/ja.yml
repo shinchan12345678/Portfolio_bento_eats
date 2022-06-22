@@ -26,7 +26,7 @@ ja:
       item:
         name: 商品名
         price: 値段
-        introduction: 商品説明
+        introduction: 商品紹介
         image: 弁当のイメージ
       information:
         open_date: 営業開始日

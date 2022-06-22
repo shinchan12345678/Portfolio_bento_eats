@@ -12,10 +12,10 @@ class Public::CustomersController < Public::ApplicationController
   def update
     @customer = current_customer
     @owners = current_customer.owners.page params[:page]
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
     @items = current_customer.items
     if @customer.update(customer_params)
       redirect_to customer_path, notice: "編集に成功しました"

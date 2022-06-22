@@ -11,7 +11,7 @@ class Owner::SessionsController < Devise::SessionsController
   def guest_sign_in
     owner = Owner.guest
     sign_in owner
-    redirect_to owner_owners_path, notice: "ゲストオーナーでログインしました"
+    redirect_to owner_owners_path, notice: "ゲストオーナーとしてログインしました"
   end
   # GET /resource/sign_in
   # def new
