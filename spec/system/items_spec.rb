@@ -3,8 +3,8 @@ require 'rails_helper'
 
 describe '商品登録機能', type: :system do
   describe '一覧表示機能' do
-      let(:owner_a) { FactoryBot.create(:owner) }
-      let(:item_a) { FactoryBot.create(:item, owner: owner_a) }
+    let!(:owner_a) { FactoryBot.create(:owner) }
+    let!(:item_a) { FactoryBot.create(:item, owner: owner_a) }
 
     shared_examples_for 'オーナーが登録した商品が表示される' do
       it { expect(page).to have_content '200円' }
@@ -26,20 +26,29 @@ describe '商品登録機能', type: :system do
           show_link = find_all('a')[1]
           show_link.click
           fill_in '商品名', with: '幕内弁当2'
-          fill_in '値段', with: 300
           fill_in '商品紹介', with: Faker::Lorem.sentence
-          click_button 'トーロクする'
+          attach_file 'item_image', "app/assets/images/test_item.jpeg"
         end
 
         it '商品が登録されている' do
+          fill_in '値段', with: 300
+          click_button 'トーロクする'
           expect(page).to have_content '300円'
           expect(page).to have_content '幕内弁当2'
+        end
+
+        it '商品が登録されない' do
+          click_button 'トーロクする'
+          within '.alert' do
+            expect(page).to have_content '値段 が入力されていません。'
+          end
         end
       end
     end
 
     context 'オーナーBがログインしているとき' do
       before do
+        find_all('a')[3].click
         owner_b = FactoryBot.create(:owner, name: 'test2', email: 'test2@com')
         visit owner_session_path
         fill_in 'Email', with: 'test2@com'
@@ -55,6 +64,8 @@ describe '商品登録機能', type: :system do
 
     context '一覧表示機能(会員側)' do
       before do
+        FactoryBot.create(:customer)
+        find_all('a')[3].click
         visit customer_session_path
         fill_in 'Email', with: 'test@com'
         fill_in 'Password', with: 'password'
@@ -63,14 +74,13 @@ describe '商品登録機能', type: :system do
 
       context '会員でログインしているとき' do
         before do
-          viset item_path(item_a)
+          visit item_path(item_a)
         end
 
         it_behaves_like 'オーナーが登録した商品が表示される'
 
         context '飲食店の詳細画面確認'
           before do
-            binding.pry
             show_link = find_all('a')[4]
             show_link.click
           end
@@ -79,8 +89,6 @@ describe '商品登録機能', type: :system do
             expect(page).to have_content item_a.name
           end
         end
-
-
       end
     end
   end
