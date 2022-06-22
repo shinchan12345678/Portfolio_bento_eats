@@ -36,6 +36,53 @@ describe 'テイクアウト情報投稿機能',type: :system do
             expect(page).to have_content '情報を投稿しました'
           end
         end
+
+        it '投稿失敗' do
+          find_all('button')[0].click
+          within '.alert-warning' do
+            expect(page).to have_content '緯度 が入力されていません。'
+          end
+        end
+      end
+    end
+
+
+    context '投稿の削除' do
+      let(:login_owner) { owner_a }
+
+      before do
+        within '.table.table-hover' do
+          find_all('a')[2].click
+        end
+      end
+
+      it '投稿が削除されている' do
+        within '.alert-success' do
+          expect(page).to have_content '情報を削除しました'
+        end
+        within '.table.table-hover' do
+          expect(page).not_to have_content '掲載中'
+        end
+      end
+    end
+
+    context '投稿の編集' do
+      let(:login_owner) { owner_a }
+
+      before do
+        within '.table.table-hover' do
+          find_all('a')[1].click
+        end
+      end
+
+      it '投稿の編集成功' do
+        fill_in 'information_comment', with: '営業時間の変更'
+        choose('information_is_valid_1')
+        find_all('button')[0].click
+        within '.table.table-hover' do
+          expect(page).to have_content '掲載終了'
+          expect(page).to have_content '営業時間の変更'
+        end
       end
     end
 
@@ -46,7 +93,6 @@ describe 'テイクアウト情報投稿機能',type: :system do
         expect(page).not_to have_content '営業は9時から'
       end
     end
-
   end
 
   describe '一覧表示機能(会員側)' do
