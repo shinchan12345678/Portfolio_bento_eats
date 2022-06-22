@@ -19,7 +19,7 @@ describe '商品登録機能', type: :system do
         click_button 'Log in'
       end
 
-      it_behaves_like 'オーナーが登録した商品が表示される' 
+      it_behaves_like 'オーナーが登録した商品が表示される'
 
       context '商品登録画面のテスト' do
         before do
@@ -37,10 +37,35 @@ describe '商品登録機能', type: :system do
           expect(page).to have_content '幕内弁当2'
         end
 
+        it '登録後のリダイレクト先は正しいか' do
+          fill_in '値段', with: 300
+          click_button 'トーロクする'
+          expect(page).to have_current_path owner_item_path(Item.last)
+        end
+
         it '商品が登録されない' do
           click_button 'トーロクする'
           within '.alert' do
             expect(page).to have_content '値段 が入力されていません。'
+          end
+        end
+
+        context '商品の編集' do
+          before do
+            fill_in '値段', with: 200
+            click_button 'トーロクする'
+            find_all('a')[0].click
+          end
+
+          it_behaves_like 'オーナーが登録した商品が表示される'
+
+          it '商品が編集されている' do
+            within '.item_card', match: :first do
+              find_all('a')[1].click
+            end
+            fill_in '商品名', with: '幕内弁当3'
+            find_button.click
+            expect(page).to have_content '幕内弁当3'
           end
         end
       end

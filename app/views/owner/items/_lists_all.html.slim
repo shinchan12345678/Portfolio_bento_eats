@@ -2,6 +2,6 @@
   .item_card.object_card
     = link_to owner_item_path(item.id), class: "object_link" do
       == render "layouts/list", object: item
-      .card-footer.d-flex.justify-content-end
+      .card-footer.d-flex.justify-content-end.mb-3
         = link_to "ヘンシュウ", edit_owner_item_path(item), method: :get, class: 'btn btn-secondary'
         = link_to "サクジョ", owner_item_path(item), method: :delete, remote: true, class: 'btn btn-danger ml-2', data: { confirm: "削除してもよろしいですか？" }

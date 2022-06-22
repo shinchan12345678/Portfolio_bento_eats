@@ -48,6 +48,12 @@ describe 'テイクアウト情報投稿機能',type: :system do
           end
         end
 
+        it '投稿後のリダイレクト先は正しいか' do
+          fill_in '経度' , with: 136.793811
+          find_all('button')[0].click
+          expect(page).to have_current_path owner_owners_path
+        end
+
         it '投稿失敗' do
           find_all('button')[0].click
           within '.alert-warning' do
@@ -127,7 +133,7 @@ describe 'テイクアウト情報投稿機能',type: :system do
     context 'オーナーが情報を削除すると表示されなくなる' do
       before do
         visit owner_session_path
-        fill_in 'Email', with: 'test2@com'
+        fill_in 'Email', with: 'testb@com'
         fill_in 'Password', with: 'password'
         click_button 'Log in'
         within '.table.table-hover' do
