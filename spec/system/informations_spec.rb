@@ -20,6 +20,23 @@ describe 'テイクアウト情報投稿機能',type: :system do
       it 'オーナーAが作成した投稿が表示される' do
         expect(page).to have_content '営業は9時から'
       end
+
+      context '情報登録画面のテスト' do
+        before do
+          find_all('a')[2].click
+          fill_in '開始日', with: Date.current
+          fill_in '終了日', with: Date.current
+          fill_in '緯度' , with: 35.457724
+        end
+
+        it '投稿完了' do
+          fill_in '経度' , with: 136.793811
+          find_all('button')[0].click
+          within '.alert-success' do
+            expect(page).to have_content '情報を投稿しました'
+          end
+        end
+      end
     end
 
     context 'オーナーBがログインしているとき' do
@@ -29,7 +46,6 @@ describe 'テイクアウト情報投稿機能',type: :system do
         expect(page).not_to have_content '営業は9時から'
       end
     end
-
 
   end
 
