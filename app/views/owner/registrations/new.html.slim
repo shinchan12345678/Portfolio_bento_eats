@@ -3,7 +3,7 @@
   .row.justify-content-center
     .col-sm-5.mt-4.card.text-info.p-0.border-info
       h2.card-header.bg-info.text-white
-        | Sign up
+        | Sign up (オーナー)
 
       = form_with(model: @owner, url: owner_registration_path, local: true, class: 'needs-validation form_group p-3', html: {novalidate: true}) do |f|
         .field
@@ -32,7 +32,7 @@
           br
           = f.password_field :password, class: 'form-control', autocomplete: "new-password"
         .field
-          = f.label :password_confirmation
+          = f.label :password_confirmation, "Repeat Password"
           br
           = f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password"
         .actions

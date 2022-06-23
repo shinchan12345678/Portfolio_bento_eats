@@ -2,7 +2,7 @@
   .row.justify-content-center.mt-5
     .col-sm-5.mt-5.card.text-info.p-0.border-info
       h2.card-header.bg-info.text-white
-        | Log in
+        | Log in (オーナー)
 
       = form_with(model: @owner, url: owner_session_path, local: true, class: 'needs-validation form_group p-3', html: {novalidate: true}) do |f|
         .field

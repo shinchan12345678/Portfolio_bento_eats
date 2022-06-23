@@ -19,6 +19,9 @@
               td
                 | #{@item.introduction}
 
+      .infomations_all.mt-auto
+        = link_to "ヘンシュウ", edit_owner_item_path(@item),class: "btn btn-secondary btn-block", method: :get
+
   h2.pl-5.mt-5.mb-3.d-inline-block.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
     | コメント
   .row

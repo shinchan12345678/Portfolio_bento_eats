@@ -54,7 +54,7 @@ describe 'オーナー表示機能' do
         fill_in 'Email', with: 'test2@com'
         fill_in '電話番号', with: '0000000000'
         fill_in 'Password', with: 'password'
-        fill_in 'Password confirmation', with: 'password'
+        fill_in 'Repeat Password', with: 'password'
         click_button('commit')
       end
 
@@ -68,7 +68,7 @@ describe 'オーナー表示機能' do
         fill_in '住所', with: '岐阜県'
         fill_in '電話番号', with: '0000000000'
         fill_in 'Password', with: 'password'
-        fill_in 'Password confirmation', with: 'password'
+        fill_in 'Repeat Password', with: 'password'
         click_button('commit')
       end
 
