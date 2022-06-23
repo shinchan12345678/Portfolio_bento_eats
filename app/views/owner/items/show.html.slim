@@ -1,7 +1,7 @@
 .container.px-0
   .row.bg-light.py-5.rounded
-    .col-sm-5.px-0.mx-auto.text-center.align-middle
-      = image_tag @item.get_image.variant(gravity: :center,resize: "300^",crop: "400x300+0+0")
+    .col-sm-5.mx-auto.d-flex.align-items-center.justify-content-end
+      = image_tag @item.get_image.variant(gravity: :center,resize: "400^",crop: "400x400+0+0"), class: "border border-primary rounded align-middle"
     .col-sm-5.mx-auto.d-flex.flex-column.justify-content-between
       .shop_introduction
         p#shop_item_name.text-center
