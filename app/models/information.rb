@@ -8,8 +8,8 @@ class Information < ApplicationRecord
   scope :today_is_valid, -> do
     open_date_check.close_date_check.info_invalid
   end
-  scope :open_date_check, -> { where("open_date <= ?", DateTime.now) }
-  scope :close_date_check, -> { where("close_date >= ?", DateTime.now) }
+  scope :open_date_check, -> { where("open_date <= ?", Date.current) }
+  scope :close_date_check, -> { where("close_date >= ?", Date.current) }
   scope :info_invalid, -> { where(is_valid: 0) }
 
   validates :open_date, presence: true

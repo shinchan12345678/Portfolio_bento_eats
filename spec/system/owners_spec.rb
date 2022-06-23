@@ -1,122 +1,139 @@
 require 'rails_helper'
+# rubocop:disable all
+describe 'オーナー表示機能' do
+  let!(:owner_a) { FactoryBot.create(:owner,email: 'test@com', name: 'a', address: '岐阜県関市') }
+  let!(:owner_b) { FactoryBot.create(:owner,email: 'testb@com', name: 'b', address: '岐阜県岐阜市') }
+  let!(:owner_c) { FactoryBot.create(:owner,email: 'testc@com', name: 'c', address: '愛知県名古屋市') }
+  let!(:customer) { FactoryBot.create(:customer)}
 
-describe 'トップページ、ヘッダー・フッターの確認', type: :system do
-  describe 'topページのリンク確認' do
-    context '会員側' do
-      before do
-        visit root_path
-      end
-
-      it 'ログイン画面に遷移できるか' do
-        show_link = find_all('a')[0]
-        expect(show_link.native.inner_text).to match(/ログイン/)
-        show_link.click
-        expect(page).to have_content 'Log in'
-      end
-
-      it 'ゲストログインできるか' do
-        show_link = find_all('a')[1]
-        expect(show_link.native.inner_text).to match(/ゲストログイン/)
-        show_link.click
-        expect(page).to have_content 'ゲストとしてログインしました'
-      end
+  describe 'ログイン認証' do
+    shared_examples_for 'テイクアウト情報ページに遷移する' do
+      it { expect(page).to have_content 'エイギョウジョーホー' }
     end
 
-    context 'オーナー側' do
-      before do
-        visit root_path
-      end
-
-      it 'ログイン画面に遷移できるか' do
-        show_link = find_all('a')[2]
-        expect(show_link.native.inner_text).to match(/ログイン/)
-        show_link.click
-        expect(page).to have_content 'Log in'
-      end
-
-      it 'ゲストログインできるか' do
-        show_link = find_all('a')[3]
-        expect(show_link.native.inner_text).to match(/ゲストログイン/)
-        show_link.click
-        expect(page).to have_content 'ゲストオーナーとしてログインしました'
-      end
-    end
-  end
-  
-  describe 'オーナー側ヘッダーの確認'do 
     before do
-      owner_a = FactoryBot.create(:owner)
-      visit owner_session_path
+      FactoryBot.create(:information,owner: owner_a,comment: '朝から営業')
+      visit root_path
+      find_all('a')[2].click
+    end
+
+    context 'サインインできる' do
+      before do
+        fill_in 'Email', with: owner_a.email
+        fill_in 'Password', with: 'password'
+        click_button('commit')
+      end
+
+      it_behaves_like 'テイクアウト情報ページに遷移する'
+
+      it '投稿の確認' do
+        expect(page).to have_content '朝から営業'
+      end
+    end
+
+    context 'サインインできない' do
+      before do
+        fill_in 'Email', with: 'miss'
+        fill_in 'Password', with: 'password'
+        click_button('commit')
+      end
+
+      it 'ログイン画面にリダイレクト' do
+        within '.alert' do
+          expect(page).to have_content 'Email もしくはパスワードが不正です。'
+          expect(current_path).to eq('/owners/sign_in')
+        end
+      end
+    end
+
+    context 'サインアップできる' do
+      before do
+        find_all('a')[0].click
+        fill_in '飲食店名', with: 'test2'
+        fill_in '住所', with: '岐阜県'
+        fill_in 'Email', with: 'test2@com'
+        fill_in '電話番号', with: '0000000000'
+        fill_in 'Password', with: 'password'
+        fill_in 'Password confirmation', with: 'password'
+        click_button('commit')
+      end
+
+      it_behaves_like 'テイクアウト情報ページに遷移する'
+    end
+
+    context 'サインアップできない' do
+      before do
+        find_all('a')[0].click
+        fill_in '飲食店名', with: 'test2'
+        fill_in '住所', with: '岐阜県'
+        fill_in '電話番号', with: '0000000000'
+        fill_in 'Password', with: 'password'
+        fill_in 'Password confirmation', with: 'password'
+        click_button('commit')
+      end
+
+      it 'サインアップ画面にリダイレクト' do
+        within '.alert' do
+          expect(page).to have_content 'Email が入力されていません。'
+          expect(current_path).to eq('/owners')
+        end
+      end
+    end
+
+  end
+
+  describe 'オーナーの並べ替え表示機能' do
+    before do
+      visit customer_session_path
       fill_in 'Email', with: 'test@com'
       fill_in 'Password', with: 'password'
-      click_button 'Log in'
-    end
-    
-    it 'リンクの確認' do
-      show_link_0 = find_all('a')[0]
-      expect(show_link_0.native.inner_text).to match('マイページ')
-    end
-  end
-end
-
-describe '商品登録機能', type: :system do
-  describe '一覧表示機能' do
-    before do
-      owner_a = FactoryBot.create(:owner)
-      item_a = FactoryBot.create(:item,owner: owner_a)
+      click_button('commit')
+      find_all('a')[1].click
     end
 
-    context 'オーナーAがログインしているとき' do
-      before do
-        visit owner_session_path
-        fill_in 'Email', with: 'test@com'
-        fill_in 'Password', with: 'password'
-        click_button 'Log in'
+    it '表示の確認' do
+      expect(all(:css, '.owner_card').size).to eq(3)
+      expect(page).to have_content 'a'
+      expect(page).to have_content 'b'
+      expect(page).to have_content 'c'
+    end
+
+    context '並べ替えの確認' do
+      it '岐阜県で並べ替えて2件表示される' do
+        fill_in 'q_address_cont', with: '岐阜県'
+        click_button('button')
+         expect(all(:css, '.owner_card').size).to eq(2)
+        expect(page).to have_content 'a'
+        expect(page).to have_content 'b'
       end
 
-      it 'ヘッダーリンクの確認' do
-
+      shared_examples_for '岐阜県関市の飲食店が表示される' do
+        it {
+           expect(all(:css, '.owner_card').size).to eq(1)
+          expect(page).to have_content 'a'
+        }
       end
 
-      it 'オーナーが登録した商品が表示される' do
-        expect(page).to have_content '200円'
-        expect(page).to have_content '幕内弁当'
-      end
+      context '絞り込みの確認'  do
+        context '岐阜県関市で検索' do
+          before do
+            fill_in 'q_address_cont', with: '岐阜県関市'
+            click_button('button')
+          end
 
-      context '商品登録画面のテスト' do
-        before do
-          show_link = find_all('a')[1]
-          show_link.click
-          fill_in '商品名', with: '幕内弁当2'
-          fill_in '値段', with: 300
-          fill_in '商品紹介', with: Faker::Lorem.sentence
-          click_button 'トーロクする'
+          it_behaves_like '岐阜県関市の飲食店が表示される'
         end
 
-        it '商品が登録されている' do
-          expect(page).to have_content '300円'
-          expect(page).to have_content '幕内弁当2'
+        context '関市で検索' do
+          before do
+            fill_in 'q_address_cont', with: '関市'
+            click_button('button')
+          end
+
+          it_behaves_like '岐阜県関市の飲食店が表示される'
         end
-      end
-    end
-
-    context 'オーナーBがログインしているとき' do
-      before do
-        owner_b = FactoryBot.create(:owner,name: 'test2',email: 'test2@com')
-        visit owner_session_path
-        fill_in 'Email', with: 'test2@com'
-        fill_in 'Password', with: 'password'
-        click_button 'Log in'
-      end
-
-      it 'オーナーAの商品が表示されない' do
-        expect(page).not_to have_content '200円'
-        expect(page).not_to have_content '幕内弁当'
       end
     end
   end
 end
-
-# describe 'テイクアウト情報投稿機能',type: :system do
-
-# end
+# rubocop:enable all

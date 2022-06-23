@@ -17,7 +17,9 @@ class Owner < ApplicationRecord
 
   # ゲストオーナーの生成
   def self.guest
-    find_or_create_by!(name: 'Guest_owner', email: 'guest@example.com', address: '岐阜県', telphone_number: '0000000000') do |owner|
+    find_or_create_by!(name: 'Guest_owner', email: 'guest@example.com') do |owner|
+      owner.address = '岐阜県'
+      owner.telphone_number = '0000000000'
       owner.password = SecureRandom.urlsafe_base64
     end
   end

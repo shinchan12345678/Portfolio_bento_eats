@@ -1,3 +1,4 @@
+== render "layouts/error_messages", object: @owner
 .container
   .row.justify-content-center
     .col-sm-5.mt-4.card.text-info.p-0.border-info
@@ -5,7 +6,6 @@
         | Sign up
 
       = form_with(model: @owner, url: owner_registration_path, local: true, class: 'needs-validation form_group p-3', html: {novalidate: true}) do |f|
-        = render "owner/shared/error_messages", resource: resource
         .field
           = f.label :name, "飲食店名"
           br

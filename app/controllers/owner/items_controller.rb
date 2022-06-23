@@ -37,7 +37,6 @@ class Owner::ItemsController < Owner::ApplicationController
   def destroy
     Item.find(params[:id]).destroy
     @items = current_owner.items
-    flash[:notice] = "商品を削除しました"
   end
 
   private
