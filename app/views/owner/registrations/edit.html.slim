@@ -27,6 +27,10 @@
           br
           = f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email"
         .field
+          = f.label :introduction, "紹介文"
+          br
+          = f.text_area :introduction, class: 'form-control', autofocus: true, autocomplete: "お店の紹介を入力してください"
+        .field
           = f.label :password, "New password"
           i
             | (変更しない場合は空白にしてください)
@@ -37,7 +41,7 @@
               = @minimum_password_length
               |  文字以上で設定してください
         .field.mt-2
-          = f.label :password_confirmation,"Repeat new password"
+          = f.label :password_confirmation, "Repeat New Password"
           br
           = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
         .field.text-dark.mt-4

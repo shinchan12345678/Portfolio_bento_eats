@@ -18,7 +18,7 @@
         br
         = f.text_area :introduction, class: "form-control"
         br
-        = image_tag @item.get_image.variant(gravity: :center,resize: "250^",crop:"380x250+0+0").processed
+        = image_tag @item.get_image.variant(gravity: :center,resize: "380^",crop:"380x250+0+0").processed, class: "border border-primary rounded"
         br
         = f.file_field :image, class: 'form-control-file mt-2'
         br
