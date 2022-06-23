@@ -31,6 +31,21 @@ describe 'オーナー表示機能' do
       end
     end
 
+    context 'サインインできない' do
+      before do
+        fill_in 'Email', with: 'miss'
+        fill_in 'Password', with: 'password'
+        click_button('commit')
+      end
+
+      it 'ログイン画面にリダイレクト' do
+        within '.alert' do
+          expect(page).to have_content 'Email もしくはパスワードが不正です。'
+          expect(current_path).to eq('/owners/sign_in')
+        end
+      end
+    end
+
     context 'サインアップできる' do
       before do
         find_all('a')[0].click
@@ -45,6 +60,26 @@ describe 'オーナー表示機能' do
 
       it_behaves_like 'テイクアウト情報ページに遷移する'
     end
+
+    context 'サインアップできない' do
+      before do
+        find_all('a')[0].click
+        fill_in '飲食店名', with: 'test2'
+        fill_in '住所', with: '岐阜県'
+        fill_in '電話番号', with: '0000000000'
+        fill_in 'Password', with: 'password'
+        fill_in 'Password confirmation', with: 'password'
+        click_button('commit')
+      end
+
+      it 'サインアップ画面にリダイレクト' do
+        within '.alert' do
+          expect(page).to have_content 'Email が入力されていません。'
+          expect(current_path).to eq('/owners')
+        end
+      end
+    end
+
   end
 
   describe 'オーナーの並べ替え表示機能' do

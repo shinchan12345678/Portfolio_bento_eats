@@ -31,6 +31,22 @@ describe '会員表示機能' do
       it_behaves_like 'テイクアウト情報ページに遷移する'
     end
 
+    context 'サインインできない' do
+      before do
+        fill_in 'Email', with: 'miss'
+        fill_in 'Password', with: 'password'
+        click_button('commit')
+      end
+
+      it 'ログイン画面にリダイレクト' do
+        within '.alert' do
+          expect(page).to have_content 'Email もしくはパスワードが不正です。'
+          expect(current_path).to eq('/customers/sign_in')
+        end
+      end
+    end
+
+
     context 'サインアップできる' do
       before do
         find_all('a')[0].click
@@ -43,8 +59,24 @@ describe '会員表示機能' do
 
       it_behaves_like 'テイクアウト情報ページに遷移する'
     end
+
+    context 'サインアップできない' do
+      before do
+        find_all('a')[0].click
+        fill_in 'ニックネーム', with: 'test2'
+        fill_in 'Password', with: 'password'
+        fill_in 'Repeat Password', with: 'password'
+        click_button('commit')
+      end
+
+      it 'サインアップ画面にリダイレクト' do
+        within '.alert' do
+          expect(page).to have_content 'Email が入力されていません。'
+          expect(current_path).to eq('/customers')
+        end
+      end
+    end
   end
 end
 
 # rubocop:enable all
-
