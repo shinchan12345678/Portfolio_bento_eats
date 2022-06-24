@@ -27,8 +27,9 @@
               tr
                 th style="width: 30%;"
                   | フォロワー
-                td
-                  | #{@owner.customers.count}人
+                td id = "following_count"
+                  span.ml-5
+                    | #{@owner.customers.count}人
 
         .infomations_all.mt-auto
           = link_to 'テイクアウトエイギョウビ',owner_informations_owner_path(@owner),class: "btn btn-secondary btn-block my-0", method: :get
