@@ -3,17 +3,18 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
     tr
       th style="width: 7%;"
         | infoID
-      th.text-center colspan = "2"
+      th.text-center style="width: 15%;"
         | 飲食店情報
-      th
+      th style="width: 20%;"
+      th style="width: 10%;"
         | 飲食店詳細
-      th
+      th style="width: 10%;"
         | オープン日
-      th
+      th style="width: 10%;"
         | クローズ日
       th
         | コメント
-      th
+      th style="width: 12%;"
         | 出店位置情報
 
   tbody
@@ -21,24 +22,24 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
         tr
           td.align-middle.text-center style="width: 7%;"
             = i+1
-          td
+          td style="width: 15%;"
             = image_tag information.owner.get_image.variant(gravity: :center,resize: "100^",crop: "120x100+0+0").processed, class: "rounded-pill"
-          td.text-break.mx-5 style="width: 25%;"
+          td.text-break.mx-5 style="width: 20%;"
             = information.owner.name
             br
             = information.owner.address
             br
             = information.owner.telphone_number
-          td.text-break.align-middle id = "shop_tr_link" data-href = "#{owner_path(information.owner)}"
+          td.text-break.align-middle id = "shop_tr_link" data-href = "#{owner_path(information.owner)}" style="width: 10%;"
             = link_to owner_path(information.owner) do
               i.fas.fa-store.text-primary.info_icon
-          td.align-middle
+          td.align-middle style="width: 10%;"
             = information.open_date
-          td.align-middle
+          td.align-middle style="width: 10%;"
             = information.close_date
           td.text-break
             = information.comment
-          td.align-middle
+          td.align-middle style="width: 10%;"
             .googlemap_root.btn id = "map_id_#{i}"
               input type = "hidden" value = "https://www.google.com/maps/search/?api=1&query=#{information.latitude.to_f},#{information.longitude.to_f}"
               i.fas.fa-map-marked-alt.info_icon.text-danger

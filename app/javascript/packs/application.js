@@ -3,6 +3,9 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+const images = require.context("../images", true);
+const imagePath = name => images(name, true);
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -16,7 +19,7 @@ import '@fortawesome/fontawesome-free/js/all'
 import "packs/map.js" //GoogleMapの地図設定
 import "packs/index.js" //イベントハンドル設定
 
-import "../stylesheets/mystyle.scss"  //Bootstrapのカラー変更
+import "../stylesheets/mystyle.scss"  //displaynoneの設定
 import "../stylesheets/custom_color.scss"  //Bootstrapのカラー変更
 
 Rails.start()
