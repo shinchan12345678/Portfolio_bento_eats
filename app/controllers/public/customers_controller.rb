@@ -18,7 +18,7 @@ class Public::CustomersController < Public::ApplicationController
     # end
     @items = current_customer.items
     if @customer.update(customer_params)
-      redirect_to customer_path, notice: "編集に成功しました"
+      redirect_to customer_path, notice: "編集に成功しました。"
     else
       render :show
     end

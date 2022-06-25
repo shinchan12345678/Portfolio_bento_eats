@@ -1,1 +1,2 @@
 $(".following-btn").html("<%= j(render 'public/owners/following_btn', owner: @owner) %>");
+$("#following_count").html("<%= j(@owner.customers.count.to_s+'人') %>");

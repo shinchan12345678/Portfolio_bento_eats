@@ -35,6 +35,6 @@
                 td.text-break style="width: 10%"
                   = image_tag owner.get_image.variant(gravity: :center,resize: "50^",crop: "100x50+0+0").processed, class: "card-image-top"
                 td.text-break.align-middle style="width: 10%"
-                  = link_to "サクジョ" ,admin_owner_path(owner), method: :delete, class: "btn btn-danger"
+                  = link_to "サクジョ" ,admin_owner_path(owner), method: :delete, data: { confirm: '削除しますがよろしいですか？' }, class: "btn btn-danger"
 
   = paginate @owners

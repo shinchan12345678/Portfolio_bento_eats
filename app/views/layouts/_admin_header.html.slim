@@ -22,19 +22,19 @@
     = link_to admin_owners_path, method: :get, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-address-book.icon.mb-3
       br
-      span オーナーアカウント<br>イチランページ
+      span オーナーアカウント<br>イチラン
 
     = link_to admin_customers_path, method: :get, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-address-book.icon.mb-3
       br
-      span カスタマーアカウント<br>イチランページ
+      span カスタマーアカウント<br>イチラン
 
     = link_to destroy_admin_session_path, method: :delete, class: "nav-item text-center p-3 mx-2" do
       i.fas.fa-sign-out-alt.icon.mb-3
       br
       span ログアウト
 
-.row.bg-danger
-  .col-sm-4.mx-auto.text-center
-    p
-      | 管理者ページ
+.row.bg-warning
+  .col-sm-4.mx-auto.text-center.text-white
+    h4
+      | カンリシャページ

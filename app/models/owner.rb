@@ -27,8 +27,8 @@ class Owner < ApplicationRecord
   # デフォルト画像の保存
   def get_image
     unless image.attached?
-      file_path = Rails.root.join('app/assets/images/test_item.jpeg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpeg', content_type: 'image/jpeg')
+      file_path = Rails.root.join('app/assets/images/test_owner.png')
+      image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/png')
     end
     image
   end

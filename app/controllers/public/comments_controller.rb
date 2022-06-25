@@ -5,7 +5,7 @@ class Public::CommentsController < Public::ApplicationController
     if @comment.save
       redirect_to item_path(@item), notice: "コメントしました"
     else
-      redirect_to item_path(@item), alert: "0~255字以内で入力してください"
+      redirect_to item_path(@item), alert: "0字以上で入力してください"
     end
   end
 
