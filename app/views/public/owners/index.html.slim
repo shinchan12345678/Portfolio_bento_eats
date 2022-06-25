@@ -14,5 +14,5 @@
     .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
       == render "public/owners/lists_all", owners: @owners
 
-    .col-sm-12.mt-3
+    .col-sm-12.mt-3.owner_pagenation
       = paginate @owners, remote: true
