@@ -57,7 +57,7 @@ function initMapCustomer() {
             position: flagLatLng,
             map: map,
             icon: {
-              url: "/assets/flag.png",
+              url: "/assets/images/flag.png",
               scaledSize: new google.maps.Size( 40, 97 )
             }
           });
@@ -68,10 +68,11 @@ function initMapCustomer() {
         }
       }
     });
-  }).catch(function(){
-    alert("ページをリロードします");
-    window.location.reload();
-  })
+  // }).catch(function(){
+  //   alert("ページをリロードします");
+  //   window.location.reload();
+  // })
+  }).catch(error => console.log(error))
 }
 
 // ---------------------------------------------------------------------------------------------------
