@@ -1,7 +1,7 @@
 .container
   .row.justify-content-between
     h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
-      | オーナーアカウントイチラン
+      | カスタマーアカウントイチラン
 
   .row
     .col-sm-12
@@ -23,6 +23,7 @@
                 td.text-break
                   = customer.email
                 td
-                  = link_to "サクジョ" ,admin_customer_path(customer), method: :delete, class: "btn btn-danger"
+                  - if customer.nickname != 'Admin' && customer.email != 'admin@example.com'
+                    = link_to "サクジョ" ,admin_customer_path(customer), method: :delete,data: { confirm: '削除しますがよろしいですか？' }, class: "btn btn-danger"
 
   = paginate @customers

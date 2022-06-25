@@ -5,5 +5,6 @@ class Admin::OwnersController < ApplicationController
 
   def destroy
     Owner.find(params[:id]).destroy
+    redirect_to admin_owners_path, notice: 'オーナーを削除しました'
   end
 end

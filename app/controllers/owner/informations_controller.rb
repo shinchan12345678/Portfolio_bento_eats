@@ -1,7 +1,7 @@
 class Owner::InformationsController < Owner::ApplicationController
   def new
-    gon.latitude = 35.4577205 # 岐阜の緯度
-    gon.longitude = 136.793811 # 岐阜の経度
+    gon.latitude = 35.4095278 # 岐阜駅の緯度
+    gon.longitude = 136.7564656 # 岐阜駅の経度
     @information = Information.new
   end
 
