@@ -74,3 +74,4 @@ gem 'kaminari'
 gem 'enum_help'
 gem 'gon'
 gem 'ransack'
+gem 'whenever', require: false
