@@ -4,7 +4,7 @@ class Owner < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :informations, ->{order(open_date: :asc,close_date: :asc)}, dependent: :destroy
+  has_many :informations, -> { order(open_date: :asc, close_date: :asc) }, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :relationships, dependent: :destroy
   has_many :customers, through: :relationships
