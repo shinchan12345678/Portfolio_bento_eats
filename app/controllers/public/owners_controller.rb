@@ -16,6 +16,6 @@ class Public::OwnersController < Public::ApplicationController
   def owner_informations
     @owner = Owner.find(params[:id])
     # 当日時点で有効な投稿のみ表示
-    @informations = Information.where(owner_id: @owner.id).close_date_check.info_invalid
+    @informations = @owner.informations.close_date_check.info_invalid
   end
 end

@@ -7,12 +7,14 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
         | オープン日
       th
         | クローズ日
-      th style="width:35%;"
+      th style="width:12%;"
+        | 出店位置情報
+      th style="width:30%;"
         | コメント
       th colspan = "2" style="width:25%;"
 
   tbody
-    - informations.each do |information|
+    - informations.each_with_index do |information,i|
       = link_to owner_path(information.owner) do
         tr
           td
@@ -27,7 +29,11 @@ table.table.table-hover style="table-layout:fixed;width:100%;"
             = information.open_date
           td
             = information.close_date
-          td style="width:35%;"
+          td.align-middle style="width:12%;"
+            .googlemap_root.btn id = "map_id_#{i}"
+              input type = "hidden" value = "https://www.google.com/maps/search/?api=1&query=#{information.latitude.to_f},#{information.longitude.to_f}"
+              i.fas.fa-map-marked-alt.info_icon.text-danger
+          td style="width:30%;"
             = information.comment
           td style="width:15%;"
             = link_to "ヘンシュウ", edit_owner_information_path(information), class: 'btn btn-secondary'
