@@ -45,7 +45,7 @@ function start_jquery() {
       opengooglemaps(url,btn)
     }
 
-    $("#helper").on("click",function() {
+    $("#helper span, #helper .fa-info-circle").on("click",function() {
       $(".box").slideToggle();
     });
   });

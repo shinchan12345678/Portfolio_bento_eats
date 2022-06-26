@@ -103,12 +103,16 @@
 }
 
 #helper {
-  font-size: 15px;
-  &:hover {
-    transform: translateY(-5px);
-  }
-  .fa-info-circle {
-    font-size: 22px;
+  p {
+    &:hover {
+      transform: translateY(-5px);
+    }
+    .fa-info-circle {
+      font-size: 22px;
+    }
+    span {
+      font-size: 15px;
+    }
   }
 }
 
