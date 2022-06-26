@@ -1,0 +1,36 @@
+== render "layouts/error_messages", object: @coupon
+.container
+  .row.justify-content-center.mt-5
+    .col-sm-6.card.p-4
+      .card-title#info_submit.text-danger
+        | 発行するクーポンの条件を入力してください
+
+      = form_with model: @coupon, url: new_owner_coupon_path, method: :post do |f|
+          = f.label :name, '商品名'
+          br
+          = f.text_field :name, class: "form-control"
+          br
+          p
+           | 値引き金額
+
+          br
+          table.table
+            tbody
+              tr
+                td
+                  = f.radio_button :discount, Coupon.discounts[:fifty], class: "form-check-input"
+                  = f.label :discount, Coupon.discounts_i18n[:fifty], class: "mx-2"
+                td
+                  = f.radio_button :discount, Coupon.discounts[:one_hundred], class: "form-check-input"
+                  = f.label :discount, Coupon.discounts_i18n[:one_hundred], class: "mx-2"
+                td
+                  = f.radio_button :discount, Coupon.discounts[:one_hundred_fifty], class: "form-check-input"
+                  = f.label :discount, Coupon.discounts_i18n[:one_hundred_fifty], class: "mx-2"
+                td
+                  = f.radio_button :discount, Coupon.discounts[:two_hundred], class: "form-check-input"
+                  = f.label :discount, Coupon.discounts_i18n[:two_hundred], class: "mx-2"
+          br
+          = f.label :using_period, '有効期限'
+          = f.date_field :using_period, class: "form-control"
+          br
+          = f.submit 'ハッコウする', class: 'd-block ml-auto btn btn-primary my-2'

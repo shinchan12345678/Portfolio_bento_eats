@@ -9,6 +9,7 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :items, through: :favorites
   has_many :comments, dependent: :destroy
+  has_many :coupons, dependent: :destroy
 
   # 管理者用のユーザーの生成
   def self.admin

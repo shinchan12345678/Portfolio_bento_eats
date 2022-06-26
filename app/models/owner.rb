@@ -8,6 +8,7 @@ class Owner < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :relationships, dependent: :destroy
   has_many :customers, through: :relationships
+  has_many :coupons, dependent: :destroy
 
   has_one_attached :image
 
