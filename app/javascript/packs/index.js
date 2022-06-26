@@ -44,6 +44,24 @@ function start_jquery() {
       var btn = map_roots.filter(`#map_id_${i}`).find(".info_icon")
       opengooglemaps(url,btn)
     }
+
+    $("#helper").on("click",function() {
+      $(".box").slideToggle();
+    });
+  });
+
+  // Skipprの実行
+  $("#theTarget").skippr({
+    transition : 'fade',
+    speed : 1000, // 変化にかかる時間（ミリ秒）
+    easing : 'easeOutQuart',
+    navType : 'block',
+    childrenElementType : 'div', // 子要素の種類（"div" or "img"）
+    arrows : true,
+    autoPlay : false,
+    autoPlayDuration : 5000,  // 自動再生時のスライド切替間隔（ミリ秒）
+    keyboardOnAlways : true, // キーボードの矢印キーによるスライド送りの設定（trueで有効）
+    hidePrevious : false
   });
 }
 

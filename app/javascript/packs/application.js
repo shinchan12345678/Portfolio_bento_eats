@@ -14,7 +14,10 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
+
 import "packs/map.js" //GoogleMapの地図設定
+import "../stylesheets/skippr.css" //skipper用のcss
+import "packs/skippr.min.js" //skippr用のjs
 import "packs/index.js" //イベントハンドル設定
 
 import "../stylesheets/mystyle.scss"  //displaynoneの設定

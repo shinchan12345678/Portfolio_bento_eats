@@ -102,6 +102,47 @@
   }
 }
 
+#helper {
+  font-size: 15px;
+  &:hover {
+    transform: translateY(-5px);
+  }
+  .fa-info-circle {
+    font-size: 22px;
+  }
+}
+
+.box {
+  height: 580px;
+  // background-color: rgba(222, 80, 57, .95);
+  #theTarget {
+    .customer_skippr_1 {
+      background-image: image-url("c_guide01.jpg");
+    }
+    .customer_skippr_2 {
+      background-image: image-url("c_guide02.jpg");
+    }
+    .customer_skippr_3 {
+      background-image: image-url("c_guide03.jpg");
+    }
+    .owner_skippr_1 {
+      background-image: image-url("o_guide01.jpg");
+    }
+    .owner_skippr_2 {
+      background-image: image-url("o_guide02.jpg");
+    }
+    .owner_skippr_3 {
+      background-image: image-url("o_guide03.jpg");
+    }
+    .owner_skippr_4 {
+      background-image: image-url("o_guide04.jpg");
+    }
+    .owner_skippr_5 {
+      background-image: image-url("o_guide05.jpg");
+    }
+  }
+}
+
 // 飲食店オーナー側の地図設定
 #map_owner {
   height: 400px;
