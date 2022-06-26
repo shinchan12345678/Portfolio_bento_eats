@@ -1,16 +1,5 @@
 .container.px-0
-  .help.d-flex.flex-row-reverse.align-items-center.mb-2#helper.text-muted
-      span.ml-1
-        | ヘルプ
-      i.fas.fa-info-circle
-  .row.flex-column
-    .box.passive
-      #theTarget
-        .owner_skippr_1
-        .owner_skippr_2
-        .owner_skippr_3
-        .owner_skippr_4
-        .owner_skippr_5
+  == render "owner/owners/help"
 
   .row.flex-column
     .row.bg-light.py-5.rounded
