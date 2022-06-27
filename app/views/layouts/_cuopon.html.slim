@@ -1,0 +1,10 @@
+.card.mb-2
+  = image_tag object.get_image.variant(gravity: :center,resize: "380^",crop:"380x250+0+0").processed ,class: "card-img-top"
+  .card-body
+    ul.list-group.list-group-flush
+      li.list-group-item
+        = object.discount
+      li.list-group-item
+        = object.using_period
+      li.list-group-item
+        = object.condition

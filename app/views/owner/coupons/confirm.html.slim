@@ -1,11 +1,11 @@
-== render "layouts/error_messages", object: @coupon
 .container
   .row.justify-content-center.mt-5
     .col-sm-6.card.p-4
       .card-title#info_submit.text-danger
-        | 発行するクーポンを作成してください
+        | クーポン内容を確認してください
 
-      = form_with model: @coupon, url: confirm_owner_coupons_path, method: :get do |f|
+      = form_with model: @coupon, url: owner_coupons_path, method: :post do |f|
+        .passive
           p
            | 値引き金額
           table.table
@@ -29,5 +29,30 @@
           br
           = f.label :condition, '使用条件'
           = f.text_field :condition, class: "form-control", placeholder: "例）AM9:00~AM11:00の時間帯のみ有効です"
-          br
-          = f.submit 'ケッテイする', class: 'd-block ml-auto btn btn-primary my-2'
+
+        table.table
+          tbody
+            tr
+              th
+                | 発行対象人数（フォロワー）
+              td
+                | #{current_owner.customers.count}人
+            tr
+              th
+                | 値引き金額
+              td
+                = Coupon.discounts_i18n[@coupon.discount]
+            tr
+              th
+                | 有効期限
+              td
+                = @coupon.using_period
+            tr
+              th
+                | 使用条件
+              td
+                = @coupon.condition
+        p.text-warning.text-center
+          | 一度発行したクーポンは取り消せません
+
+        = f.submit 'ハッコウする', class: 'd-block ml-auto btn btn-primary my-2'

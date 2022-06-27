@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resource :owners, only: [:show]
     resources :coupons, only: [:index, :new, :create] do
       collection do
-        :confirm
+        get :confirm
       end
     end
   end

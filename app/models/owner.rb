@@ -40,8 +40,7 @@ class Owner < ApplicationRecord
   end
 
   # フォロワーにクーポンを発行する
-  def coopon_create(coupon_params)
-    coupon = current_owner.coupon.build(coupon_params)
+  def coopon_create(coupon)
     customers.each do |customer|
       coupon.customer_id = customer.id
       coupon.save
