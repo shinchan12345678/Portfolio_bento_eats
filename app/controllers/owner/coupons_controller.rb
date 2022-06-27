@@ -18,7 +18,6 @@ class Owner::CouponsController < Owner::ApplicationController
   end
 
   def create
-    @coupon = current_owner.coupons.new(coupon_params)
     # rubocop:disable Lint/AssignmentInCondition
     if coupons = current_owner.coupons.maximum(:group_id) # ユニークなグループ番号を生成する
       counter = coupons + 1
@@ -27,6 +26,7 @@ class Owner::CouponsController < Owner::ApplicationController
     end
     result = "OK"
     current_owner.customers.each do |customer|
+      @coupon = current_owner.coupons.new(coupon_params)
       @coupon.group_id = counter
       @coupon.customer_id = customer.id
       unless @coupon.save
