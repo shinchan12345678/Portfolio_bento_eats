@@ -5,6 +5,6 @@ class Public::CouponsController < ApplicationController
 
   def update
     Coupon.find(params[:id]).update(is_valid: 1)
-    redirect_to coupons_path,notice: "クーポンを使用すみに変更しました"
+    redirect_to coupons_path, notice: "クーポンを使用すみに変更しました"
   end
 end
