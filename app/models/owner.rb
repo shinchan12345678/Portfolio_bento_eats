@@ -7,7 +7,7 @@ class Owner < ApplicationRecord
   has_many :informations, -> { order(open_date: :asc, close_date: :asc) }, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :relationships, dependent: :destroy
-  has_many :customers, through: :relationships
+  has_many :customers, through: :relationships # followingに修正
   has_many :coupons, dependent: :destroy
 
   has_one_attached :image
@@ -37,5 +37,14 @@ class Owner < ApplicationRecord
   # テイクアウト営業しているか判定
   def today_open?
     return true unless informations.today_is_valid.length == 0
+  end
+
+  # フォロワーにクーポンを発行する
+  def coopon_create(coupon_params)
+    coupon = current_owner.coupon.build(coupon_params)
+    customers.each do |customer|
+      coupon.customer_id = customer.id
+      coupon.save
+    end
   end
 end

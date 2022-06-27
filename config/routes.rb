@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
     resources :informations, only: [:new, :create, :edit, :update, :destroy]
     resource :owners, only: [:show]
-    resources :coupons, only: [:index, :new, :create]
+    resources :coupons, only: [:index, :new, :create] do
+      collection do
+        :confirm
+      end
+    end
   end
 
   # 会員用

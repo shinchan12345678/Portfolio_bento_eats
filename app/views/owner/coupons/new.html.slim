@@ -3,19 +3,13 @@
   .row.justify-content-center.mt-5
     .col-sm-6.card.p-4
       .card-title#info_submit.text-danger
-        | 発行するクーポンの条件を入力してください
+        | 発行するクーポンを作成してください
 
-      = form_with model: @coupon, url: new_owner_coupon_path, method: :post do |f|
-          = f.label :name, '商品名'
-          br
-          = f.text_field :name, class: "form-control"
-          br
+      = form_with model: @coupon, url: owner_coupons_path, method: :post do |f|
           p
            | 値引き金額
-
-          br
           table.table
-            tbody
+            tbody.text-center
               tr
                 td
                   = f.radio_button :discount, Coupon.discounts[:fifty], class: "form-check-input"
@@ -29,8 +23,11 @@
                 td
                   = f.radio_button :discount, Coupon.discounts[:two_hundred], class: "form-check-input"
                   = f.label :discount, Coupon.discounts_i18n[:two_hundred], class: "mx-2"
-          br
+
           = f.label :using_period, '有効期限'
           = f.date_field :using_period, class: "form-control"
+          br
+          = f.label :condition, '使用条件'
+          = f.text_field :condition, class: "form-control", placeholder: "例）AM9:00~AM11:00の時間帯のみ有効です"
           br
           = f.submit 'ハッコウする', class: 'd-block ml-auto btn btn-primary my-2'
