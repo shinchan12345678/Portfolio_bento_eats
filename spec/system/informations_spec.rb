@@ -9,9 +9,7 @@ describe 'テイクアウト情報投稿機能',type: :system do
       within '.alert-success' do
         expect(page).to have_content '情報を削除しました'
       end
-      within '.table.table-hover' do
-        expect(page).not_to have_content '掲載中'
-      end
+      expect(page).to have_content '情報が投稿されていません'
     }
   end
 

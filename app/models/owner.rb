@@ -38,18 +38,4 @@ class Owner < ApplicationRecord
   def today_open?
     return true unless informations.today_is_valid.length == 0
   end
-
-  # フォロワーにクーポンを発行する
-  def coupon_create(coupon)
-    if coupons.maximum(:group_id) # ユニークなグループ番号を生成する
-      counter = coupons.maximum(:group_id) + 1
-    else
-      counter = 0
-    end
-    customers.each do |customer|
-      coupon.group_id = counter
-      coupon.customer_id = customer.id
-      coupon.save
-    end
-  end
 end

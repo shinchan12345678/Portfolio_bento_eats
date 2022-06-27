@@ -1,4 +1,16 @@
 .container.px-0
   .row
+    .d-flex.ml-auto.p-3
+      = link_to new_owner_coupon_path, class: "customer_coupon text-success d-flex align-items-center" do
+        i.fas.fa-ticket-alt.m-0.p-0
+
+        h4.d-inline-block.m-0
+          | クーポンハッコウ
+
     .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
       == render "owner/coupons/lists_all", coupons: @coupons
+
+    - if @coupons.length == 0
+      .d-flex.mx-auto.p-3
+        p
+          | クーポンが発行されていません

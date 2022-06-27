@@ -15,6 +15,18 @@
           | 【使用条件】
 
         = object.condition
+
       - if current_customer
+        li.list-group-item
+          span
+            | 【利用可能店舗】<br>
+
+          = link_to object.owner.name, owner_path(object.owner)
+
         li.list-group-item.text-center
-          =  Coupon.is_valids_i18n[object.is_valid]
+          - if  Coupon.is_valids[object.is_valid] == 0
+            = link_to "クーポンをつかう" , coupon_path(object), method: :patch, data: { confirm: '使用しますがよろしいですか？' }, class: "btn btn-success"
+          - else
+           span
+            | 使用ずみ
+

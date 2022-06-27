@@ -89,7 +89,6 @@ describe 'トップページ、ヘッダー・フッターの確認', type: :sys
       expect(show_link_0.native.inner_text).to match('マイページ')
       show_link_0.click
       expect(page).to have_selector 'table'
-      expect(find_all('th')[4].native.inner_text).to match '掲載状況'
     end
 
     it '商品登録リンクの確認' do

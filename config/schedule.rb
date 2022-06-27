@@ -27,6 +27,7 @@ every 1.day, at: '0:00 am' do # 毎日午前0時に実行
 # rubocop:disable all
   begin
     runner "Batch::InformationUpdate.informationUpdate"
+    runner "Batch::CouponDelete.couponDelete"
   rescue => e
     Rails.logger.error("aborted rails runner")
     raise e

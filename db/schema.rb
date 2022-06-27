@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2022_06_26_140728) do
     t.integer "discount", null: false
     t.integer "is_valid", default: 0, null: false
     t.date "using_period", null: false
-    t.string "condition"
+    t.string "condition", default: "なし"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

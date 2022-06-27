@@ -18,9 +18,27 @@ class Owner::CouponsController < Owner::ApplicationController
   end
 
   def create
-    coupon = current_owner.coupons.new(coupon_params)
-    current_owner.coupon_create(coupon)
-    redirect_to owner_coupons_path
+    @coupon = current_owner.coupons.new(coupon_params)
+    # current_owner.coupon_create(coupon)
+    if coupons = current_owner.coupons.maximum(:group_id) # ユニークなグループ番号を生成する
+      counter = coupons + 1
+    else
+      counter = 0
+    end
+    result = "OK"
+    current_owner.customers.each do |customer|
+      @coupon.group_id = counter
+      @coupon.customer_id = customer.id
+      unless @coupon.save
+        result = "NG"
+        break
+      end
+    end
+    if result == "OK"
+      redirect_to owner_coupons_path, notice: "クーポンを発行しました"
+    else
+      render :new
+    end
   end
 
   private
@@ -31,6 +49,6 @@ class Owner::CouponsController < Owner::ApplicationController
   end
 
   def follower_exist?
-    redirect_to owner_owners_path if customers.length == 0
+    redirect_to owner_owners_path if current_owner.customers.size == 0
   end
 end

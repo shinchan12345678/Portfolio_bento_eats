@@ -7,7 +7,7 @@ class CreateCoupons < ActiveRecord::Migration[6.1]
       t.integer :discount, null: false
       t.integer :is_valid, default: 0, null: false
       t.date :using_period, null: false
-      t.string :condition
+      t.string :condition, default: "なし"
 
       t.timestamps
     end
