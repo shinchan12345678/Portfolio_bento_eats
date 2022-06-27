@@ -6,8 +6,8 @@ ja:
         end_posting: "掲載終了"
     coupon:
       is_valid:
-        valid: "有効"
-        invalid: "無効"
+        before_use: "有効"
+        after_use: "無効"
       discount:
         fifty: "50円"
         one_hundred: "100円"

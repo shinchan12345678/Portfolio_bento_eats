@@ -13,20 +13,17 @@ class Coupon < ApplicationRecord
   def get_image
     unless image.attached?
       case discount
-      when 0 then
-        file_path = Rails.root.join('app/assets/images/test_owner.png')
+      when "fifty" then
+        file_path = Rails.root.join('app/assets/images/coupon_0.png')
         image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/png')
-      when 1 then
-        file_path = Rails.root.join('app/assets/images/test_owner.png')
+      when "one_hundred" then
+        file_path = Rails.root.join('app/assets/images/coupon_1.png')
         image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/png')
-      when 2 then
-        file_path = Rails.root.join('app/assets/images/test_owner.png')
+      when "one_hundred_fifty" then
+        file_path = Rails.root.join('app/assets/images/coupon_2.png')
         image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/png')
-      when 3 then
-        file_path = Rails.root.join('app/assets/images/test_owner.png')
-        image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/png')
-      else
-        file_path = Rails.root.join('app/assets/images/test_owner.png')
+      when "two_hundred" then
+        file_path = Rails.root.join('app/assets/images/coupon_3.png')
         image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/png')
       end
     end

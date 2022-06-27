@@ -6,29 +6,9 @@
 
       = form_with model: @coupon, url: owner_coupons_path, method: :post do |f|
         .passive
-          p
-           | 値引き金額
-          table.table
-            tbody.text-center
-              tr
-                td
-                  = f.radio_button :discount, Coupon.discounts[:fifty], class: "form-check-input"
-                  = f.label :discount, Coupon.discounts_i18n[:fifty], class: "mx-2"
-                td
-                  = f.radio_button :discount, Coupon.discounts[:one_hundred], class: "form-check-input"
-                  = f.label :discount, Coupon.discounts_i18n[:one_hundred], class: "mx-2"
-                td
-                  = f.radio_button :discount, Coupon.discounts[:one_hundred_fifty], class: "form-check-input"
-                  = f.label :discount, Coupon.discounts_i18n[:one_hundred_fifty], class: "mx-2"
-                td
-                  = f.radio_button :discount, Coupon.discounts[:two_hundred], class: "form-check-input"
-                  = f.label :discount, Coupon.discounts_i18n[:two_hundred], class: "mx-2"
-
-          = f.label :using_period, '有効期限'
+          = f.text_field :discount, class: "form-check-input"
           = f.date_field :using_period, class: "form-control"
-          br
-          = f.label :condition, '使用条件'
-          = f.text_field :condition, class: "form-control", placeholder: "例）AM9:00~AM11:00の時間帯のみ有効です"
+          = f.text_field :condition, class: "form-control"
 
         table.table
           tbody

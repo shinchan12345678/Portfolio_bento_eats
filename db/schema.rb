@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2022_06_26_140728) do
   create_table "coupons", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "owner_id", null: false
+    t.integer "group_id", null: false
     t.integer "discount", null: false
     t.integer "is_valid", default: 0, null: false
     t.date "using_period", null: false

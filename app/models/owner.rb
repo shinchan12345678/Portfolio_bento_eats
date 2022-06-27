@@ -40,8 +40,14 @@ class Owner < ApplicationRecord
   end
 
   # フォロワーにクーポンを発行する
-  def coopon_create(coupon)
+  def coupon_create(coupon)
+    if coupons.maximum(:group_id) # ユニークなグループ番号を生成する
+      counter = coupons.maximum(:group_id) + 1
+    else
+      counter = 0
+    end
     customers.each do |customer|
+      coupon.group_id = counter
       coupon.customer_id = customer.id
       coupon.save
     end
