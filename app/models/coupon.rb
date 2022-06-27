@@ -6,6 +6,7 @@ class Coupon < ApplicationRecord
 
   validates :customer_id, presence: true
   validates :owner_id, presence: true
+  validates :group_id, presence: true
   validates :discount, presence: true
   validates :is_valid, presence: true
   validates :using_period, presence: true
