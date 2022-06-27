@@ -1,0 +1,38 @@
+.container
+  .row.justify-content-center.mt-5
+    .col-sm-6.card.p-4
+      .card-title#info_submit.text-danger
+        | クーポン内容を確認してください
+
+      = form_with model: @coupon, url: owner_coupons_path, method: :post do |f|
+        .passive
+          = f.text_field :discount, class: "form-check-input"
+          = f.date_field :using_period, class: "form-control"
+          = f.text_field :condition, class: "form-control"
+
+        table.table
+          tbody
+            tr
+              th
+                | 発行対象人数（フォロワー）
+              td
+                | #{current_owner.customers.count}人
+            tr
+              th
+                | 値引き金額
+              td
+                = Coupon.discounts_i18n[@coupon.discount]
+            tr
+              th
+                | 有効期限
+              td
+                = @coupon.using_period
+            tr
+              th
+                | 使用条件
+              td
+                = @coupon.condition
+        p.text-warning.text-center
+          | 一度発行したクーポンは取り消せません
+
+        = f.submit 'ハッコウする', class: 'd-block ml-auto btn btn-primary my-2'

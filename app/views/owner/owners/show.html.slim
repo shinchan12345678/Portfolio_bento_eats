@@ -32,23 +32,38 @@
                 td
                   | #{current_owner.customers.count}人
 
-        .edit_account_btn
-          = link_to edit_owner_registration_path, class: "text-decoration-none color btn btn-outline-secondary btn-block" do
-            i.fas.fa-user-cog.top_gate
+
+        .add_function
+          .coupon_create_btn
+            = link_to "クーポンのカクニン", owner_coupons_path, class: "text-decoration-none color btn btn-success btn-block mb-3"
+          .edit_account_btn
+            = link_to edit_owner_registration_path, class: "text-decoration-none color btn btn-outline-secondary btn-block" do
+              i.fas.fa-user-cog.top_gate
 
     .d-flex.mt-5
-      h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger#customer_owners_btn
+      h2.pl-5.py-3.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger#customer_owners_btn
         | エイギョウジョーホー
 
-      h2.pl-5.mb-3.ml-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger#customer_items_btn
+      h2.pl-5.py-3.mb-3.ml-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger#customer_items_btn
         | ショウヒン
 
     #customer_owners.active
-      .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
-        == render "owner/owners/lists_all", informations: @informations
-      .col-sm-12.mt-5
-        = paginate @informations, remote: true
+      - if @informations.length != 0
+        .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+          == render "owner/owners/lists_all", informations: @informations
+        .col-sm-12.mt-5
+          = paginate @informations, remote: true
+      - else
+        .d-flex.mx-auto.p-3
+          p
+            | 情報が投稿されていません
 
     #customer_items.passive
-      .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
-        == render "owner/items/lists_all", items: @items
+      - if @items.length != 0
+        .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+          == render "owner/items/lists_all", items: @items
+      - else
+        .d-flex.mx-auto.p-3
+          p
+            | 商品が登録されていません
+

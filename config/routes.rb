@@ -24,6 +24,11 @@ Rails.application.routes.draw do
     resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
     resources :informations, only: [:new, :create, :edit, :update, :destroy]
     resource :owners, only: [:show]
+    resources :coupons, only: [:index, :new, :create] do
+      collection do
+        get :confirm
+      end
+    end
   end
 
   # 会員用
@@ -53,6 +58,7 @@ Rails.application.routes.draw do
     resources :items, only: [:show]
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
+    resources :coupons, only: [:index, :update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

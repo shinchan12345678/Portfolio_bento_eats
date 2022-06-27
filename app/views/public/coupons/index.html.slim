@@ -1,0 +1,10 @@
+.container.px-0
+  .row
+    - if @coupons.size == 0
+      p.mx-auto
+        | 利用可能なクーポンはありません
+    - else
+      p.mx-auto
+        | 利用可能店舗の指示に従って「クーポンをつかう」ボタンをクリックしてください
+      .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+        == render "public/coupons/lists_all", coupons: @coupons
