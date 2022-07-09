@@ -1,7 +1,8 @@
 .container
   .row.justify-content-between
-    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
+    h2.pl-5.mb-3.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger#info_index
       | テイクアウトジョーホーイチラン
+    
 
     .col-sm-1.ml-auto#fa-store.text-center.align-middle
       = link_to owner_path(@owner) do
@@ -9,7 +10,7 @@
 
   .row
     .col-sm-12
-      table.table.table-hover.text-center style="table-layout:fixed;width:100%;"
+      table.table.table-hover.text-center#info_table_short style="table-layout:fixed;width:100%;"
         thead
           tr
             th

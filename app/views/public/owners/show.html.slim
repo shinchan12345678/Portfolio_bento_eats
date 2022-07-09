@@ -1,6 +1,6 @@
 .container.px-0
   .row.flex-column
-    .row.bg-light.py-5.rounded
+    .row.bg-light.py-5.rounded#customer_owner
       .col-sm-5.mx-auto.d-flex.align-items-center.justify-content-end
         = image_tag @owner.get_image.variant(gravity: :center,resize: "400^",crop: "400x400+0+0"), class: "border border-primary rounded align-middle"
       .col-sm-5.mx-auto.d-flex.flex-column.justify-content-between
@@ -41,5 +41,5 @@
     h2.pl-5.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
       | ラインナップ
 
-    .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between
+    .col-sm-12.px-0.d-flex.flex-wrap.justify-content-between#customer_owner_items
       == render "public/items/lists_all", items: @items

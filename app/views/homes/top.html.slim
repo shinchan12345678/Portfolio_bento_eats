@@ -1,11 +1,12 @@
 .main-visual
-  .top
-    .row
-        .px-0#main-visual
+  .top.d-flex.flex-column.justify-content-center
+    .row.justify-content-around
+      .row#top_break
+        .px-0#main-visual.mr-5
          = image_tag asset_path('main-visual.jpeg'), :size => '600x600'
 
-        #log_in
-          .row
+        #log_in.ml-5
+          .row.mt-4
             .card.mr-5.border-primary
               .card-body.p-0
                 .card-header.bg-primary.text-center.text-white.top_gate
@@ -27,7 +28,7 @@
                     h5.my-2.py-2.border ログイン
                   = link_to owners_guest_sign_in_path, method: :post
                     h5.my-2.py-2.border  ゲストログイン
-          .row.mt-4
+          .row.mt-4#top_massage
             p.p-4
               span
                 | 大好きなあの味をぜひテイク<br>アウトで！<br>このサイトで、お店やテイク<br>アウト情報をチェックしてみてください。

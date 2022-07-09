@@ -1,7 +1,7 @@
 .container.px-0
   == render "public/informations/help"
 
-  .row.flex-column
+  .row.flex-column#flex-layout-map
     == render "public/informations/map"
 
   .row
@@ -9,5 +9,5 @@
       | ヒットジョーホー
 
     .col-sm-12.px-0
-      .information_index
+      .information_index.table-responsive-sm
         == render "public/informations/lists_all", informations: @informations

@@ -1,5 +1,5 @@
 == render 'layouts/error_messages', object: @comment
-.container.px-0
+.container.px-0#item_index
   .row.bg-light.py-5.rounded
     .col-sm-5.mx-auto.d-flex.align-items-center.justify-content-end
       = image_tag @item.get_image.variant(gravity: :center,resize: "400^",crop: "400x400+0+0"), class: "border border-primary rounded align-middle"
@@ -30,8 +30,8 @@
 
   h2.pl-5.mt-5.mb-3.d-inline-block.progress-bar.progress-bar-striped.bg-danger.border-left.border-danger
     | コメント
-  .row
-    .col-sm-12.px-0.comment_index
+  .row.comment_index
+    .col-sm-12.px-0
       == render "public/items/comments", { comments: @comments }
     .col-sm-8.ml-auto.comment_pagenation
       = paginate @comments, remote: true
