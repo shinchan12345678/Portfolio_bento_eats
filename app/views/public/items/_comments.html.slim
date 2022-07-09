@@ -6,7 +6,7 @@
         = f.submit 'コメントする',class: "btn btn-primary mt-2 d-flex ml-auto"
 
   .col-sm-7.ml-auto
-    table.table.table-hover style="table-layout:fixed;width:100%;"
+    table.table.table-hover#item_comment_table style="table-layout:fixed;width:100%;"
       tbody
         - comments.each do |comment|
           tr
@@ -16,7 +16,7 @@
             td style="word-wrap:break-word;"
               = comment.text
             - if comment.customer == current_customer
-              td style="width:10%;"
+              td style="width:15%;"
                 = link_to '削除', comment_path(comment), method: :delete, remote: true, data: { confirm: "削除してもよろしいですか？" }
             - else
-              td style="width:10%;"
+              td style="width:15%;"

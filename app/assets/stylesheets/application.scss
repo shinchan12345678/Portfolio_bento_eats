@@ -25,12 +25,15 @@
 .top {
   background-color: rgba(255, 255, 242, .4);
   height: 90vh;
+  .flex-column {
+    height: 90vh;
+    .justify-content-center {
+      width: 90%;
+    }
+  }
 }
 
 #main-visual {
-  position: absolute;
-  top: 7%;
-  left: 7%;
   img {
     border-radius: 15px;
   }
@@ -41,9 +44,6 @@
 }
 
 #log_in {
-  position: absolute;
-  top: 15%;
-  right: 7%;
   .card {
     width: 250px;
     height: 190px;
@@ -93,6 +93,7 @@
 
 #blank {
   height: 20px;
+  width: 100%;
 }
 
 #blank_top {
@@ -322,5 +323,196 @@ h1, h2, h3, h4, h5, .btn {
 .footer {
   span {
     font-family: "myFontgagagaga";
+  }
+}
+
+@media screen and (max-width:375px) {
+
+  body {
+    width: 100%;
+  }
+
+  .main-visual {
+    height: 90vh;
+    width: 100%;
+    .top {
+      width: 100%;
+    }
+    .top > .row {
+      width: 100%;
+    }
+  }
+
+  #main-visual {
+    justify-content: center;
+    img {
+      width: 200px;
+      height: 200px;
+      margin-left: 90px;
+    }
+  }
+
+  #top_break {
+    justify-content: center;
+    width: 100%
+  }
+
+  #top_massage {
+    display: none;
+    width: 100%;
+  }
+
+  #log_in {
+    .card:nth-child(2) {
+      display: none;
+    }
+    .row:nth-child(1) {
+      justify-content: center;
+      width: 100%;
+      margin-left: 20px;
+    }
+  }
+
+  #map_customer {
+    height: 500px;
+    /* The height is 400 pixels */
+    width: 98%;
+    /* The width is the width of the web page */
+  }
+
+  #info_table {
+    width: 1000px !important;
+    table-layout: fixed;
+    margin: 20px;
+  }
+
+  #info_table_short {
+    width: 600px !important;
+    table-layout: fixed;
+    margin: 20px;
+  }
+
+  .box {
+    height: 220px;
+    padding: 15px;
+  }
+
+  #flex-layout-map {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #flex-layout-map-button {
+    justify-content: center;
+    .none_important {
+      display: none !important;
+    }
+    p {
+      font-size: 18px;
+    }
+
+    #flag_title {
+      margin-left: 0px !important;
+    }
+
+    #marker_title {
+      margin-left: 15px !important;
+    }
+
+    #search_holder {
+      margin-top: 10px;
+      justify-content: space-around;
+      #address_form {
+        width: 60%;
+      }
+    }
+  }
+
+  #helper {
+    margin-right: 20px;
+  }
+
+  #customer_owners {
+    justify-content: center;
+    .d-flex {
+      justify-content: center !important;
+    }
+  }
+
+  #owner_search {
+    justify-content: flex-end;
+  }
+
+  #customer_owner {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #customer_owner_items {
+    justify-content: center !important;
+  }
+
+  #info_index {
+    font-size: 25px;
+    padding-left: 0px !important;
+    height: 60px;
+  }
+
+  #customer_show_container {
+    #customer_show {
+      width: 100%;
+      margin: 0 auto;
+      #customer_show_select {
+        display: block !important;
+        width: 100%;
+        h2 {
+          font-size: 25px;
+          padding-left: 10px !important;
+          height: 60px;
+        }
+        h2:nth-child(2) {
+          margin-left: 0px !important;
+        }
+        .customer_coupon {
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  #item_index {
+    .comment_index {
+      width: 100%;
+      .comment_form {
+        width: 100%;
+        form {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  #item_comment_table {
+    margin: 10px;
+  }
+
+  #coopon_container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .navber {
+    margin-right: auto !important;
+  }
+  .navbar-toggler{
+    span {
+      font-size: 35px;
+    }
+    margin-left: auto;
+    background-color: rgba(222, 80, 57, .95) !important;
+  }
+
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   }
 }
