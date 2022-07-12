@@ -9,6 +9,7 @@ class Owner < ApplicationRecord
   has_many :relationships, dependent: :destroy
   has_many :customers, through: :relationships # followingに修正
   has_many :coupons, -> { order(using_period: :asc) }, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   has_one_attached :image
 

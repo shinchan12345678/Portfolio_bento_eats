@@ -9,6 +9,7 @@ class Owner::InformationsController < Owner::ApplicationController
     @information = current_owner.informations.new(information_params)
     if @information.save
       redirect_to owner_owners_path, notice: "情報を投稿しました"
+      @information.create_notification if @information.is_valid == "posting"
     else
       gon.latitude = 35.4577205 # 岐阜の緯度
       gon.longitude = 136.793811 # 岐阜の経度
