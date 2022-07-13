@@ -76,3 +76,4 @@ gem 'gon'
 gem 'ransack'
 gem 'whenever', require: false
 gem "aws-sdk-s3", require: false
+gem "aws-ses", "~> 0.6"
