@@ -34,7 +34,8 @@ Rails.application.routes.draw do
   # 会員用
   devise_for :customers, skip: [:password], controllers: {
     registrations: "public/registrations",
-    sessions: "public/sessions"
+    sessions: "public/sessions",
+    omniauth_callbacks: 'public/omniauth_callbacks'
   }
   # 会員側ゲストログイン機能
   devise_scope :customer do
