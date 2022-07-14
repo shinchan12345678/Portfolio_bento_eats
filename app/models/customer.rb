@@ -1,7 +1,7 @@
 class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[google_oauth2]
+         :omniauthable, omniauth_providers: %i(google_oauth2)
 
   validates :nickname, presence: true
 
@@ -72,27 +72,23 @@ class Customer < ApplicationRecord
     customer = Customer.where(email: auth.info.email).first
 
     if customer.present?
-        sns = SnsCredential.create(
-          uid: auth.uid,
-          provider: auth.provider,
-          customer_id: customer.id
-        )
+      SnsCredential.create(
+        uid: auth.uid,
+        provider: auth.provider,
+        customer_id: customer.id
+      )
     else
-        customer = Customer.new(
-          nickname: auth.info.name,
-          email: auth.info.email,
-        )
-        sns = SnsCredential.new(
-          uid: auth.uid,
-          provider: auth.provider
+      customer = Customer.new(
+        nickname: auth.info.name,
+        email: auth.info.email,
       )
     end
-    return { customer: customer ,sns: sns}
+    { customer: customer }
   end
 
   def self.with_sns_data(auth, snscredential)
     customer = Customer.where(id: snscredential.customer_id).first
-    return {customer: customer}
+    { customer: customer }
   end
 
   def self.find_oauth(auth)
@@ -104,6 +100,6 @@ class Customer < ApplicationRecord
     else
       customer = without_sns_data(auth)[:customer]
     end
-    return { customer: customer}
+    { customer: customer }
   end
 end

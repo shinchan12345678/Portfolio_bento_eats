@@ -1,9 +1,7 @@
 class Public::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
   def google_oauth2
     callback_for(:google)
   end
-
 
   def callback_for(provider)
     @omniauth = request.env['omniauth.auth']
@@ -19,6 +17,6 @@ class Public::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    redirect_to root_path and return
+    redirect_to root_path && return
   end
 end
