@@ -320,6 +320,28 @@ h1, h2, h3, h4, h5, .btn {
   }
 }
 
+#notice_bell {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 120px;
+  right: 40px;
+  border-bottom: solid 2px #4075ba;
+  &:hover {
+    border: solid 2px #4075ba;
+  }
+  .fa-bell {
+    font-size: 40px;
+    height: 60px;
+  }
+  #notice_alert {
+    position: fixed;
+    bottom: 155px;
+    right: 78px;
+  }
+}
+
 .footer {
   span {
     font-family: "myFontgagagaga";
@@ -525,5 +547,37 @@ h1, h2, h3, h4, h5, .btn {
 
   .footer {
     height: 20vh;
+  }
+
+  #notice_index {
+    width: 100%;
+    .justify-content-center {
+      width: 100%;
+    }
+    .table {
+      margin: 10px;
+    }
+  }
+
+  #notice_bell {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    border-bottom: solid 2px #4075ba;
+    &:hover {
+      border: solid 2px #4075ba;
+    }
+    .fa-bell {
+      font-size: 30px;
+      height: 50px;
+    }
+    #notice_alert {
+      position: fixed;
+      bottom: 85px;
+      right: 48px;
+    }
   }
 }
