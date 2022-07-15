@@ -1,6 +1,7 @@
 class Coupon < ApplicationRecord
   belongs_to :customer
   belongs_to :owner
+  has_many :notifications, dependent: :destroy
 
   has_one_attached :image
 
@@ -29,6 +30,12 @@ class Coupon < ApplicationRecord
       end
     end
     image
+  end
+
+  # クーポン発行の通知を作成
+  def create_notification
+    notification = Notification.new(customer_id: customer_id, owner_id: owner_id, coupon_id: id, category: 0, is_checked: false)
+    notification.save if notification.valid?
   end
 
   # 有効:0, 無効:1

@@ -1,0 +1,22 @@
+.container.px-0#notice_index
+  .row.justify-content-center
+    .col-sm-8.px-0
+      .d-flex.justify-content-between
+        h2.pl-5.mb-3.pr-3.progress-bar.progress-bar-striped.bg-info.border-left.border-info
+          | おしらせ
+
+        = link_to "通知の全削除", destroy_all_notifications_path, method: :delete, class: "mb-3", data: { confirm: "削除してもよろしいですか？" }
+
+      - if @notifications.size != 0
+        table.table
+          tbody
+            - @notifications.each do |notification|
+              tr
+                td.align-middle
+                  = image_tag notification.owner.get_image.variant(gravity: :center,resize: "50^",crop: "100x50+0+0").processed, class: "card-image-top rounded-pill"
+                td.align-middle
+                  = notification_form(notification)
+        = paginate @notifications
+      - else
+        p
+          | 通知はありません
