@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i(google_oauth2)
 
   validates :nickname, presence: true
 
@@ -11,6 +12,7 @@ class Customer < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :coupons, -> { order(using_period: :asc) }, dependent: :destroy
   has_many :notifications, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :sns_credentials, dependent: :destroy
 
   # 管理者用のユーザーの生成
   def self.admin
@@ -64,5 +66,40 @@ class Customer < ApplicationRecord
   # 商品のコメントを削除する
   def remove_comment(comment)
     comments.find(comment.id).destroy
+  end
+
+  def self.without_sns_data(auth)
+    customer = Customer.where(email: auth.info.email).first
+
+    if customer.present?
+      SnsCredential.create(
+        uid: auth.uid,
+        provider: auth.provider,
+        customer_id: customer.id
+      )
+    else
+      customer = Customer.new(
+        nickname: auth.info.name,
+        email: auth.info.email,
+      )
+    end
+    { customer: customer }
+  end
+
+  def self.with_sns_data(auth, snscredential)
+    customer = Customer.where(id: snscredential.customer_id).first
+    { customer: customer }
+  end
+
+  def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    if snscredential.present?
+      customer = with_sns_data(auth, snscredential)[:customer]
+    else
+      customer = without_sns_data(auth)[:customer]
+    end
+    { customer: customer }
   end
 end
