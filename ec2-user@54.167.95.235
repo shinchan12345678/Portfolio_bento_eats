@@ -1,0 +1,11 @@
+DB_USERNAME="root"
+DB_PASSWORD="2Yxbuv4171"
+DB_HOST="rds-mysql-server.cupjyar67ush.us-east-1.rds.amazonaws.com"
+DB_DATABASE="sampledb"
+MAP_API_KEY="AIzaSyBXzCKcQfGeUmbmJZUGLkRghWkN-m4scWw"
+
+AWS_ACCESS_KEY_ID="AKIARI27TZUSRVFL7SLX"
+AWS_SECRET_ACCESS_KEY="Qha8D3U5uYqjWQh+GOfoWNqDKgnlwJHkxdxJ8Fw6"
+AWS_REGION="us-east-1"
+AWS_S3_CLOUD9_ORIGINAL_IMG_BUCKET_NAME="cloud9-original-img-files"
+AWS_S3_ORIGINAL_IMG_BUCKET_NAME="rails-app-files-original"

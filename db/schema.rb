@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2022_07_13_020922) do
     t.integer "owner_id"
     t.date "open_date", null: false
     t.date "close_date", null: false
-    t.string "comment"
+    t.string "comment", default: "特にありません"
     t.decimal "latitude", precision: 9, scale: 6, null: false
     t.decimal "longitude", precision: 9, scale: 6, null: false
     t.integer "is_valid", default: 0, null: false
