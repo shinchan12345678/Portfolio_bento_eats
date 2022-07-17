@@ -8,15 +8,15 @@
       = form_with model: @item, url: owner_items_path, method: :post do |f|
           = f.label :name, '商品名'
           br
-          = f.text_field :name, class: "form-control"
+          = f.text_field :name, class: "form-control", placeholder: "例)幕内弁当"
           br
           = f.label :price, '値段'
           br
-          = f.number_field :price, class: "form-control"
+          = f.number_field :price, class: "form-control", placeholder: "半角数字で入力してください。"
           br
           = f.label :introduction, '商品紹介'
           br
-          = f.text_area :introduction, class: "form-control"
+          = f.text_area :introduction, class: "form-control", placeholder: "例)1日10食限定です"
           br
           = f.label :image, '商品イメージ'
           br

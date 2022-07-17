@@ -18,5 +18,11 @@
       .card-footer
         = render "public/shared/links"
 
+    = link_to customer_google_oauth2_omniauth_authorize_path, method: :post, class: 'text-center col-sm-12 mt-3' do
+      i.fab.fa-google.text-danger.mr-2
+      span
+        | Googleアカウントでサインイン
+
     = link_to 'トップ', root_path, class: 'text-center col-sm-12 mt-3'
+
   #blank_box

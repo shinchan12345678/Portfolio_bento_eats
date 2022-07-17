@@ -29,7 +29,9 @@ class Owner::CouponsController < Owner::ApplicationController
       @coupon = current_owner.coupons.new(coupon_params)
       @coupon.group_id = counter
       @coupon.customer_id = customer.id
-      unless @coupon.save
+      if @coupon.save
+        @coupon.create_notification
+      else
         result = "NG"
         break
       end

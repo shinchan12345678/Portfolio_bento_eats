@@ -27,3 +27,9 @@
       br
       span id = "nav_3"
         | ログアウト
+
+- if current_owner.today_open?
+  .row.bg-danger
+    .col-sm-4.mx-auto.text-center.text-white
+      p
+        | 本日テイクアウト営業日

@@ -13,6 +13,10 @@ ja:
         one_hundred: "100円"
         one_hundred_fifty: "150円"
         two_hundred: "200円"
+    notification:
+      category:
+        coupon_notice: "クーポン"
+        information: "テイクアウト営業情報"
 
   # Railsエラーメッセージの日本化
   activerecord:
@@ -32,6 +36,7 @@ ja:
         telphone_number: 電話番号
         introduction: 紹介文
         image: お店のイメージ
+        current_password: 現在のパスワード
       item:
         name: 商品名
         price: 値段

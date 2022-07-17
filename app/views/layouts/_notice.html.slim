@@ -1,0 +1,6 @@
+- unless request.path.include?("notifications") or request.path == root_path
+    = link_to notifications_path do
+      #notice_bell.bg-info.text-center
+        - if unchecked_notifications.any?
+          i.fas.fa-circle.text-danger#notice_alert
+        i.fas.fa-bell.text-white
