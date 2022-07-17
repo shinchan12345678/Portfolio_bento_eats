@@ -15,4 +15,6 @@ html
   body
     == render 'layouts/header'
     = yield
+    - if current_customer
+      == render 'layouts/notice'
     == render 'layouts/footer'

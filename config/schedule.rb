@@ -23,11 +23,23 @@ require File.expand_path(File.dirname(__FILE__) + "/environment") # Rails.root�
 rails_env = Rails.env.to_sym # cronを実行する環境変数
 set :environment, rails_env # cronを実行する環境変数をセット
 set :output, 'log/cron.log' # cronのログの吐き出し場所
-every 1.day, at: '0:00 am' do # 毎日午前0時に実行
+every 1.day, at: '0:00 am' do # 毎日午前9時に実行
 # rubocop:disable all
   begin
     runner "Batch::InformationUpdate.informationUpdate"
     runner "Batch::CouponDelete.couponDelete"
+    runner "Batch::InformationMailer.informationMailer"
+  rescue => e
+    Rails.logger.error("aborted rails runner")
+    raise e
+  end
+# rubocop:enable all
+end
+
+every 1.day, at: '9:00 am' do # 毎日午前0時に実行
+# rubocop:disable all
+  begin
+    runner "Batch::InformationMailer.informationMailer"
   rescue => e
     Rails.logger.error("aborted rails runner")
     raise e

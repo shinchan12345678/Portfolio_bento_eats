@@ -75,3 +75,8 @@ gem 'enum_help'
 gem 'gon'
 gem 'ransack'
 gem 'whenever', require: false
+gem "aws-sdk-s3", require: false
+gem 'aws-sdk-rails', '~> 3'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
