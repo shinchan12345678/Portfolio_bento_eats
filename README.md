@@ -32,9 +32,8 @@
 </dl>
 
 ## 設計書
-- [ER図](https://drive.google.com/file/d/190SQWqajMvwmHvLalG3qwr6rYdJWSofj/view?usp=sharing)<br>
-  >ER図が見にくい場合は、[こちら](https://user-images.githubusercontent.com/102851643/179388943-49b33060-1d28-430e-b3e4-0e5bedf6caf1.jpg) をご参照ください。
-  ![ER図](https://user-images.githubusercontent.com/102851643/179388943-49b33060-1d28-430e-b3e4-0e5bedf6caf1.jpg)
+- ![ER図](https://user-images.githubusercontent.com/102851643/179388943-49b33060-1d28-430e-b3e4-0e5bedf6caf1.jpg)
+  >ER図が見にくい場合は、[こちら](https://drive.google.com/file/d/190SQWqajMvwmHvLalG3qwr6rYdJWSofj/view?usp=sharing) をご参照ください。
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/18Yz6ZwXigmcGdX10d_hcda0BXtH84INP/edit#gid=756628059)
 - [画面遷移図](https://app.diagrams.net/#G1Nx-DLpkUmvxsOb35LBmMwi-6tPtv8VAF)
 - [テスト仕様書](https://docs.google.com/spreadsheets/d/1QgoErg15MSbFttV0-vBXiY01oHu-2CYr/edit#gid=547097470)
@@ -46,7 +45,8 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-# インフラ構成図
+
+## インフラ構成図
 ![インフラ構成図](https://user-images.githubusercontent.com/102851643/179396327-40c6edfd-30f4-4be1-8d90-43f26c4781ed.jpg)
 
 ## 使用素材
