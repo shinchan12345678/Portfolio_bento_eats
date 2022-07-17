@@ -41,3 +41,5 @@
 yarn-debug.log*
 .yarn-integrity
 /.env
+
+/ec2-user@54.167.95

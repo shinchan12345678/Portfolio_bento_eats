@@ -59,6 +59,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
     resources :coupons, only: [:index, :update]
+    resources :notifications, only: [:index] do
+      collection do
+        delete :destroy_all
+      end
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
