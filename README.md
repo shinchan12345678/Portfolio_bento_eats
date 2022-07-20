@@ -33,6 +33,7 @@
 
 ## 設計書
 - ER図
+- 
 ![ER図](https://user-images.githubusercontent.com/102851643/179388943-49b33060-1d28-430e-b3e4-0e5bedf6caf1.jpg)
   >ER図が見にくい場合は、[こちら](https://drive.google.com/file/d/190SQWqajMvwmHvLalG3qwr6rYdJWSofj/view?usp=sharing) をご参照ください。
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/18Yz6ZwXigmcGdX10d_hcda0BXtH84INP/edit#gid=756628059)
@@ -41,10 +42,12 @@
 
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux 2
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
+- CSSフレームワーク：Bootstrap
 - JSライブラリ：jQuery
+- テストフレームワーク：RSpec
 - IDE：Cloud9
 
 ## インフラ構成図
@@ -52,3 +55,7 @@
 
 ## 使用素材
 - 使用検討中です。
+
+## 開発の振り返り
+- [PF発表会プレゼン資料](https://speakerdeck.com/shinchan12345678/kai-fa-zhen-rifan-ri)
+
