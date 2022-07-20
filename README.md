@@ -1,4 +1,5 @@
-# ベントー・イーツ
+# ベントーイーツ
+![トップ画像](https://user-images.githubusercontent.com/102851643/179878459-8de0615a-b263-4745-9e19-c3ef2ee8ac8c.png)
 
 ## サイト概要
 
@@ -33,7 +34,7 @@
 
 ## 設計書
 - ER図
-- 
+
 ![ER図](https://user-images.githubusercontent.com/102851643/179388943-49b33060-1d28-430e-b3e4-0e5bedf6caf1.jpg)
   >ER図が見にくい場合は、[こちら](https://drive.google.com/file/d/190SQWqajMvwmHvLalG3qwr6rYdJWSofj/view?usp=sharing) をご参照ください。
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/18Yz6ZwXigmcGdX10d_hcda0BXtH84INP/edit#gid=756628059)
