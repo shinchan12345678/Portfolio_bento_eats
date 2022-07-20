@@ -1,4 +1,4 @@
-# ベントーイーツ
+![名称ロゴ画像](https://user-images.githubusercontent.com/102851643/179893133-7a3f743c-488d-4883-91df-6b2661bc4387.png)
 ---
 ![トップ画像](https://user-images.githubusercontent.com/102851643/179878459-8de0615a-b263-4745-9e19-c3ef2ee8ac8c.png)
 
