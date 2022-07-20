@@ -1,4 +1,4 @@
-![名称ロゴ画像](https://user-images.githubusercontent.com/102851643/179893309-b9e55c67-44fc-4d9d-bb2e-f98f15107dea.png)
+![名称ロゴ画像](https://user-images.githubusercontent.com/102851643/179896281-34c03796-758e-4035-99b7-71a75f8608a4.jpeg)
 ---
 ![トップ画像](https://user-images.githubusercontent.com/102851643/179878459-8de0615a-b263-4745-9e19-c3ef2ee8ac8c.png)
 
