@@ -28,7 +28,7 @@ every 1.day, at: '0:00 am' do # 毎日午前9時に実行
   begin
     runner "Batch::InformationUpdate.informationUpdate"
     runner "Batch::CouponDelete.couponDelete"
-    runner "Batch::InformationMailer.informationMailer"
+    # runner "Batch::InformationMailer.informationMailer"
   rescue => e
     Rails.logger.error("aborted rails runner")
     raise e
