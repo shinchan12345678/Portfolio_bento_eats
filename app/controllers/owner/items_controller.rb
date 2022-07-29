@@ -1,4 +1,6 @@
 class Owner::ItemsController < Owner::ApplicationController
+  before_action :ensure_correct_owner, only: [:show, :edit, :update, :destroy]
+
   def show
     @item = Item.find(params[:id])
     @comments = @item.comments.page params[:page]
@@ -43,5 +45,9 @@ class Owner::ItemsController < Owner::ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :introduction, :image)
+  end
+
+  def ensure_correct_owner
+    redirect_to owner_owners_path if current_owner != Item.find(params[:id]).owner
   end
 end

@@ -1,4 +1,6 @@
 class Owner::InformationsController < Owner::ApplicationController
+  before_action :ensure_correct_owner, only: [:edit, :update, :destroy]
+
   def new
     gon.latitude = 35.4095278 # 岐阜駅の緯度
     gon.longitude = 136.7564656 # 岐阜駅の経度
@@ -41,5 +43,9 @@ class Owner::InformationsController < Owner::ApplicationController
     # 文字列として受け取ったデータを数値化
     params[:information][:is_valid] = params[:information][:is_valid].to_i
     params.require(:information).permit(:open_date, :close_date, :latitude, :longitude, :is_valid, :comment)
+  end
+
+  def ensure_correct_owner
+    redirect_to owner_owners_path if current_owner != Information.find(params[:id]).owner
   end
 end
