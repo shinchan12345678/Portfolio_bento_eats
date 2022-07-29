@@ -68,11 +68,10 @@ function initMapCustomer() {
         }
       }
     });
-  // }).catch(function(){
-  //   alert("ページをリロードします");
-  //   window.location.reload();
-  // })
-  }).catch(error => console.log(error))
+  }).catch(function(){
+    // alert("ページをリロードします");
+    window.location.reload();
+  })
 }
 
 // ---------------------------------------------------------------------------------------------------
@@ -154,7 +153,8 @@ function mapping(map_view) {
     center: uluru, //地図の中心座標
     mapTypeId: 'roadmap',   //地図の種類
     disableDoubleClickZoom: true, //ダブルクリックでの地図の拡大を無効化
-		scrollwheel: false //マウススクロールでの拡大縮小を無効化
+		scrollwheel: false, //マウススクロールでの拡大縮小を無効化
+		draggable: false //ドラッグでの地図移動の禁止
   });
   return map
 }
